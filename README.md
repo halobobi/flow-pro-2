@@ -142,6 +142,15 @@ Sequence(
 
 ## Speciális Technikák
 
+### Felhasználó által definiált függvények
+
+```
+// Példák függvény definiálása
+FuggvenyNeve1(valtozo1:Number;valtozo2:Number):Number= valtozo1*valtozo2;;
+
+FuggvenyNeve2():Void={Notify();;Set()};;
+```
+
 ### LoadingSpinner Használata
 ```
 // LoadingSpinner alapvető implementáció
