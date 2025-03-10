@@ -41,9 +41,9 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
       - Dátum
       - Legördülő lista (Dropdown)
       - Kombinált lista (Combobox)
-      - Rádiógomb, stb.
+      - Rádiógomb, checkbox, stb.
     - Címkék (Label): szöveg megjelenítése, értékét változón keresztül tudjuk módosítani
-    - Katalógus (Gallery)
+    - Katalógus (Gallery): adattáblák megjelenítése
 
 ### Nyelvi Beállítások
 - Alapértelmezetten a szervezeti vagy számítógép nyelvi beállításait követi
@@ -56,18 +56,19 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - Text: felirat
 
 ### Beviteli mezők
+- Items: Adatforrás megadása
 - Default: alapértelmezett érték, űrlap esetében fontos, hogy egyből megjelenjen egy rekord adott értéke
 - DisplayMode: szerkeszthető vagy nem
+- Dropdown esetén Selected: kiválasztott sor
+- ComboBox esetén SelectedItems: kiválasztott sor(ok)
 
 ### Gallery (Katalógus)
-- Adattáblák megjelenítésére szolgál
-- Automatikus listázás az Items tulajdonság beállítása után
+- Items: Adatforrás megadása
 - ThisItem: Az aktuális rekordra hivatkozás
-- Szűrési lehetőségek beépítve
 
 ### Form (Űrlap)
-- Új rekord hozzáadása adatbázishoz
-- DataSource: adatbázis
+- Felhasználás: új rekord hozzáadása adatbázishoz, rekord módosítása
+- DataSource: Adatforrás megadása
 - Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
 - Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra
 - Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap
@@ -83,7 +84,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 1. Kapcsoljuk ki a zárolást a sorszám vezérlőn
 2. A Default paraméternek adjuk ezt a kódot:
     ```
-    If(!IsBlank(Parent.Default);Parent.Default;Last(Sort(adatforrás;Int(Title);SortOrder.Ascending)).Title+1)
+    If(!IsBlank(Parent.Default);Parent.Default;Last(Sort(adatforrás;Int(Title);SortOrder.Ascending)).Title+1) //Parent (szülő) a container-t jelöli, a Form elemet
     ```
   - Ha üres a vezérlő, tehát új rekordot akarunk hozzáadni, akkor az adatbázisban a következő szabad ID-t adja vissza
   - Ha nem szöveges ID mezőt használunk (a Title mező sajnos mindig szöveg), akkor elég a ```LookUp(adatforrás;ID=Max(ID),ID)+1``` kódot használni
@@ -91,6 +92,12 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 3. A megjelenítési módnál állítsuk View-ra az értéket, hogy megakadályozzuk a felhasználót a manuális értékbeviteltől
   - Hasonlóan az előbbihez, ha dinamikusan akarjuk kezelni, hogy a mező szerkeszthető-e, akkor a ```If(!IsBlank(Parent.Default);Parent.DisplayMode;DisplayMode.View)``` kóddal kezelhetjük, hogy csak szerkesztéskor lehessen módosítani a sorszámot
     - Ez egyébként bad practice, az ID primary key, tehát egyértelműen azonosítja a rekordot, nem érdemes a felhasználóra bízni az értékmegadást
+- Parancsok:
+  ```
+  SubmitForm(form) //Űrlap leadása
+  NewForm(form) //üres űrlap betöltése
+  ResetForm(form) //bevitt értékek törlése, visszaállítás alapértelmezettre
+  ```
 
 ## Adatkezelés és Kapcsolat
 
