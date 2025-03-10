@@ -57,6 +57,7 @@ Set(változónév; érték) //Változó értékének beállítása
 UpdateContext({változó: érték}) //Környezeti változó értékének frissítése
 Int(TextInput.Text) //Beviteli mező számmá alakítása
 Text(sorszám) //Szöveggé alakítás
+Reset(TextInput) //visszaállítja alapértelmezettre a bevitelő mezőt
 ```
 
 ### Navigáció
