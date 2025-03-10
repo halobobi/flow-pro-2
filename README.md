@@ -56,6 +56,8 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - Text: felirat
 
 ### Beviteli mezők
+- Default: alapértelmezett érték, űrlap esetében fontos, hogy egyből megjelenjen egy rekord adott értéke
+- DisplayMode: szerkeszthető vagy nem
 
 ### Gallery (Katalógus)
 - Adattáblák megjelenítésére szolgál
@@ -148,7 +150,7 @@ Sort(tábla; oszlop[; növekvő]) //Rekordok rendezése
 FirstN(tábla; n) //Első N rekord kiválasztása
 LastN(tábla; n) //Utolsó N rekord kiválasztása
 StartsWith(szöveg,minta) //Ellenőrzi, hogy minta változó értékével kezdődik-e szöveg
-minta in szöveg //Tartalmazza-e szöveg minta változó értékét
+If(minta in szöveg;true;false) //Tartalmazza-e szöveg minta változó értékét
 ```
 
 ### Collection és Rekord Műveletek
@@ -211,4 +213,4 @@ Set(isLoading; false)
 ```
 
 ### Teljesítmény Optimalizálás
-- Delegálható műveletek előnyben részesítése
+- Delegálás: a Power Apps külső Microsoft / Azure API-kkal futtatja az utasítást, külső kiszolgálóra helyezi a munka nehéz részét
