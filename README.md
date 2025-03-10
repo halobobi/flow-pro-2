@@ -62,13 +62,14 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 ## Adatkezelés és Kapcsolatok
 
 ### SharePoint Integráció
-- Külön hozzáadás szükséges az "Adatok" fülön
+- Külön hozzáadás szükséges az "Adatok" fülön: "SharePoint"
 - Oszlopokra hivatkozás esetenként field_1 formátumban
 
 ### Office 365 Integráció
 - Felhasználói adatok lekérése
 - Email és szervezeti információk elérése
 - Profilképek kezelése
+- Külön hozzáadás szükséges az "Adatok" fülön: "Office365Users"
 
 ## Függvények és Képletek
 
@@ -80,13 +81,13 @@ UpdateContext({változó: érték})
 
 ### Navigáció
 ```
-Navigate(képernyő, NavigationType, {paraméterek})
+Navigate(képernyő, NavigationType, {context})
 ```
 
 ### Feltételes Műveletek
 ```
 If(feltétel, igen_ág, nem_ág)
-Switch(kifejezés, eset1, eredmény1, eset2, eredmény2, alapértelmezett)
+Switch(kifejezés, eset1, eredmény1, alapértelmezett1, eset2, eredmény2, alapértelmezett2)
 ```
 
 ### Adatszűrés és Kezelés
@@ -108,26 +109,26 @@ RemoveIf(collection, feltétel)
 
 ### Rekord Műveletek
 ```
-Collect(adatforrás, rekord)
-Patch(adatforrás, rekord, változtatások)
-Update(collection, régi_rekord, új_rekord)
-UpdateIf(collection, feltétel, új_értékek)
+Collect(adatforrás, rekord) //új rekord hozzáadása
+Patch(adatforrás, rekord, változtatások) //rekord módosítása
+Update(collection, régi_rekord, új_rekord) //rekord módosítása
+UpdateIf(collection, feltétel, új_értékek) //rekordok feltételes módosítása
 ```
 
 ### Validációs Függvények
 ```
-IsBlank(érték)
-IsEmpty(collection)
-CountRows(tábla)
-CountIf(tábla, feltétel)
+IsBlank(érték) //vezérlő üres-e
+IsEmpty(collection) //collection üres-e
+CountRows(tábla) //sorok száma
+CountIf(tábla, feltétel) //feltételes számlálás
 ```
 
 ### Dátum és Idő Függvények
 ```
 Now()  // Aktuális dátum és idő
 Today()  // Mai dátum
-DateAdd(dátum, napok, egység)
-DateDiff(dátum1, dátum2, egység)
+DateAdd(dátum, napok, egység) //két dátum összeadása
+DateDiff(dátum1, dátum2, egység) //dátum eltolása megadott időegységgel
 ```
 
 ### Vezérlési Struktúrák
