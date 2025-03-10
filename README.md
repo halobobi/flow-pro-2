@@ -43,7 +43,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 
 ### Nyelvi Beállítások
 - Alapértelmezetten a szervezeti vagy számítógép nyelvi beállításait követi
-- Felül lehet írni a job beállításokban
+- Felül lehet írni a jobb fenti beállításokban
 
 ## Fontos Komponensek és Tulajdonságaik
 
@@ -53,12 +53,11 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - ThisItem: Az aktuális rekordra hivatkozás
 - Szűrési lehetőségek beépítve
 
-### Alapvető Tulajdonságok
-- **Default**: Alapértelmezett érték
-- **Text**: Megjelenített szöveg
-- **OnSelect**: Kattintásra történő esemény
-- **OnVisible**: Képernyő megjelenésekor
-- **OnStart**: Alkalmazás indításakor
+### Form (Űrlap)
+- Új rekord hozzáadása adatbázishoz
+- DataSource: adatbázis
+- Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
+- Az Alapértelmezett módot állítsuk Új-ra, enélkül nem jelenik meg a Form
 
 ## Adatkezelés és Kapcsolatok
 
@@ -109,6 +108,7 @@ RemoveIf(collection, feltétel)
 
 ### Rekord Műveletek
 ```
+Collect(adatforrás, rekord)
 Patch(adatforrás, rekord, változtatások)
 Update(collection, régi_rekord, új_rekord)
 UpdateIf(collection, feltétel, új_értékek)
@@ -132,14 +132,12 @@ DateDiff(dátum1, dátum2, egység)
 
 ### Vezérlési Struktúrák
 ```
-// Sequence - Több művelet szekvenciális végrehajtása
-Sequence(
-    művelet1;
-    művelet2;
-    művelet3
-)
-```
+// Sequence - hasonló a Python range függvényhez
+Sequence(rekordok_száma;kezdőérték;lépés))
 
+//Számok generálása 00-59 között ForAll segítségével
+ForAll(Sequence(60;0);Text(Value;"00"))
+```
 ## Speciális Technikák
 
 ### Felhasználó által definiált függvények
@@ -159,11 +157,11 @@ LoadingSpinner1.Visible = isLoading
 LoadingSpinner1.Color = RGBA(98, 100, 167, 1)
 
 // Használat példa
-Button1.OnSelect = Sequence(
-    Set(isLoading, true);
+Button1.OnSelect = (
+    Set(isLoading; true);;
     // Hosszabb művelet
-    Patch('Tasks', Defaults('Tasks'), {Title: TextInput1.Text});
-    Set(isLoading, false)
+    Patch('Tasks'; Defaults('Tasks'); {Title: TextInput1.Text});;
+    Set(isLoading; false)
 )
 ```
 
