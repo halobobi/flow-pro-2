@@ -52,23 +52,23 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 ## Fontos Komponensek és Tulajdonságaik
 
 ### Gomb
-- OnSelect: kattintás után végrehajtandó utasítások
-- Text: felirat
+- ```OnSelect```: kattintás után végrehajtandó utasítások
+- ```Text```: felirat
 
 ### Beviteli mezők
-- Items: Adatforrás megadása
-- Default: alapértelmezett érték, űrlap esetében fontos, hogy egyből megjelenjen egy rekord adott értéke
-- DisplayMode: szerkeszthető vagy nem
-- Dropdown esetén Selected: kiválasztott sor
-- ComboBox esetén SelectedItems: kiválasztott sor(ok)
+- ```Items```: Adatforrás megadása
+- ```Default```: alapértelmezett érték, űrlap esetében fontos, hogy egyből megjelenjen egy rekord adott értéke
+- ```DisplayMode```: szerkeszthető vagy nem
+- Dropdown esetén ```Selected```: kiválasztott sor
+- ComboBox esetén ```SelectedItems```: kiválasztott sor(ok)
 
 ### Gallery (Katalógus)
-- Items: Adatforrás megadása
-- ThisItem: Az aktuális rekordra hivatkozás
+- ```Items```: Adatforrás megadása
+- ```ThisItem```: Az aktuális rekordra hivatkozás
 
 ### Form (Űrlap)
 - Felhasználás: új rekord hozzáadása adatbázishoz, rekord módosítása
-- DataSource: Adatforrás megadása
+- ```DataSource```: Adatforrás megadása
 - Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
 - Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra
 - Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap
