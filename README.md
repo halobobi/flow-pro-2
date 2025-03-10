@@ -19,7 +19,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - **Adattárolási lehetőségek**:
   - SharePoint listák
   - Excel táblák
-  - Dataverse (Solution esetén)
+  - Dataverse (előfizetés függő, mi solution esetén, külön környezetben tudjuk használni)
 
 ## Fejlesztői Felület
 
