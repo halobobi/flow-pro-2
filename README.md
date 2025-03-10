@@ -60,15 +60,23 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra
 - Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap
 - Legördülő menü esetén (tehát amikor több táblával, Foreign key-el dolgozunk)
-1. A mezőknél adjuk hozzá a Foreign key-t tartalmazó oszlopot
-2. Ugyanitt gördítsük le a hozzáadott vezérlő kártyáját, majd a Vezérlő típusát állítsuk Megengedett értékek-re
-3. Kapcsoljuk ki a szerkesztési korlátozást az adott vezérlőn (bal oldali sáv, majd jobb gomb Zárolás feloldása)
-4. Ezután adjuk hozzá az új kapcsolatot a dimenzió táblánkhoz
-5. A vezérlő Items tulajdonságának adjuk meg ezt az adatot
-6. A Value alapértelmezetten felveszi a tulajdonságot, de ha mégis az ID jelenne meg: jobb oldali tulajdonságok menü, majd Value beállítása a kívánt oszlopra
-7. Ezután ne a vezérlőre (nem a DataCardValue), hanem magára a kártyára (DataCard) kattintsunk, majd az Update tulajdonságot javítsuk, pl.: DataCardValue.Selected.Title (az alapértelmezett Value itt egyébként is hibát jelez, az elküldendő oszlopot hivatkozzuk itt meg)
+  1. A mezőknél adjuk hozzá a Foreign key-t tartalmazó oszlopot
+  2. Ugyanitt gördítsük le a hozzáadott vezérlő kártyáját, majd a Vezérlő típusát állítsuk Megengedett értékek-re
+  3. Kapcsoljuk ki a szerkesztési korlátozást az adott vezérlőn (bal oldali sáv, majd jobb gomb Zárolás feloldása)
+  4. Ezután adjuk hozzá az új kapcsolatot a dimenzió táblánkhoz
+  5. A vezérlő Items tulajdonságának adjuk meg ezt az adatot
+  6. A Value alapértelmezetten felveszi a tulajdonságot, de ha mégis az ID jelenne meg: jobb oldali tulajdonságok menü, majd Value beállítása a kívánt oszlopra
+  7. Ezután ne a vezérlőre (nem a DataCardValue), hanem magára a kártyára (DataCard) kattintsunk, majd az Update tulajdonságot javítsuk, pl.:     DataCardValue.Selected.Title (az alapértelmezett Value itt egyébként is hibát jelez, az elküldendő oszlopot hivatkozzuk itt meg)
+- Sorszám kezelés esetén (Sharepoint lista pl. nem auto incrementel)
+  1. Kapcsoljuk ki a zárolást a sorszám vezérlőn
+  2. A Default paraméternek adjuk ezt a kódot:
+    ```If(!IsBlank(Parent.Default);Parent.Default;Last(Sort(adatforrás;Int(Title);SortOrder.Ascending)).Title+1)
+     //Ha üres a vezérlő, tehát új rekordot akarunk hozzáadni, akkor az adatbázisban a következő szabad ID-t adja vissza
+     //Ha nem szöveges ID mezőt használunk (a Title mező sajnos mindig szöveg), akkor elég a LookUp(adatforrás;ID=Max(ID),ID)+1 -et használni
+     //Ha nem üres a vezérlő azt jelenti, hogy egy meglévő rekordot szerkesztünk, tehát jelenítsük meg az adott rekord ID-ját```
+  3. A megjelenítési módnál állítsuk View-ra az értéket, hogy megakadályozzuk a felhasználót a manuális értékbeviteltől
 
-## Adatkezelés és Kapcsolatok
+## Adatkezelés és Kapcsolat
 
 ### SharePoint Integráció
 - Külön hozzáadás szükséges az "Adatok" fülön: "SharePoint"
@@ -84,95 +92,89 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 
 ### Változók Kezelése
 ```
-Set(változónév, érték)
-UpdateContext({változó: érték})
+Set(változónév; érték) //Változó értékének beállítása
+UpdateContext({változó: érték}) //Környezeti változó értékének frissítése
 ```
 
 ### Navigáció
 ```
-Navigate(képernyő, NavigationType, {context})
+Navigate(képernyő; NavigationType; {context}) //Képernyők közötti navigáció
 ```
 
 ### Feltételes Műveletek
 ```
-If(feltétel, igen_ág, nem_ág)
-Switch(kifejezés, eset1, eredmény1, alapértelmezett1, eset2, eredmény2, alapértelmezett2)
+If(feltétel; igen_ág; nem_ág) //Egyszerű feltételes elágazás
+Switch(kifejezés; eset1; eredmény1; alapértelmezett1; eset2; eredmény2; alapértelmezett2) //Többágú feltételes elágazás
 ```
 
 ### Adatszűrés és Kezelés
 ```
-Filter(tábla, feltétel1[, feltétel2])
-Sort(tábla, oszlop[, növekvő])
-FirstN(tábla, n)
-LastN(tábla, n)
+Filter(tábla; feltétel1[; feltétel2]) //Rekordok szűrése feltételek alapján
+Sort(tábla; oszlop[; növekvő]) //Rekordok rendezése
+FirstN(tábla; n) //Első N rekord kiválasztása
+LastN(tábla; n) //Utolsó N rekord kiválasztása
 ```
 
 ### Collection Műveletek
 ```
-Collect(collection_neve, rekord)
-Clear(collection_neve)
-ClearCollect(collection_neve, rekordok)
-Remove(collection, rekord)
-RemoveIf(collection, feltétel)
+Collect(collection_neve; rekord) //Új rekord hozzáadása a collection-hez
+Clear(collection_neve) //Collection törlése
+ClearCollect(collection_neve; rekordok) //Collection törlése és új rekordok hozzáadása
+Remove(collection; rekord) //Rekord törlése a collection-ből
+RemoveIf(collection; feltétel) //Feltételes rekord törlés
 ```
 
 ### Rekord Műveletek
 ```
-Collect(adatforrás, rekord) //új rekord hozzáadása
-Patch(adatforrás, rekord, változtatások) //rekord módosítása
-Update(collection, régi_rekord, új_rekord) //rekord módosítása
-UpdateIf(collection, feltétel, új_értékek) //rekordok feltételes módosítása
+Collect(adatforrás; rekord) //Új rekord hozzáadása az adatforráshoz
+Patch(adatforrás; rekord; változtatások) //Rekord módosítása az adatforrásban
+Update(collection; régi_rekord; új_rekord) //Rekord módosítása a collection-ben
+UpdateIf(collection; feltétel; új_értékek) //Feltételes rekord módosítás
 ```
 
 ### Validációs Függvények
 ```
-IsBlank(érték) //vezérlő üres-e
-IsEmpty(collection) //collection üres-e
-CountRows(tábla) //sorok száma
-CountIf(tábla, feltétel) //feltételes számlálás
+IsBlank(érték) //Vezérlő üres-e
+IsEmpty(collection) //Collection üres-e
+CountRows(tábla) //Sorok számának meghatározása
+CountIf(tábla; feltétel) //Feltételes számlálás
 ```
 
 ### Dátum és Idő Függvények
 ```
-Now()  // Aktuális dátum és idő
-Today()  // Mai dátum
-DateAdd(dátum, napok, egység) //két dátum összeadása
-DateDiff(dátum1, dátum2, egység) //dátum eltolása megadott időegységgel
+Now()  //Aktuális dátum és idő lekérése
+Today()  //Mai dátum lekérése
+DateAdd(dátum; napok; egység) //Dátum eltolása megadott időegységgel
+DateDiff(dátum1; dátum2; egység) //Két dátum közötti különbség számítása
 ```
 
 ### Vezérlési Struktúrák
 ```
-// Sequence - hasonló a Python range függvényhez
-Sequence(rekordok_száma;kezdőérték;lépés))
-
-//Számok generálása 00-59 között ForAll segítségével
-ForAll(Sequence(60;0);Text(Value;"00"))
+// Számok generálása 00-59 között ForAll segítségével
+ForAll(Sequence(60;0);Text(Value;"00")) //00-tól 59-ig számok generálása két számjeggyel
 ```
+
 ## Speciális Technikák
 
 ### Felhasználó által definiált függvények
-
 ```
 // Példák függvény definiálása
-FuggvenyNeve1(valtozo1:Number;valtozo2:Number):Number= valtozo1*valtozo2;;
-
-FuggvenyNeve2():Void={Notify();;Set()};;
+FuggvenyNeve1(valtozo1:Number;valtozo2:Number):Number = valtozo1*valtozo2;; //Számok szorzása
+FuggvenyNeve2():Void={Notify();;Set()};; //Értesítés küldése és változó beállítása
 ```
 
 ### LoadingSpinner Használata
 ```
 // LoadingSpinner alapvető implementáció
-Set(isLoading, true)  // Loading indítása
-LoadingSpinner1.Visible = isLoading
-LoadingSpinner1.Color = RGBA(98, 100, 167, 1)
+Set(isLoading; true)  //Loading indítása
+LoadingSpinner1.Visible = isLoading //LoadingSpinner megjelenítése
+LoadingSpinner1.Color = RGBA(98; 100; 167; 1) //LoadingSpinner színének beállítása
 
 // Használat példa
-Button1.OnSelect = (
-    Set(isLoading; true);;
-    // Hosszabb művelet
-    Patch('Tasks'; Defaults('Tasks'); {Title: TextInput1.Text});;
-    Set(isLoading; false)
-)
+//Button1 OnSelect tulajdonságba
+Set(isLoading; true);;
+Patch('Tasks'; Defaults('Tasks'); {Title: TextInput1.Text});;
+Set(isLoading; false)
 ```
 
 ### Képernyők Közötti Adatátadás
@@ -193,4 +195,4 @@ Button1.OnSelect = (
 1. Magyar nyelvű környezetben a függvények paramétereit pontosvesszővel (;) kell elválasztani
 2. Összetett feltételeknél használj zárójeleket
 3. A ThisItem mindig az aktuális Gallery elemre vonatkozik
-4. Használj beszédes változóneveket
+4. Használj beszédes változóneveket 
