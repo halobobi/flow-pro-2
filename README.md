@@ -57,7 +57,8 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - Új rekord hozzáadása adatbázishoz
 - DataSource: adatbázis
 - Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
-- Az Alapértelmezett módot állítsuk Új-ra, enélkül nem jelenik meg a Form
+- Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra
+- Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap
 
 ## Adatkezelés és Kapcsolatok
 
