@@ -28,7 +28,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
   - Fastruktúra
   - Új elemek hozzáadása
   - Adatok kezelése
-  - Változók definiálása
+  - Változók
     - Globális változók
     - Környezeti változók
     - Formulák (egyéni függvények)
