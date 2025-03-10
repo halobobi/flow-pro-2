@@ -59,6 +59,14 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
 - Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra
 - Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap
+- Legördülő menü esetén (tehát amikor több táblával, Foreign key-el dolgozunk)
+1. A mezőknél adjuk hozzá a Foreign key-t tartalmazó oszlopot
+2. Ugyanitt gördítsük le a hozzáadott vezérlő kártyáját, majd a Vezérlő típusát állítsuk Megengedett értékek-re
+3. Kapcsoljuk ki a szerkesztési korlátozást az adott vezérlőn (bal oldali sáv, majd jobb gomb Zárolás feloldása)
+4. Ezután adjuk hozzá az új kapcsolatot a dimenzió táblánkhoz
+5. A vezérlő Items tulajdonságának adjuk meg ezt az adatot
+6. A Value alapértelmezetten felveszi a tulajdonságot, de ha mégis az ID jelenne meg: jobb oldali tulajdonságok menü, majd Value beállítása a kívánt oszlopra
+7. Ezután ne a vezérlőre (nem a DataCardValue), hanem magára a kártyára (DataCard) kattintsunk, majd az Update tulajdonságot javítsuk, pl.: DataCardValue.Selected.Title (az alapértelmezett Value itt egyébként is hibát jelez, az elküldendő oszlopot hivatkozzuk itt meg)
 
 ## Adatkezelés és Kapcsolatok
 
