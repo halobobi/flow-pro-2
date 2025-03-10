@@ -59,7 +59,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
 - Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra
 - Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap
-- Legördülő menü esetén (tehát amikor több táblával, Foreign key-el dolgozunk)
+- Legördülő menü esetén (tehát amikor több táblával, Foreign key-el dolgozunk):
 1. A mezőknél adjuk hozzá a Foreign key-t tartalmazó oszlopot
 2. Ugyanitt gördítsük le a hozzáadott vezérlő kártyáját, majd a Vezérlő típusát állítsuk Megengedett értékek-re
 3. Kapcsoljuk ki a szerkesztési korlátozást az adott vezérlőn (bal oldali sáv, majd jobb gomb Zárolás feloldása)
@@ -67,16 +67,18 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 5. A vezérlő Items tulajdonságának adjuk meg ezt az adatot
 6. A Value alapértelmezetten felveszi a tulajdonságot, de ha mégis az ID jelenne meg: jobb oldali tulajdonságok menü, majd Value beállítása a kívánt oszlopra
 7. Ezután ne a vezérlőre (nem a DataCardValue), hanem magára a kártyára (DataCard) kattintsunk, majd az Update tulajdonságot javítsuk, pl.:     DataCardValue.Selected.Title (az alapértelmezett Value itt egyébként is hibát jelez, az elküldendő oszlopot hivatkozzuk itt meg)
-- Sorszám kezelés esetén (Sharepoint lista pl. nem auto incrementel)
+- Sorszám kezelés esetén (Pl. a Sharepoint lista nem auto increment-el):
 1. Kapcsoljuk ki a zárolást a sorszám vezérlőn
 2. A Default paraméternek adjuk ezt a kódot:
     ```
     If(!IsBlank(Parent.Default);Parent.Default;Last(Sort(adatforrás;Int(Title);SortOrder.Ascending)).Title+1)
     ```
-- Ha üres a vezérlő, tehát új rekordot akarunk hozzáadni, akkor az adatbázisban a következő szabad ID-t adja vissza
-- Ha nem szöveges ID mezőt használunk (a Title mező sajnos mindig szöveg), akkor elég a ```LookUp(adatforrás;ID=Max(ID),ID)+1``` kódot használni
-- Ha nem üres a vezérlő azt jelenti, hogy egy meglévő rekordot szerkesztünk, tehát jelenítsük meg az adott rekord ID-ját
+  - Ha üres a vezérlő, tehát új rekordot akarunk hozzáadni, akkor az adatbázisban a következő szabad ID-t adja vissza
+  - Ha nem szöveges ID mezőt használunk (a Title mező sajnos mindig szöveg), akkor elég a ```LookUp(adatforrás;ID=Max(ID),ID)+1``` kódot használni
+  - Ha nem üres a vezérlő azt jelenti, hogy egy meglévő rekordot szerkesztünk, tehát jelenítsük meg az adott rekord ID-ját
 3. A megjelenítési módnál állítsuk View-ra az értéket, hogy megakadályozzuk a felhasználót a manuális értékbeviteltől
+  - Hasonlóan az előbbihez, ha dinamikusan akarjuk kezelni, hogy a mező szerkeszthető-e, akkor a ```If(!IsBlank(Parent.Default);Parent.DisplayMode;DisplayMode.View)``` kóddal kezelhetjük, hogy csak szerkesztéskor lehessen módosítani a sorszámot
+    - Ez egyébként bad practice, az ID primary key, tehát egyértelműen azonosítja a rekordot, nem érdemes a felhasználóra bízni az értékmegadást
 
 ## Adatkezelés és Kapcsolat
 
