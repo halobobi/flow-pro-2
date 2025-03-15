@@ -25,7 +25,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 
 ## Kezdeti lépések
 
-### Hozzáférés és Környezet
+### Hozzáférés és környezet
 - **Elérés**: https://make.powerapps.com
 - **Környezet típusok**:
   - **Solution (Megoldás)**: Komplex alkalmazásokhoz, Dataverse táblákkal
@@ -41,9 +41,9 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
   - Excel táblák
   - Dataverse (előfizetés függő, mi solution esetén, külön környezetben tudjuk használni)
 
-## Fejlesztői Felület
+## Fejlesztői felület
 
-### Felület Áttekintés
+### Felület áttekintés
 - **Bal oldali panel**: 
   - Fastruktúra
   - Új elemek hozzáadása
@@ -65,13 +65,13 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
     - Címkék (Label): szöveg megjelenítése, értékét változón keresztül tudjuk módosítani
     - Katalógus (Gallery): adattáblák megjelenítése
 
-### Nyelvi Beállítások
+### Nyelvi beállítások
 - Alapértelmezetten a szervezeti vagy számítógép nyelvi beállításait követi
 - Felül lehet írni a jobb fenti beállításokban
 
-## Függvények és Képletek
+## Függvények és képletek
 
-### Változók Kezelése
+### Változók kezelése
 ```
 Set(változónév; érték) //Változó értékének beállítása
 UpdateContext({változó: érték}) //Környezeti változó értékének frissítése
@@ -89,13 +89,13 @@ Navigate(képernyő; NavigationType; {context}) //Képernyők közötti navigác
   - Globális változók alkalmazása
   - Collections ideiglenes tárolásra
 
-### Feltételes Műveletek
+### Feltételes műveletek
 ```
 If(feltétel; igen_ág; nem_ág) //Egyszerű feltételes elágazás
 Switch(kifejezés; eset1; eredmény1; alapértelmezett1; eset2; eredmény2; alapértelmezett2) //Többágú feltételes elágazás
 ```
 
-### Adatszűrés és Kezelés
+### Adatszűrés és kezelés
 ```
 Filter(tábla; feltétel1[; feltétel2]) //Rekordok szűrése feltételek alapján
 Sort(tábla; oszlop[; növekvő]) //Rekordok rendezése
@@ -105,7 +105,7 @@ StartsWith(szöveg,minta) //Ellenőrzi, hogy minta változó értékével kezdő
 If(minta in szöveg;true;false) //Tartalmazza-e szöveg minta változó értékét
 ```
 
-### Collection és Rekord Műveletek
+### Collection és rekord műveletek
 ```
 Collect(collection_neve; rekord) //Új rekord hozzáadása a collection-hez
 Clear(collection_neve) //Collection törlése
@@ -117,7 +117,7 @@ Remove(collection; rekord) //Rekord törlése a collection-ből
 RemoveIf(collection; feltétel) //Feltételes rekord törlés
 ```
 
-### Validációs Függvények
+### Validációs függvények
 ```
 IsBlank(érték) //Vezérlő üres-e
 IsEmpty(collection) //Collection üres-e
@@ -126,7 +126,7 @@ CountRows(tábla) //Sorok számának meghatározása
 CountIf(tábla; feltétel) //Feltételes számlálás
 ```
 
-### Dátum és Idő Függvények
+### Dátum és idő függvények
 ```
 Now()  //Aktuális dátum és idő lekérése
 Today()  //Mai dátum lekérése
@@ -134,19 +134,19 @@ DateAdd(dátum; napok; egység) //Dátum eltolása megadott időegységgel
 DateDiff(dátum1; dátum2; egység) //Két dátum közötti különbség számítása
 ```
 
-### Vezérlési Struktúrák
+### Vezérlési struktúrák
 ```
 // Számok generálása 00-59 között ForAll segítségével
 ForAll(Sequence(60;0);Text(Value;"00")) //00-tól 59-ig számok generálása két számjeggyel
 ThisRecord //ForAll ciklusváltozó
 ```
-## Adatkezelés és Kapcsolat
+## Adatkezelés és kapcsolat
 
 ### SharePoint Integráció
 - Külön hozzáadás szükséges az "Adatok" fülön: "SharePoint"
 - Power Automate-hez hasonlóan az oszlopokra hivatkozás az oszlopnév helyett esetenként 'field_1' formátumban
 
-### Office 365 Integráció
+### Office 365 integráció
 - Felhasználói adatok lekérése
 - Email és szervezeti információk elérése
 - Profilképek kezelése
@@ -166,7 +166,7 @@ ThisRecord //ForAll ciklusváltozó
   If('Office365-felhasználók'.UserPhotoMetadata(User().Email).HasPhoto;'Office365-felhasználók'.UserPhotoV2(User().Email);SampleImage) //Ha nincs beállítva profilkép SampleImage megjelenítése
   ```
 
-## Fontos Komponensek és Tulajdonságaik
+## Fontos komponensek és tulajdonságaik
 
 ### Gomb
 - ```OnSelect```: kattintás után végrehajtandó utasítások
@@ -216,7 +216,7 @@ ThisRecord //ForAll ciklusváltozó
   ResetForm(form) //bevitt értékek törlése, visszaállítás alapértelmezettre
   ```
 
-## Speciális Technikák
+## Speciális technikák
 
 ### Felhasználó által definiált függvények
 ```
@@ -225,7 +225,7 @@ FuggvenyNeve1(valtozo1:Number;valtozo2:Number):Number=valtozo1*valtozo2;; //Szá
 FuggvenyNeve2():Void={Refresh(adatforrás);;Notify();;Set()};; //Értesítés küldése és változó beállítása
 ```
 
-### LoadingSpinner Használata
+### LoadingSpinner használata
 ```
 // LoadingSpinner alapvető implementáció
 Set(isLoading; true)  //Loading indítása
@@ -239,5 +239,5 @@ Patch('Tasks'; Defaults('Tasks'); {Title: TextInput1.Text});;
 Set(isLoading; false)
 ```
 
-### Teljesítmény Optimalizálás
+### Teljesítmény optimalizálás
 - Delegálás: a Power Apps külső Microsoft / Azure API-kkal futtatja az utasítást, külső kiszolgálóra helyezi a munka nehéz részét
