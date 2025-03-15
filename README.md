@@ -4,24 +4,24 @@
 A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely lehetővé teszi egyedi üzleti alkalmazások gyors és hatékony fejlesztését. Az alábbiakban részletes útmutatót találsz a platform használatához.
 
 ### Adatbázis
-- **Microsoft Dataverse** adatbázis: https://dataverse.microsoft.com
-  - Alapvetően fizetős
-  - Saját solution-ben, és saját könyezetben (environment) használható az appok mellé
-    - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem tudjuk közös adatbázisként használni
-- **SharePoint Lists** adatbázis: https://m365.cloud.microsoft -> Bento menü -> Lists
-  - Ingyenes, SharePoint alapú megoldás
-  - Bármely Teams csoporton belül használhatjuk közös adatbázisnak
-  - Adatbázis működés eléréséhez:
-    - Auto-increment ID oszlop:
+#### **Microsoft Dataverse** adatbázis: https://dataverse.microsoft.com
+- Alapvetően fizetős
+- Saját solution-ben, és saját könyezetben (environment) használható az appok mellé
+  - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem tudjuk közös adatbázisként használni
+#### **SharePoint Lists** adatbázis: https://m365.cloud.microsoft -> Bento menü -> Lists
+- Ingyenes, SharePoint alapú megoldás
+- Bármely Teams csoporton belül használhatjuk közös adatbázisnak
+- Adatbázis működés eléréséhez:
+  - Auto-increment ID oszlop:
 1. Új oszlop hozzáadása
 2. Oszlop elrejtése / megjelenítése
 3. ID oszlop kiválasztása
-    - Táblakapcsolatok kezelése (Foreign key egyszerű kezelése):
+  - Táblakapcsolatok kezelése (Foreign key egyszerű kezelése):
 1. Új oszlop hozzáadása
 2. Oszlop típus: Lookup (Keresés)
 3. A kiválasztandó a lista valamely dimenzió tábla (pl.: DimStorage)
 4. Az megjelenítendő oszlop pedig kívánt érték a dimenzióból (pl.: Raktárnév)
-    - Használhatjuk az alapértelmezett Title oszlopot is adatok tárolására, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni
+  - Használhatjuk az alapértelmezett Title oszlopot is adatok tárolására, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni
 
 ## Kezdeti lépések
 
