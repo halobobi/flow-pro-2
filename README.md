@@ -35,7 +35,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 ## Kezdeti lépések
 
 ### Hozzáférés és környezet
-- **Elérés**: [https://make.powerapps.com](https://make.powerapps.com)
+- **Elérés**: [<ins>https://make.powerapps.com</ins>](https://make.powerapps.com)
 - **Környezet típusok**:
   - **Solution (Megoldás)**: Komplex alkalmazásokhoz, Dataverse táblákkal
   - **Standalone App**: Egyszerűbb alkalmazásokhoz, külső adatforrásokkal
@@ -44,7 +44,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - **Új app létrehozási lehetőségek**:
   - Üres alkalmazás (Blank)
   - Adatforrás alapú
-  - [Figma design alapú](https://www.figma.com/community/file/1110934196623232680/microsoft-power-apps-create-apps-from-figma-ui-kit-preview)
+  - [<ins>Figma design alapú</ins>](https://www.figma.com/community/file/1110934196623232680/microsoft-power-apps-create-apps-from-figma-ui-kit-preview)
 
 ## Fejlesztői felület
 
