@@ -12,9 +12,16 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
   - Ingyenes, SharePoint alapú megoldás
   - Bármely Teams csoporton belül használhatjuk közös adatbázisnak
   - Adatbázis működés eléréséhez:
-    - Auto-increment ID oszlop: Új oszlop hozzáadása -> Oszlop elrejtése / megjelenítése -> ID oszlop kiválasztása
-    - Táblakapcsolatok kezelése (Foreign key egyszerű kezelése): Új oszlop hozzáadása -> Oszlop típus: Lookup (Keresés) -> A kiválasztandó a lista valamely dimenzió tábla (pl.: DimStorage), az oszlop pedig kívánt érték a dimenzióból (pl.: Raktárnév)
-    - Használhatjuk a Title oszlopot is, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni
+    - Auto-increment ID oszlop:
+    1. Új oszlop hozzáadása
+    2. Oszlop elrejtése / megjelenítése
+    3. ID oszlop kiválasztása
+    - Táblakapcsolatok kezelése (Foreign key egyszerű kezelése):
+    1. Új oszlop hozzáadása
+    2. Oszlop típus: Lookup (Keresés)
+    3. A kiválasztandó a lista valamely dimenzió tábla (pl.: DimStorage)
+    4. Az megjelenítendő oszlop pedig kívánt érték a dimenzióból (pl.: Raktárnév)
+    - Használhatjuk az alapértelmezett Title oszlopot is adatok tárolására, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni
 
 ## Kezdeti lépések
 
