@@ -9,7 +9,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 - Saját solution-ben, és saját könyezetben (environment) használható az appok mellé ingyenesen is
   - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem tudjuk közös adatbázisként használni
 
-#### SharePoint Lists adatbázis: [https://m365.cloud.microsoft](https://m365.cloud.microsoft) -> Bento menü -> Lists
+#### Microsoft Lists adatbázis: [https://m365.cloud.microsoft](https://m365.cloud.microsoft) -> Bento menü -> Lists
 - Ingyenes, SharePoint alapú megoldás
 - Bármely Teams csoporton belül használhatjuk közös adatbázisnak
 - Adatbázis működés eléréséhez:
