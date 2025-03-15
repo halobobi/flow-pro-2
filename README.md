@@ -4,11 +4,11 @@
 A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely lehetővé teszi egyedi üzleti alkalmazások gyors és hatékony fejlesztését. Az alábbiakban részletes útmutatót találsz a platform használatához.
 
 ### Adatbázis
-#### **Microsoft Dataverse** adatbázis: https://dataverse.microsoft.com
+#### Microsoft Dataverse adatbázis: https://dataverse.microsoft.com
 - Alapvetően fizetős
 - Saját solution-ben, és saját könyezetben (environment) használható az appok mellé ingyenesen is
   - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem tudjuk közös adatbázisként használni
-#### **SharePoint Lists** adatbázis: https://m365.cloud.microsoft -> Bento menü -> Lists
+#### SharePoint Lists adatbázis: https://m365.cloud.microsoft -> Bento menü -> Lists
 - Ingyenes, SharePoint alapú megoldás
 - Bármely Teams csoporton belül használhatjuk közös adatbázisnak
 - Adatbázis működés eléréséhez:
@@ -22,6 +22,9 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 3. A kiválasztandó a lista valamely dimenzió tábla (pl.: DimStorage)
 4. Az megjelenítendő oszlop pedig kívánt érték a dimenzióból (pl.: Raktárnév)
   - Használhatjuk az alapértelmezett Title oszlopot is adatok tárolására, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni
+#### Excel file-ok
+- Adatbázisként nem igazán szokták használni
+- De egy Excel táblázat "megszépítésére", bizonyos funkciók korlátozása miatt, vagy felhasználóbaráttá tétel céljával építhető Power Apps alkalmazás
 
 ## Kezdeti lépések
 
@@ -36,10 +39,6 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
   - Üres alkalmazás (Blank)
   - Adatforrás alapú
   - Figma design alapú (https://www.figma.com/community/file/1110934196623232680/microsoft-power-apps-create-apps-from-figma-ui-kit-preview)
-- **Adattárolási lehetőségek**:
-  - SharePoint listák
-  - Excel táblák
-  - Dataverse (előfizetés függő, mi solution esetén, külön környezetben tudjuk használni)
 
 ## Fejlesztői felület
 
