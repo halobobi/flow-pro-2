@@ -116,6 +116,15 @@ Patch(adatforrás; rekord; változtatások) //Rekord módosítása az adatforrá
 Remove(collection; rekord) //Rekord törlése a collection-ből
 RemoveIf(collection; feltétel) //Feltételes rekord törlés
 ```
+```
+Collect('test',
+  {
+    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference", //Amiatt kell, mert nem egyszerű ID-t, hanem Expanded Reference típusú adatot adunk a táblába
+    Id: ComboBox1.Selected.EmployeeID, //A rekord összes adatát meg kell adni, ez előnytelen használhatóság a SharePoint részéről
+    Value: ComboBox1.Selected.EmployeeName //Alternatívaként egy LookUp lekérdezésből is visszakérhetjük az értékeket az ID alapján
+  }
+)
+```
 
 ### Validációs függvények
 ```
@@ -142,15 +151,15 @@ ThisRecord //ForAll ciklusváltozó
 ```
 ## Adatkezelés és kapcsolat
 
-### SharePoint Integráció
+### SharePoint integráció
 - Külön hozzáadás szükséges az "Adatok" fülön: "SharePoint"
-- Power Automate-hez hasonlóan az oszlopokra hivatkozás az oszlopnév helyett esetenként 'field_1' formátumban
+- Power Automate-hez hasonlóan az oszlopokra hivatkozás az oszlopnév helyett esetenként 'field_1' formátumban (SortByColumns esetén)
 
 ### Office 365 integráció
 - Felhasználói adatok lekérése
 - Email és szervezeti információk elérése
 - Profilképek kezelése
-- Külön hozzáadás szükséges az "Adatok" fülön: "Office365Users"
+- Külön hozzáadás szükséges az "Adatok" fülön: "Office365Users" vagy 'Office365-felhasználók'
   ```
   User().Email //A Power Apps alkalmazásba vagy a web-es felületre bejelentkezett e-mail címet adja vissza
 
