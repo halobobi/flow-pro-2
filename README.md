@@ -73,7 +73,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 
 ### Változók kezelése
 ```
-Set(változónév; érték) //Változó értékének beállítása
+Set(változónév, érték) //Változó értékének beállítása
 UpdateContext({változó: érték}) //Környezeti változó értékének frissítése
 Int(TextInput.Text) //Beviteli mező számmá alakítása
 Text(sorszám) //Szöveggé alakítás
@@ -82,7 +82,7 @@ Reset(TextInput) //visszaállítja alapértelmezettre a bevitelő mezőt
 
 ### Navigáció
 ```
-Navigate(képernyő; NavigationType; {context}) //Képernyők közötti navigáció
+Navigate(képernyő, NavigationType, {context}) //Képernyők közötti navigáció
 ```
 - Képernyők közötti értékátadás
   - **Context használata navigációnál**
@@ -91,30 +91,30 @@ Navigate(képernyő; NavigationType; {context}) //Képernyők közötti navigác
 
 ### Feltételes műveletek
 ```
-If(feltétel; igen_ág; nem_ág) //Egyszerű feltételes elágazás
-Switch(kifejezés; eset1; eredmény1; alapértelmezett1; eset2; eredmény2; alapértelmezett2) //Többágú feltételes elágazás
+If(feltétel, igen_ág, nem_ág) //Egyszerű feltételes elágazás
+Switch(kifejezés, eset1, eredmény1, alapértelmezett1, eset2, eredmény2, alapértelmezett2) //Többágú feltételes elágazás
 ```
 
 ### Adatszűrés és kezelés
 ```
-Filter(tábla; feltétel1[; feltétel2]) //Rekordok szűrése feltételek alapján
-Sort(tábla; oszlop[; növekvő]) //Rekordok rendezése
-FirstN(tábla; n) //Első N rekord kiválasztása
-LastN(tábla; n) //Utolsó N rekord kiválasztása
+Filter(tábla, feltétel1[, feltétel2]) //Rekordok szűrése feltételek alapján
+Sort(tábla, oszlop[, növekvő]) //Rekordok rendezése
+FirstN(tábla, n) //Első N rekord kiválasztása
+LastN(tábla, n) //Utolsó N rekord kiválasztása
 StartsWith(szöveg,minta) //Ellenőrzi, hogy minta változó értékével kezdődik-e szöveg
-If(minta in szöveg;true;false) //Tartalmazza-e szöveg minta változó értékét
+If(minta in szöveg,true,false) //Tartalmazza-e szöveg minta változó értékét
 ```
 
 ### Collection és rekord műveletek
 ```
-Collect(collection_neve; rekord) //Új rekord hozzáadása a collection-hez
+Collect(collection_neve, rekord) //Új rekord hozzáadása a collection-hez
 Clear(collection_neve) //Collection törlése
-ClearCollect(collection_neve; rekordok) //Collection törlése és új rekordok hozzáadása
-Update(collection; régi_rekord; új_rekord) //Rekord módosítása a collection-ben
-UpdateIf(collection; feltétel; új_értékek) //Feltételes rekord módosítás
-Patch(adatforrás; rekord; változtatások) //Rekord módosítása az adatforrásban
-Remove(collection; rekord) //Rekord törlése a collection-ből
-RemoveIf(collection; feltétel) //Feltételes rekord törlés
+ClearCollect(collection_neve, rekordok) //Collection törlése és új rekordok hozzáadása
+Update(collection, régi_rekord, új_rekord) //Rekord módosítása a collection-ben
+UpdateIf(collection, feltétel, új_értékek) //Feltételes rekord módosítás
+Patch(adatforrás, rekord, változtatások) //Rekord módosítása az adatforrásban
+Remove(collection, rekord) //Rekord törlése a collection-ből
+RemoveIf(collection, feltétel) //Feltételes rekord törlés
 ```
 ```
 Collect('test',
@@ -132,21 +132,21 @@ IsBlank(érték) //Vezérlő üres-e
 IsEmpty(collection) //Collection üres-e
 IsError(művelet) //Hibára fut-e az adott művelet
 CountRows(tábla) //Sorok számának meghatározása
-CountIf(tábla; feltétel) //Feltételes számlálás
+CountIf(tábla, feltétel) //Feltételes számlálás
 ```
 
 ### Dátum és idő függvények
 ```
 Now()  //Aktuális dátum és idő lekérése
 Today()  //Mai dátum lekérése
-DateAdd(dátum; napok; egység) //Dátum eltolása megadott időegységgel
-DateDiff(dátum1; dátum2; egység) //Két dátum közötti különbség számítása
+DateAdd(dátum, napok, egység) //Dátum eltolása megadott időegységgel
+DateDiff(dátum1, dátum2, egység) //Két dátum közötti különbség számítása
 ```
 
 ### Vezérlési struktúrák
 ```
 // Számok generálása 00-59 között ForAll segítségével
-ForAll(Sequence(60;0);Text(Value;"00")) //00-tól 59-ig számok generálása két számjeggyel
+ForAll(Sequence(60,0),Text(Value,"00")) //00-tól 59-ig számok generálása két számjeggyel
 ThisRecord //ForAll ciklusváltozó
 ```
 ## Adatkezelés és kapcsolat
@@ -172,7 +172,7 @@ ThisRecord //ForAll ciklusváltozó
 
   Office365Users.UserPhotoMetadata(email).HasPhoto //Van-e profilkép beállítva
 
-  If('Office365-felhasználók'.UserPhotoMetadata(User().Email).HasPhoto;'Office365-felhasználók'.UserPhotoV2(User().Email);SampleImage) //Ha nincs beállítva profilkép SampleImage megjelenítése
+  If('Office365-felhasználók'.UserPhotoMetadata(User().Email).HasPhoto,'Office365-felhasználók'.UserPhotoV2(User().Email),SampleImage) //Ha nincs beállítva profilkép SampleImage megjelenítése
   ```
 
 ## Fontos komponensek és tulajdonságaik
@@ -210,13 +210,13 @@ ThisRecord //ForAll ciklusváltozó
 1. Kapcsoljuk ki a zárolást a sorszám vezérlőn
 2. A Default paraméternek adjuk ezt a kódot:
     ```
-    If(!IsBlank(Parent.Default);Parent.Default;Last(Sort(adatforrás;Int(Title);SortOrder.Ascending)).Title+1) //Parent (szülő) a container-t jelöli, a Form elemet
+    If(!IsBlank(Parent.Default),Parent.Default,Last(Sort(adatforrás,Int(Title),SortOrder.Ascending)).Title+1) //Parent (szülő) a container-t jelöli, a Form elemet
     ```
   - Ha üres a vezérlő, tehát új rekordot akarunk hozzáadni, akkor az adatbázisban a következő szabad ID-t adja vissza
-  - Ha nem szöveges ID mezőt használunk (a Title mező sajnos mindig szöveg), akkor elég a ```LookUp(adatforrás;ID=Max(ID),ID)+1``` kódot használni
+  - Ha nem szöveges ID mezőt használunk (a Title mező sajnos mindig szöveg), akkor elég a ```LookUp(adatforrás,ID=Max(ID),ID)+1``` kódot használni
   - Ha nem üres a vezérlő azt jelenti, hogy egy meglévő rekordot szerkesztünk, tehát jelenítsük meg az adott rekord ID-ját
 3. A megjelenítési módnál állítsuk View-ra az értéket, hogy megakadályozzuk a felhasználót a manuális értékbeviteltől
-  - Hasonlóan az előbbihez, ha dinamikusan akarjuk kezelni, hogy a mező szerkeszthető-e, akkor a ```If(!IsBlank(Parent.Default);Parent.DisplayMode;DisplayMode.View)``` kóddal kezelhetjük, hogy csak szerkesztéskor lehessen módosítani a sorszámot
+  - Hasonlóan az előbbihez, ha dinamikusan akarjuk kezelni, hogy a mező szerkeszthető-e, akkor a ```If(!IsBlank(Parent.Default),Parent.DisplayMode,DisplayMode.View)``` kóddal kezelhetjük, hogy csak szerkesztéskor lehessen módosítani a sorszámot
     - Ez egyébként bad practice, az ID primary key, tehát egyértelműen azonosítja a rekordot, nem érdemes a felhasználóra bízni az értékmegadást
 - Parancsok:
   ```
@@ -230,22 +230,22 @@ ThisRecord //ForAll ciklusváltozó
 ### Felhasználó által definiált függvények
 ```
 // Példák függvény definiálása
-FuggvenyNeve1(valtozo1:Number;valtozo2:Number):Number=valtozo1*valtozo2;; //Számok szorzása
-FuggvenyNeve2():Void={Refresh(adatforrás);;Notify();;Set()};; //Értesítés küldése és változó beállítása
+FuggvenyNeve1(valtozo1:Number,valtozo2:Number):Number=valtozo1*valtozo2; //Számok szorzása
+FuggvenyNeve2():Void={Refresh(adatforrás);Notify();Set()}; //Értesítés küldése és változó beállítása
 ```
 
 ### LoadingSpinner használata
 ```
 // LoadingSpinner alapvető implementáció
-Set(isLoading; true)  //Loading indítása
+Set(isLoading, true)  //Loading indítása
 LoadingSpinner1.Visible = isLoading //LoadingSpinner megjelenítése
-LoadingSpinner1.Color = RGBA(98; 100; 167; 1) //LoadingSpinner színének beállítása
+LoadingSpinner1.Color = RGBA(98, 100, 167, 1) //LoadingSpinner színének beállítása
 
 // Használat példa
 //Button1 OnSelect tulajdonságba
-Set(isLoading; true);;
-Patch('Tasks'; Defaults('Tasks'); {Title: TextInput1.Text});;
-Set(isLoading; false)
+Set(isLoading, true);
+Patch('Tasks', Defaults('Tasks'), {Title: TextInput1.Text});
+Set(isLoading, false)
 ```
 
 ### Teljesítmény optimalizálás
