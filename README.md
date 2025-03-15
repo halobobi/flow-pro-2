@@ -23,9 +23,9 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 4. Az megjelenítendő oszlop pedig kívánt érték a dimenzióból (pl.: Raktárnév)
   - Használhatjuk az alapértelmezett Title oszlopot is adatok tárolására, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni
   - Trükk a lista feltöltésére akár több sorral:
-1. Váltsunk rácsnézetbe
-2. Másoljuk csak az adatokat, fejléc nélkül Excel-ből
-3. A Lists felületén új elem hozzáadása, egyszer kattintsunk a sorba, ne kezdjük el szerkeszteni
+1. Másoljuk csak az adatokat, fejléc nélkül Excel-ből
+2. A Lists felületén váltsunk rácsnézetbe
+3. Új elem hozzáadása, egyszer kattintsunk a sorba, ne kezdjük el szerkeszteni
 4. Majd CTRL+V-vel beillesztés
 #### Excel file-ok
 - Adatbázisként nem igazán szokták használni (sajnos néha mégis előfordul)
