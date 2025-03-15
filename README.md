@@ -7,7 +7,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 #### Microsoft Dataverse adatbázis: [https://dataverse.microsoft.com](https://dataverse.microsoft.com)
 - Alapvetően fizetős
 - Saját solution-ben, és saját könyezetben (environment) használható az appok mellé ingyenesen is
-  - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem tudjuk közös adatbázisként használni
+  - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem lehet közös adatbázisként használni
 
 #### Microsoft Lists adatbázis: [https://m365.cloud.microsoft](https://m365.cloud.microsoft) -> Bento menü -> Lists
 - Ingyenes, SharePoint alapú megoldás
