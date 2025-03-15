@@ -4,12 +4,12 @@
 A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely lehetővé teszi egyedi üzleti alkalmazások gyors és hatékony fejlesztését. Az alábbiakban részletes útmutatót találsz a platform használatához.
 
 ### Adatbázis
-#### Microsoft Dataverse adatbázis: [https://dataverse.microsoft.com](https://dataverse.microsoft.com)
+#### Microsoft Dataverse adatbázis: <ins>[https://dataverse.microsoft.com]</ins>(https://dataverse.microsoft.com)
 - Alapvetően fizetős
 - Saját solution-ben, és saját könyezetben (environment) használható az appok mellé ingyenesen is
   - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem lehet közös adatbázisként használni
 
-#### Microsoft Lists adatbázis: [https://m365.cloud.microsoft](https://m365.cloud.microsoft) -> Bento menü -> Lists
+#### Microsoft Lists adatbázis: <ins>[https://m365.cloud.microsoft]</ins>(https://m365.cloud.microsoft) -> Bento menü -> Lists
 - Ingyenes, SharePoint alapú megoldás
 - Bármely Teams csoporton belül használhatjuk közös adatbázisnak
 - Adatbázis működés eléréséhez:
@@ -35,7 +35,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 ## Kezdeti lépések
 
 ### Hozzáférés és környezet
-- **Elérés**: https://make.powerapps.com
+- **Elérés**: [https://make.powerapps.com](https://make.powerapps.com)
 - **Környezet típusok**:
   - **Solution (Megoldás)**: Komplex alkalmazásokhoz, Dataverse táblákkal
   - **Standalone App**: Egyszerűbb alkalmazásokhoz, külső adatforrásokkal
