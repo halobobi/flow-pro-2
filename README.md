@@ -23,7 +23,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 4. Az megjelenítendő oszlop pedig kívánt érték a dimenzióból (pl.: Raktárnév)
   - Használhatjuk az alapértelmezett Title oszlopot is adatok tárolására, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni
 #### Excel file-ok
-- Adatbázisként nem igazán szokták használni
+- Adatbázisként nem igazán szokták használni (sajnos néha mégis előfordul)
 - De egy Excel táblázat "megszépítésére", bizonyos funkciók korlátozása miatt, vagy felhasználóbaráttá tétel céljával építhető Power Apps alkalmazás
 
 ## Kezdeti lépések
