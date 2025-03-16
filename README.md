@@ -83,28 +83,30 @@
         - Ha lusták vagyunk, és nem kezelünk hibát: ```User().Image```
         - Size: 100 x 100
         - Border radius: ```90```, így kör alakú lesz a kép
-    4. Adjunk hozzá újabb konténert
+6. Galéria kialakítása
+    1. Adjunk hozzá újabb konténert
         - Simát, ami az egész képernyőt lefedi a fejlécen kívül, illetve az alsó vezérlősávon kívül (később gombot tudunk ide tenni)
         - Legyen ugyanaz a színe, mint a fejlécnek
-    5. Adjunk hozzá vertikális galériát
+    2. Adjunk hozzá vertikális galériát
         - Adatforrásnak állítsuk be a ```Device_FactDevice``` listát (ha valakinek nem sikerült saját adatbázist létrehozni, a ```https://bcecid.sharepoint.com/sites/bit-bce-hq``` site-ról hozzáfér egy előre elkészítetthez
         - Méretezzük úgy, hogy a teljes szélességet kitöltse, alul a konténeren belül maradjon egy kevés hely
         - A layout-ot állítsuk Title and subtitle-re
         - Title: DeviceName
         - Subtitle: ID
         - Ikont változtathatunk
-    6. Változtassunk a megjelenő szövegen (itt is lehet Concatenate-et használni)
+    3. Változtassunk a megjelenő szövegen (itt is lehet Concatenate-et használni)
         - A név előtt jelenjen meg a ```Név: ``` felirat: ```"Név: " & ThisItem.DeviceName```
         - Az ID előtt jelenjen meg az ```ID: ``` felirat: ```"ID: " & ThisItem.ID```
 
 #### Rekord részletek megjelenítése
 
-    7. A nyílra nyomva ugorjunk a Screen2-re, ahol a rekord részleteit láthatjuk, törölhetjük azt
+7. Részletek oldal kialakítása
+    1. A nyílra nyomva ugorjunk a Screen2-re, ahol a rekord részleteit láthatjuk, törölhetjük azt
         - Adjunk hozzá új képernyőt (el is nevezhetjük)
         - speciális áttűnést használjunk, context-ben adjuk át az adott rekordot
         - OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
-    8. Másoljuk a fejlécet a Screen1-ről, a másik konténtert is lehet, csak töröljük a galériát
-    9. Adjunk hozzá 5 label-t, az ```item``` context tulajdonságból olvassuk ki az összes adatot
+    2. Másoljuk a fejlécet a Screen1-ről, a másik konténtert is lehet, csak töröljük a galériát
+    3. Adjunk hozzá 5 label-t, az ```item``` context tulajdonságból olvassuk ki az összes adatot
         ```
         item.ID
         item.DeviceName
@@ -112,35 +114,36 @@
         item.StorageID.Value
         item.Created
         ```
-    10. Adjunk hozzá törlés gombot
+    4. Adjunk hozzá törlés gombot
          - Text: ```Törlés```
          - Color: valami piros
        
-     11. Adatbázisok módosítása manuálisan
+     5. Adatbázisok módosítása manuálisan
          - Későbbiekben majd egy sokoldalú módszerrel adunk hozzá új, illetve módosítunk rekordokat (Űrlap)
          - De egyszeri, összetett műveleteket nem lehet az űrlapok segítségével végezni, hanem: Collect, Patch, Remove
          - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First) //Az utolsó zászló nem az összes egyező rekordot (filter kimenet megadása esetén) törli, hanem csak az első egyezést```
-     12. Adjunk hozzá egy vissza gombot az oldalhoz
+     6. Adjunk hozzá egy vissza gombot az oldalhoz
          - OnSelect: ```Back()```
          - vagy: ```Navigate(Screen1)```
-     13. Törlés után automatikusan térjünk vissza a főoldalra
+     7. Törlés után automatikusan térjünk vissza a főoldalra
          - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First);Back()```
 
 #### Szűrési lehetőségek
 
-     14. Adjunk hozzá szűrési lehetőséget a névre
+8. Szűrés, rendezés megvalósítása
+     1. Adjunk hozzá szűrési lehetőséget a névre
          - TextInput hozzáadása alulra
          - Items: ```Filter(Device_FactDevice, (TextInput1.Text in DeviceName))```
          - Miért nem jelenik meg semmi?
              - A mező Default értékét állítsuk üresre, ez minden újraindításkor, app futtatáskor (nem a fejlesztői környezetből) töltődik be
-     15. Rendezzük név szerint a megjelenő elemeket
+     2. Rendezzük név szerint a megjelenő elemeket
          - Items: ```Sort(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),DeviceName,SortOrder.Ascending) //Név szerint, növekvő sorrend```
-     16. Adjuk meg melyik oszlop alapján rendezzünk sorba legördülő menü segítségével
+     3. Adjuk meg melyik oszlop alapján rendezzünk sorba legördülő menü segítségével
          - Dropdown a TextInput mellé
          - Dropdown1.Items: ```["DeviceName","ID"]```
          - Gallery1.Items: ```Sort(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value) //így nem működik, mert a dropdown szöveges értéket vissza, a Sort pedig oszlop objektumot vár```
          - Gallery1.Items: ```SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value) //a SortByColumns már szövegesen vár akár több oszlopnevet```
-     17. Adjunk lehetőséget a rendezési sorrend módosítására
+     4. Adjunk lehetőséget a rendezési sorrend módosítására
          - Újabb dropdown hozzáadása
          - Dropdown2.Items: ```[SortOrder.Ascending,SortOrder.Descending]```
          - Gallery1.Items: ```SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value,Dropdown2.Selected.Value)```
