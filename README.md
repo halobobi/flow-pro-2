@@ -164,7 +164,7 @@
 3. A felhasználónak jelenítsük meg az adatbázis összes rekordját, mindkét oszlop adatait, tetszőleges formában
 4. A sorban megjelenő nyíl megnyomásával törölhessük az adott rekordot
     - Állítsunk az esemény jellegéhez megfelelő ikont a gombnak
-6. Egy gomb segítségével egy másik oldalon lehessen új rekordot hozzáadni:
+5. Egy gomb segítségével nyíljon egy másik oldal, ahol új rekordot tudjunk hozzáadni:
     - TextInput mezőben lehessen az értéket megadni, ami gombnyomás után ellenőrzi és jelzi egy felül megjelenő értesítésben, ha már létezik ilyen tartalmú rekord (segítség: IsEmpty(LookUp()))
-8. Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
-9. Legyen szűrhető és rendezhető galéria: egy tetszőleges oszlop tartalma alapján lehessen szűrni, és sorbarendezni (opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség)
+6. Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
+7. Legyen szűrhető és rendezhető galéria: egy tetszőleges oszlop tartalma alapján lehessen szűrni, és sorbarendezni (opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség)
