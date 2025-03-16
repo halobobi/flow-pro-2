@@ -6,9 +6,9 @@
 1. Keressük fel a Lists oldalát
 2. Nyissuk meg a mintaadatokat tartalmazó Excel file-t
 3. Először a dimenzió táblákat hozzuk létre
-  1. Adjunk hozzá új listát Device_DimStatus néven
-  2. A saját listák közzé hozzuk létre
-  3. Új oszlop hozzáadása
+    1. Adjunk hozzá új listát Device_DimStatus néven
+    2. A saját listák közzé hozzuk létre
+    3. Új oszlop hozzáadása
     1. Oszlopok elrejtése/megjelenítése:
      - ID oszlop megjelenítése
      - Title oszlop elrejtése
