@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://halobobi.github.io/flow-pro-2/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Flow Pro II: Power Apps | flow-pro-2</title>
+<meta name="generator" content="Jekyll v3.10.0">
+<meta property="og:title" content="Flow Pro II: Power Apps">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://halobobi.github.io/flow-pro-2/">
+<meta property="og:url" content="https://halobobi.github.io/flow-pro-2/">
+<meta property="og:site_name" content="flow-pro-2">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Flow Pro II: Power Apps">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Flow Pro II: Power Apps","name":"flow-pro-2","url":"https://halobobi.github.io/flow-pro-2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="./Flow Pro II_ Power Apps _ flow-pro-2_files/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/flow-pro-2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://halobobi.github.io/flow-pro-2/">flow-pro-2</a></h1>
+      
+
+      <h1 id="flow-pro-ii-power-apps">Flow Pro II: Power Apps</h1>
+
+<h2 id="bevezetés">Bevezetés<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#bevezet%C3%A9s" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely lehetővé teszi egyedi üzleti alkalmazások gyors és hatékony fejlesztését. Az alábbiakban részletes útmutatót találsz a platform használatához.</p>
+
+<h3 id="adatbázis">Adatbázis<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#adatb%C3%A1zis" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<h4 id="microsoft-dataverse-adatbázis-httpsdataversemicrosoftcom">Microsoft Dataverse adatbázis: <a href="https://dataverse.microsoft.com/"><ins>https://dataverse.microsoft.com</ins></a><a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#microsoft-dataverse-adatb%C3%A1zis-httpsdataversemicrosoftcom" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<ul>
+  <li>Alapvetően fizetős</li>
+  <li>Saját solution-ben, és saját könyezetben (environment) használható az appok mellé ingyenesen is
+    <ul>
+      <li>Mivel csak lokálisan hozzáférhető a solution-ön belül, nem lehet közös adatbázisként használni</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="microsoft-lists-adatbázis-httpsm365cloudmicrosoft---bento-menü---lists">Microsoft Lists adatbázis: <a href="https://m365.cloud.microsoft/"><ins>https://m365.cloud.microsoft</ins></a> -&gt; Bento menü -&gt; Lists<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#microsoft-lists-adatb%C3%A1zis-httpsm365cloudmicrosoft---bento-men%C3%BC---lists" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<ul>
+  <li>Ingyenes, SharePoint alapú megoldás</li>
+  <li>Bármely Teams csoporton belül használhatjuk közös adatbázisnak</li>
+  <li>Adatbázis működés eléréséhez:
+    <ul>
+      <li>Auto-increment ID oszlop:
+    1. Új oszlop hozzáadása
+    2. Oszlop elrejtése / megjelenítése
+    3. ID oszlop kiválasztása</li>
+      <li>Táblakapcsolatok kezelése (Foreign key egyszerű kezelése):
+    1. Új oszlop hozzáadása
+    2. Oszlop típus: Lookup (Keresés)
+    3. A kiválasztandó a lista valamely dimenzió tábla (pl.: DimStorage)
+    4. Az megjelenítendő oszlop pedig kívánt érték a dimenzióból (pl.: Raktárnév)</li>
+      <li>Használhatjuk az alapértelmezett Title oszlopot is adatok tárolására, de a későbbi felhasználás miatt egyszerűbb elrejteni (törölni nem lehet), majd egy értelemszerű néven új oszlopot hozzáadni</li>
+      <li>Trükk a lista feltöltésére akár több sorral:
+    1. Másoljuk csak az adatokat, fejléc nélkül Excel-ből
+    2. A Lists felületén váltsunk rácsnézetbe
+    3. Új elem hozzáadása, egyszer kattintsunk a sorba, ne kezdjük el szerkeszteni
+    4. Majd CTRL+V-vel beillesztés
+        <h4 id="excel-file-ok">Excel file-ok<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#excel-file-ok" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+      </li>
+    </ul>
+  </li>
+  <li>Adatbázisként nem igazán szokták használni (sajnos néha mégis előfordul)</li>
+  <li>De egy Excel táblázat “megszépítésére”, bizonyos funkciók korlátozása miatt, vagy felhasználóbaráttá tétel céljával építhető Power Apps alkalmazás</li>
+</ul>
+
+<h2 id="kezdeti-lépések">Kezdeti lépések<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#kezdeti-l%C3%A9p%C3%A9sek" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="hozzáférés-és-környezet">Hozzáférés és környezet<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#hozz%C3%A1f%C3%A9r%C3%A9s-%C3%A9s-k%C3%B6rnyezet" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li><strong>Elérés</strong>: <a href="https://make.powerapps.com/"><ins>https://make.powerapps.com</ins></a></li>
+  <li><strong>Környezet típusok</strong>:
+    <ul>
+      <li><strong>Solution (Megoldás)</strong>: Komplex alkalmazásokhoz, Dataverse táblákkal</li>
+      <li><strong>Standalone App</strong>: Egyszerűbb alkalmazásokhoz, külső adatforrásokkal</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="alkalmazás-létrehozása">Alkalmazás létrehozása<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#alkalmaz%C3%A1s-l%C3%A9trehoz%C3%A1sa" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li><strong>Új app létrehozási lehetőségek</strong>:
+    <ul>
+      <li>Üres alkalmazás (Blank)</li>
+      <li>Adatforrás alapú</li>
+      <li><a href="https://www.figma.com/community/file/1110934196623232680/microsoft-power-apps-create-apps-from-figma-ui-kit-preview"><ins>Figma design alapú</ins></a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="fejlesztői-felület">Fejlesztői felület<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#fejleszt%C5%91i-fel%C3%BClet" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="nyelvi-beállítások">Nyelvi beállítások<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#nyelvi-be%C3%A1ll%C3%ADt%C3%A1sok" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li>Alapértelmezetten a böngésző vagy a számítógép nyelvi beállításait követi</li>
+  <li>Felül lehet írni a jobb fenti beállításokban
+    <ul>
+      <li>Ha ez nem elégséges, szükséges a böngésző nyelvét is átállítani</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="felület-áttekintés">Felület áttekintés<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#fel%C3%BClet-%C3%A1ttekint%C3%A9s" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li><strong>Bal oldali panel</strong>:
+    <ul>
+      <li>Fastruktúra</li>
+      <li>Új elemek hozzáadása</li>
+      <li>Adatok kezelése</li>
+      <li>Változók
+        <ul>
+          <li>Globális változók</li>
+          <li>Környezeti változók</li>
+          <li>Formulák (egyéni függvények)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Középső terület (Canvas)</strong>:
+    <ul>
+      <li>Vizuális elemek:
+        <ul>
+          <li>Gombok</li>
+          <li>Beviteli mezők:
+            <ul>
+              <li>Szöveg</li>
+              <li>Dátum</li>
+              <li>Legördülő lista (Dropdown)</li>
+              <li>Kombinált lista (Combobox)</li>
+              <li>Rádiógomb, checkbox, stb.</li>
+            </ul>
+          </li>
+          <li>Címkék (Label): szöveg megjelenítése, értékét változón keresztül tudjuk módosítani</li>
+          <li>Katalógus (Gallery): adattáblák megjelenítése</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="függvények-és-képletek">Függvények és képletek<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#f%C3%BCggv%C3%A9nyek-%C3%A9s-k%C3%A9pletek" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="változók-kezelése">Változók kezelése<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#v%C3%A1ltoz%C3%B3k-kezel%C3%A9se" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set(változónév, érték) //Változó értékének beállítása
+UpdateContext({változó: érték}) //Környezeti változó értékének frissítése
+Int(TextInput.Text) //Beviteli mező számmá alakítása
+Text(sorszám) //Szöveggé alakítás
+Reset(TextInput) //visszaállítja alapértelmezettre a bevitelő mezőt
+</code></pre></div></div>
+
+<h3 id="navigáció">Navigáció<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#navig%C3%A1ci%C3%B3" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Navigate(képernyő, ScreenTransition, {context}) //Képernyők közötti navigáció
+Back(ScreenTransition) //Visszalépés az előző oldalra
+</code></pre></div></div>
+<ul>
+  <li>Képernyők közötti értékátadás
+    <ul>
+      <li><strong>Context használata navigációnál</strong></li>
+      <li>Globális változók alkalmazása</li>
+      <li>Collections ideiglenes tárolásra</li>
+    </ul>
+  </li>
+  <li>Részletek: <a href="https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-navigate"><int>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-navigate</int></a></li>
+</ul>
+
+<h3 id="feltételes-műveletek">Feltételes műveletek<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#felt%C3%A9teles-m%C5%B1veletek" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If(feltétel, igen_ág, nem_ág) //Egyszerű feltételes elágazás
+Switch(kifejezés, eset1, eredmény1, alapértelmezett1, eset2, eredmény2, alapértelmezett2) //Többágú feltételes elágazás
+</code></pre></div></div>
+
+<h3 id="adatszűrés-és-kezelés">Adatszűrés és kezelés<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#adatsz%C5%B1r%C3%A9s-%C3%A9s-kezel%C3%A9s" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Filter(tábla, feltétel1[, feltétel2]) //Rekordok szűrése feltételek alapján
+Sort(tábla, oszlop[, növekvő]) //Rekordok rendezése
+FirstN(tábla, n) //Első N rekord kiválasztása
+LastN(tábla, n) //Utolsó N rekord kiválasztása
+StartsWith(szöveg,minta) //Ellenőrzi, hogy minta változó értékével kezdődik-e szöveg
+If(minta in szöveg,true,false) //Tartalmazza-e szöveg minta változó értékét
+</code></pre></div></div>
+
+<h3 id="collection-és-rekord-műveletek">Collection és rekord műveletek<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#collection-%C3%A9s-rekord-m%C5%B1veletek" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Collect(collection_neve, rekord) //Új rekord hozzáadása a collection-hez
+Clear(collection_neve) //Collection törlése
+ClearCollect(collection_neve, rekordok) //Collection törlése és új rekordok hozzáadása
+Update(collection, régi_rekord, új_rekord) //Rekord módosítása a collection-ben
+UpdateIf(collection, feltétel, új_értékek) //Feltételes rekord módosítás
+Patch(adatforrás, rekord, változtatások) //Rekord módosítása az adatforrásban
+Remove(collection, rekord) //Rekord törlése a collection-ből
+RemoveIf(collection, feltétel) //Feltételes rekord törlés
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Collect('test',
+  {
+    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference", //Amiatt kell, mert nem egyszerű ID-t, hanem Expanded Reference típusú adatot adunk a táblába
+    Id: ComboBox1.Selected.EmployeeID, //A rekord összes adatát meg kell adni, ez előnytelen használhatóság a SharePoint részéről
+    Value: ComboBox1.Selected.EmployeeName //Alternatívaként egy LookUp lekérdezésből is visszakérhetjük az értékeket az ID alapján
+  }
+)
+</code></pre></div></div>
+
+<h3 id="validációs-függvények">Validációs függvények<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#valid%C3%A1ci%C3%B3s-f%C3%BCggv%C3%A9nyek" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IsBlank(érték) //Vezérlő üres-e
+IsEmpty(collection) //Collection üres-e
+IsError(művelet) //Hibára fut-e az adott művelet
+CountRows(tábla) //Sorok számának meghatározása
+CountIf(tábla, feltétel) //Feltételes számlálás
+</code></pre></div></div>
+
+<h3 id="dátum-és-idő-függvények">Dátum és idő függvények<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#d%C3%A1tum-%C3%A9s-id%C5%91-f%C3%BCggv%C3%A9nyek" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Now()  //Aktuális dátum és idő lekérése
+Today()  //Mai dátum lekérése
+DateAdd(dátum, napok, egység) //Dátum eltolása megadott időegységgel
+DateDiff(dátum1, dátum2, egység) //Két dátum közötti különbség számítása
+</code></pre></div></div>
+
+<h3 id="vezérlési-struktúrák">Vezérlési struktúrák<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#vez%C3%A9rl%C3%A9si-strukt%C3%BAr%C3%A1k" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Számok generálása 00-59 között ForAll segítségével
+ForAll(Sequence(60,0),Text(Value,"00")) //00-tól 59-ig számok generálása két számjeggyel
+ThisRecord //ForAll ciklusváltozó
+</code></pre></div></div>
+<h2 id="adatkezelés-és-kapcsolat">Adatkezelés és kapcsolat<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#adatkezel%C3%A9s-%C3%A9s-kapcsolat" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="sharepoint-integráció">SharePoint integráció<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#sharepoint-integr%C3%A1ci%C3%B3" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li>Külön hozzáadás szükséges az “Adatok” fülön: “SharePoint”</li>
+  <li>Power Automate-hez hasonlóan az oszlopokra hivatkozás az oszlopnév helyett esetenként ‘field_1’ formátumban (SortByColumns esetén)</li>
+</ul>
+
+<h3 id="office-365-integráció">Office 365 integráció<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#office-365-integr%C3%A1ci%C3%B3" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li>Felhasználói adatok lekérése</li>
+  <li>Email és szervezeti információk elérése</li>
+  <li>Profilképek kezelése</li>
+  <li>Külön hozzáadás szükséges az “Adatok” fülön: “Office365Users” vagy ‘Office365-felhasználók’
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User().Email //A Power Apps alkalmazásba vagy a web-es felületre bejelentkezett e-mail címet adja vissza
+User().Image //Saját profilképünk
+User().FullName //Saját nevünk, angol formátumban (Keresztnév Vezetéknév)
+
+Office365Users.UserProfile(User().Email) //Az Office365 connection-ön keresztül a profil kérése
+  .displayName //Felhasználó teljes neve
+  .department //Team
+  .jobTitle //Beosztás, pozíció
+
+Office365Users.UserPhotoV2(email) //Profilkép lekérése
+
+Office365Users.UserPhotoMetadata(email).HasPhoto //Van-e profilkép beállítva
+
+If('Office365-felhasználók'.UserPhotoMetadata(User().Email).HasPhoto,'Office365-felhasználók'.UserPhotoV2(User().Email),SampleImage) //Ha nincs beállítva profilkép SampleImage megjelenítése
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="fontos-komponensek-és-tulajdonságaik">Fontos komponensek és tulajdonságaik<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#fontos-komponensek-%C3%A9s-tulajdons%C3%A1gaik" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="gomb">Gomb<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#gomb" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">OnSelect</code>: kattintás után végrehajtandó utasítások</li>
+  <li><code class="language-plaintext highlighter-rouge">Text</code>: felirat</li>
+</ul>
+
+<h3 id="beviteli-mezők">Beviteli mezők<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#beviteli-mez%C5%91k" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Items</code>: Adatforrás megadása</li>
+  <li><code class="language-plaintext highlighter-rouge">Default</code>: alapértelmezett érték, űrlap esetében fontos, hogy egyből megjelenjen egy rekord adott értéke</li>
+  <li><code class="language-plaintext highlighter-rouge">DisplayMode</code>: szerkeszthető vagy nem</li>
+  <li>Dropdown esetén <code class="language-plaintext highlighter-rouge">Selected</code>: kiválasztott sor</li>
+  <li>ComboBox esetén <code class="language-plaintext highlighter-rouge">SelectedItems</code>: kiválasztott sor(ok)</li>
+</ul>
+
+<h3 id="gallery-katalógus">Gallery (Katalógus)<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#gallery-katal%C3%B3gus" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Items</code>: Adatforrás megadása</li>
+  <li><code class="language-plaintext highlighter-rouge">ThisItem</code>: Az aktuális rekordra hivatkozás</li>
+</ul>
+
+<h3 id="form-űrlap">Form (Űrlap)<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#form-%C5%B1rlap" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li>Felhasználás: új rekord hozzáadása adatbázishoz, rekord módosítása</li>
+  <li><code class="language-plaintext highlighter-rouge">DataSource</code>: Adatforrás megadása</li>
+  <li>Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket</li>
+  <li>Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra</li>
+  <li>Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap</li>
+  <li>Legördülő menü esetén (tehát amikor több táblával, Foreign key-el dolgozunk):
+    <ol>
+      <li>A mezőknél adjuk hozzá a Foreign key-t tartalmazó oszlopot</li>
+      <li>Ugyanitt gördítsük le a hozzáadott vezérlő kártyáját, majd a Vezérlő típusát állítsuk Megengedett értékek-re</li>
+      <li>Kapcsoljuk ki a szerkesztési korlátozást az adott vezérlőn (bal oldali sáv, majd jobb gomb Zárolás feloldása)</li>
+      <li>Ezután adjuk hozzá az új kapcsolatot a dimenzió táblánkhoz</li>
+      <li>A vezérlő Items tulajdonságának adjuk meg ezt az adatot</li>
+      <li>A Value alapértelmezetten felveszi a tulajdonságot, de ha mégis az ID jelenne meg: jobb oldali tulajdonságok menü, majd Value beállítása a kívánt oszlopra</li>
+      <li>Ezután ne a vezérlőre (nem a DataCardValue), hanem magára a kártyára (DataCard) kattintsunk, majd az Update tulajdonságot javítsuk, pl.:     DataCardValue.Selected.Title (az alapértelmezett Value itt egyébként is hibát jelez, az elküldendő oszlopot hivatkozzuk itt meg)</li>
+    </ol>
+  </li>
+  <li>Sorszám kezelés esetén (Pl. a Sharepoint lista nem auto increment-el):
+    <ol>
+      <li>Kapcsoljuk ki a zárolást a sorszám vezérlőn</li>
+      <li>A Default paraméternek adjuk ezt a kódot:
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  If(!IsBlank(Parent.Default),Parent.Default,Last(Sort(adatforrás,Int(Title),SortOrder.Ascending)).Title+1) //Parent (szülő) a container-t jelöli, a Form elemet
+</code></pre></div>        </div>
+      </li>
+    </ol>
+    <ul>
+      <li>Ha üres a vezérlő, tehát új rekordot akarunk hozzáadni, akkor az adatbázisban a következő szabad ID-t adja vissza</li>
+      <li>Ha nem szöveges ID mezőt használunk (a Title mező sajnos mindig szöveg), akkor elég a <code class="language-plaintext highlighter-rouge">LookUp(adatforrás,ID=Max(ID),ID)+1</code> kódot használni</li>
+      <li>Ha nem üres a vezérlő azt jelenti, hogy egy meglévő rekordot szerkesztünk, tehát jelenítsük meg az adott rekord ID-ját
+    3. A megjelenítési módnál állítsuk View-ra az értéket, hogy megakadályozzuk a felhasználót a manuális értékbeviteltől</li>
+      <li>Hasonlóan az előbbihez, ha dinamikusan akarjuk kezelni, hogy a mező szerkeszthető-e, akkor a <code class="language-plaintext highlighter-rouge">If(!IsBlank(Parent.Default),Parent.DisplayMode,DisplayMode.View)</code> kóddal kezelhetjük, hogy csak szerkesztéskor lehessen módosítani a sorszámot
+        <ul>
+          <li>Ez egyébként bad practice, az ID primary key, tehát egyértelműen azonosítja a rekordot, nem érdemes a felhasználóra bízni az értékmegadást</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Parancsok:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SubmitForm(form) //Űrlap leadása
+NewForm(form) //üres űrlap betöltése
+ResetForm(form) //bevitt értékek törlése, visszaállítás alapértelmezettre
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="speciális-technikák">Speciális technikák<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#speci%C3%A1lis-technik%C3%A1k" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="értesítés">Értesítés<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#%C3%A9rtes%C3%ADt%C3%A9s" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li>A felhasználó tájékoztatása a felső sávban</li>
+  <li>Részletek: <a href="https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror"><int>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror</int></a>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Notify(szöveg, NotificationType, timeOut)
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="felhasználó-által-definiált-függvények">Felhasználó által definiált függvények<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#felhaszn%C3%A1l%C3%B3-%C3%A1ltal-defini%C3%A1lt-f%C3%BCggv%C3%A9nyek" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Példák függvény definiálása
+FuggvenyNeve1(valtozo1:Number,valtozo2:Number):Number=valtozo1*valtozo2; //Számok szorzása
+FuggvenyNeve2():Void={Refresh(adatforrás);Notify();Set()}; //Értesítés küldése és változó beállítása
+</code></pre></div></div>
+
+<h3 id="loadingspinner-használata">LoadingSpinner használata<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#loadingspinner-haszn%C3%A1lata" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// LoadingSpinner alapvető implementáció
+Set(isLoading, true)  //Loading indítása
+LoadingSpinner1.Visible = isLoading //LoadingSpinner megjelenítése
+LoadingSpinner1.Color = RGBA(98, 100, 167, 1) //LoadingSpinner színének beállítása
+
+// Használat példa
+//Button1 OnSelect tulajdonságba
+Set(isLoading, true);
+Patch('Tasks', Defaults('Tasks'), {Title: TextInput1.Text});
+Set(isLoading, false)
+</code></pre></div></div>
+
+<h3 id="teljesítmény-optimalizálás">Teljesítmény optimalizálás<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#teljes%C3%ADtm%C3%A9ny-optimaliz%C3%A1l%C3%A1s" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li>Delegálás: a Power Apps külső Microsoft / Azure API-kkal futtatja az utasítást, külső kiszolgálóra helyezi a munka nehéz részét</li>
+</ul>
+
+<h3 id="dokumentáció">Dokumentáció<a class="anchorjs-link " href="https://halobobi.github.io/flow-pro-2/#dokument%C3%A1ci%C3%B3" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<ul>
+  <li>A teljes dokumentáció, példákkal itt érhető el: <a href="https://learn.microsoft.com/en-us/power-platform/power-fx/overview"><int>https://learn.microsoft.com/en-us/power-platform/power-fx/overview</int></a></li>
+</ul>
+
+
+      
+    </div>
+    <script src="./Flow Pro II_ Power Apps _ flow-pro-2_files/anchor.min.js.download" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  
+
+</body></html>
