@@ -269,4 +269,4 @@ Set(isLoading, false)
 - Delegálás: a Power Apps külső Microsoft / Azure API-kkal futtatja az utasítást, külső kiszolgálóra helyezi a munka nehéz részét
 
 ### Dokumentáció
-- A teljes dokumentáció, példákkal itt érhető el: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/overview</int](https://learn.microsoft.com/en-us/power-platform/power-fx/overview)
+- A teljes dokumentáció, példákkal itt érhető el: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/overview</int>](https://learn.microsoft.com/en-us/power-platform/power-fx/overview)
