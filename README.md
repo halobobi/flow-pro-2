@@ -36,6 +36,8 @@
 
 ### Irány a Power Apps
 
+#### Ismerkedés
+
 0. Nyelv beállítása angolra a böngészőben
 
 1. Új üres Canvas app létrehozása, telefonra
@@ -57,6 +59,7 @@
 3. Adatkapcsolatok kialakítása
     - SharePoint listák hozzáadása a ```https://bcecid-my.sharepoint.com/personal/{saját e-mail cím}/_layouts/15/lists.aspx``` site-ról
     - Office365Users hozzáadása
+#### Fejléc, galéria
 5. Üdvözlő felület:
     1. Adjunk hozzá egy horizontális konténert felülre, majd a label-t és képet ide tegyük
         - Justify: space between
@@ -91,6 +94,7 @@
     6. Változtassunk a megjelenő szövegen (itt is lehet Concatenate-et használni)
         - A név előtt jelenjen meg a ```Név: ``` felirat: ```"Név: " & ThisItem.DeviceName```
         - Az ID előtt jelenjen meg az ```ID: ``` felirat: ```"ID: " & ThisItem.ID```
+#### Rekord részletek megjelenítése
     7. A nyílra nyomva ugorjunk a Screen2-re, ahol a rekord részleteit láthatjuk, törölhetjük azt
         - Adjunk hozzá új képernyőt (el is nevezhetjük)
         - speciális áttűnést használjunk, context-ben adjuk át az adott rekordot
@@ -117,6 +121,7 @@
          - vagy: ```Navigate(Screen1)```
      13. Törlés után automatikusan térjünk vissza a főoldalra
          - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First);Back()```
+#### Szűrési lehetőségek
      14. Adjunk hozzá szűrési lehetőséget a névre
          - TextInput hozzáadása alulra
          - Items: ```Filter(Device_FactDevice, (TextInput1.Text in DeviceName))```
@@ -133,5 +138,8 @@
          - Újabb dropdown hozzáadása
          - Dropdown2.Items: ```[SortOrder.Ascending,SortOrder.Descending]```
          - Gallery1.Items: ```SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value,Dropdown2.Selected.Value)```
-         - Ha a legördülű menü opcióit magyarul szeretnénk kiíratni, Items: ```[{action:SortOrder.Ascending,text:"Növekvő"},{action:SortOrder.Descending,text:"Csökkenő"}]```
+         - Ha a legördülű menü opcióit saját szöveggel szeretnénk kiíratni, Items: ```[{action:SortOrder.Ascending,text:"Növekvő"},{action:SortOrder.Descending,text:"Csökkenő"}]```
              - A tulajdonságoknál a Value-t állítsuk text-re (vagy amilyen kulcsot megadtunk), a galériában pedig ```Dropdown2.Selected.action``` legyen
+
+## Önálló feladatok
+
