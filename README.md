@@ -38,11 +38,11 @@
 
 #### Ismerkedés
 
-0. Nyelv beállítása angolra a böngészőben
+1. Nyelv beállítása angolra a böngészőben
 
-1. Új üres Canvas app létrehozása, telefonra
+2. Új üres Canvas app létrehozása, telefonra
     - Lehet reszponzív, tablet, telefon mód, lehet létrehozni design-t adatvezérelten, illetve akár Figmából is
-2. Körbetekintés
+3. Körbetekintés
     - Baloldali sávon:
         - Fastruktúra, itt találjuk az app komponenseket, új képernyő hozzáadása
         - Új elem hozzáadása
@@ -56,10 +56,12 @@
         - középen lévő sávba írva tudunk a tulajdonságoknak értéket adni (viselkedési (esemény) tulajdonságnak függvényt, nem viselkedésinek csak adatot (kivéve LookUp, If, stb.)
         - feljebb egyéb szöveges formázások
         - jobbra megosztás, futtatás, mentés, publikálás (ez kell ahhoz, hogy nyílvánosan mindenkinek elérhető legyen az app)
-3. Adatkapcsolatok kialakítása
+4. Adatkapcsolatok kialakítása
     - SharePoint listák hozzáadása a ```https://bcecid-my.sharepoint.com/personal/{saját e-mail cím}/_layouts/15/lists.aspx``` site-ról
     - Office365Users hozzáadása
+  
 #### Fejléc, galéria
+
 5. Üdvözlő felület:
     1. Adjunk hozzá egy horizontális konténert felülre, majd a label-t és képet ide tegyük
         - Justify: space between
@@ -94,7 +96,9 @@
     6. Változtassunk a megjelenő szövegen (itt is lehet Concatenate-et használni)
         - A név előtt jelenjen meg a ```Név: ``` felirat: ```"Név: " & ThisItem.DeviceName```
         - Az ID előtt jelenjen meg az ```ID: ``` felirat: ```"ID: " & ThisItem.ID```
+
 #### Rekord részletek megjelenítése
+
     7. A nyílra nyomva ugorjunk a Screen2-re, ahol a rekord részleteit láthatjuk, törölhetjük azt
         - Adjunk hozzá új képernyőt (el is nevezhetjük)
         - speciális áttűnést használjunk, context-ben adjuk át az adott rekordot
@@ -121,7 +125,9 @@
          - vagy: ```Navigate(Screen1)```
      13. Törlés után automatikusan térjünk vissza a főoldalra
          - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First);Back()```
+
 #### Szűrési lehetőségek
+
      14. Adjunk hozzá szűrési lehetőséget a névre
          - TextInput hozzáadása alulra
          - Items: ```Filter(Device_FactDevice, (TextInput1.Text in DeviceName))```
