@@ -5,7 +5,7 @@
 ### Adatbázis létrehozása
 1. Keressük fel a Lists oldalát
 2. Nyissuk meg a mintaadatokat tartalmazó Excel file-t
-- Először a dimenzió táblákat hozzuk létre
+#### Dimenziótáblák létrehozása
 3. Adjunk hozzá új listát Device_DimStatus néven
     - A saját listák közzé hozzuk létre
         1. Új oszlop hozzáadása
