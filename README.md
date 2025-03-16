@@ -87,12 +87,14 @@ Reset(TextInput) //visszaállítja alapértelmezettre a bevitelő mezőt
 
 ### Navigáció
 ```
-Navigate(képernyő, NavigationType, {context}) //Képernyők közötti navigáció
+Navigate(képernyő, ScreenTransition, {context}) //Képernyők közötti navigáció
+Back(ScreenTransition) //Visszalépés az előző oldalra
 ```
 - Képernyők közötti értékátadás
   - **Context használata navigációnál**
   - Globális változók alkalmazása
   - Collections ideiglenes tárolásra
+- Részletek: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-navigate</int>](https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-navigate) 
 
 ### Feltételes műveletek
 ```
@@ -262,3 +264,6 @@ Set(isLoading, false)
 
 ### Teljesítmény optimalizálás
 - Delegálás: a Power Apps külső Microsoft / Azure API-kkal futtatja az utasítást, külső kiszolgálóra helyezi a munka nehéz részét
+
+### Dokumentáció
+- A teljes dokumentáció, példákkal itt érhető el: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/overview</int](https://learn.microsoft.com/en-us/power-platform/power-fx/overview)
