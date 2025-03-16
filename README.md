@@ -48,6 +48,11 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 
 ## Fejlesztői felület
 
+### Nyelvi beállítások
+- Alapértelmezetten a böngésző vagy a számítógép nyelvi beállításait követi
+- Felül lehet írni a jobb fenti beállításokban
+  - Ha ez nem elégséges, szükséges a böngésző nyelvét is átállítani
+
 ### Felület áttekintés
 - **Bal oldali panel**: 
   - Fastruktúra
@@ -69,10 +74,6 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
       - Rádiógomb, checkbox, stb.
     - Címkék (Label): szöveg megjelenítése, értékét változón keresztül tudjuk módosítani
     - Katalógus (Gallery): adattáblák megjelenítése
-
-### Nyelvi beállítások
-- Alapértelmezetten a szervezeti vagy számítógép nyelvi beállításait követi
-- Felül lehet írni a jobb fenti beállításokban
 
 ## Függvények és képletek
 
