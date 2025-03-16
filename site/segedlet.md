@@ -1,4 +1,4 @@
-# Flow Pro II: Power Apps
+# Power Apps segédlet
 
 ## Bevezetés
 A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely lehetővé teszi egyedi üzleti alkalmazások gyors és hatékony fejlesztését. Az alábbiakban részletes útmutatót találsz a platform használatához.
