@@ -5,7 +5,7 @@
 ### Adatbázis létrehozása
 1. Keressük fel a Lists oldalát
     - A listákat a saját listák közzé hozzuk létre
-3. Nyissuk meg a mintaadatokat tartalmazó Excel file-t
+2. Nyissuk meg a mintaadatokat tartalmazó Excel file-t
 #### Dimenziótáblák létrehozása
 3. Adjunk hozzá új listát ```Device_DimStatus``` néven
     1. Új oszlop hozzáadása
@@ -33,4 +33,10 @@
     1. LookUp (Keresés) típusú oszlopok hozzáadása ```StatusID``` és ```StorageID``` néven
     2. Megfelelő listák és értékek beállítása (hozzáadás után nem lehet módosítani)
 9. Adatok hozzáadása Excel-ből
+
+### Irány a Power Apps
+0. Nyelv beállítása angolra
+1. Új üres Canvas app létrehozása, telefonra
+2. Körbetekintés
+    - Baloldali sávon: 
 
