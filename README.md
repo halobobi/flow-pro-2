@@ -232,6 +232,13 @@ ThisRecord //ForAll ciklusváltozó
 
 ## Speciális technikák
 
+### Felugró ablak
+- A felhasználó tájékoztatása a felső sávban
+- Részletek: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror</int>](https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror)
+```
+Notify(szöveg, NotificationType, timeOut)
+```
+
 ### Felhasználó által definiált függvények
 ```
 // Példák függvény definiálása
