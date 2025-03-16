@@ -133,3 +133,5 @@
          - Újabb dropdown hozzáadása
          - Dropdown2.Items: ```[SortOrder.Ascending,SortOrder.Descending]```
          - Gallery1.Items: ```SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value,Dropdown2.Selected.Value)```
+         - Ha a legördülű menü opcióit magyarul szeretnénk kiíratni, Items: ```[{action:SortOrder.Ascending,text:"Növekvő"},{action:SortOrder.Descending,text:"Csökkenő"}]```
+             - A tulajdonságoknál a Value-t állítsuk text-re (vagy amilyen kulcsot megadtunk), a galériában pedig ```Dropdown2.Selected.action``` legyen
