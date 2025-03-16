@@ -235,7 +235,7 @@ ThisRecord //ForAll ciklusváltozó
 
 ## Speciális technikák
 
-### Felugró ablak
+### Értesítés
 - A felhasználó tájékoztatása a felső sávban
 - Részletek: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror</int>](https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror)
 ```
