@@ -20,15 +20,15 @@
         4. Beillesztés (CTRL+V)
 
 4. Adjunk hozzá új listát ```Device_DimStorage``` néven
-    1. ID oszlop megjelenítése, Title oszlop elrejtése
+    1. ```ID``` oszlop megjelenítése, ```Title``` oszlop elrejtése
     2. ```StorageName``` szöveges oszlop hozzáadása
     3. ```StorageLocation``` szöveges oszlop hozzáadása
     4. Adatok hozzáadása Excel-ből
      
 #### Ténytábla hozzadása
 5. Adjunk hozzá új listát ```Device_FactDevice``` néven
-6. ID, Title oszlopok kezelése
-7. DeviceName szöveges, AqDate dátum típusú oszlop hozzáadása
+6. ```ID```, ```Title``` oszlopok kezelése
+7. ```DeviceName``` szöveges, ```AqDate``` dátum típusú oszlop hozzáadása
 8. Foreign key oszlopok hozzáadása
     1. LookUp (Keresés) típusú oszlopok hozzáadása ```StatusID``` és ```StorageID``` néven
     2. Megfelelő listák és értékek beállítása (hozzáadás után nem lehet módosítani)
@@ -62,22 +62,22 @@
         - Justify: space between
         - Align: center
         - Size: 640 x 140
-        - Padding: 20 minden oldalon
-        - Shadow: None
+        - Padding: ```20``` minden oldalon
+        - Shadow: ```None```
         - A szín valamilyen nagyon világos szín legyen: ```RGBA(241, 244, 249, 1)```
-        - Border radius: 50, de alulról utólag töröljük a spec. tulajdonságoknál
+        - Border radius: ```50```, de alulról utólag töröljük a spec. tulajdonságoknál
         - Ha nem szeretnénk a rendezéssel, méretezéssel szenvedni, akkor elég egy sima konténer is, vagy kihagyhatjuk 
     2. Adjunk hozzá labelt-t balra
         - Text: ```Concatenate("Üdv ",Office365Users.UserProfile(User().Email).DisplayName,"!")```
-        - Height: 70
-        - Width: 490
-        - Font weight: Bold
+        - Height: ```70```
+        - Width: ```490```
+        - Font weight: ```Bold```
         - Ha nem zavar a rossz lokalizáció: ```User().FullName```
     3. Adjunk hozzá egy képet jobbra
         - Image: ```If(Office365Users.UserPhotoMetadata(User().Email).HasPhoto,Office365Users.UserPhotoV2(User().Email),SampleImage)```
         - Ha lusták vagyunk, és nem kezelünk hibát: ```User().Image```
         - Size: 100 x 100
-        - Border radius: 90, így kör alakú lesz a kép
+        - Border radius: ```90```, így kör alakú lesz a kép
     4. Adjunk hozzá újabb konténert
         - Simát, ami az egész képernyőt lefedi a fejlécen kívül, illetve az alsó vezérlősávon kívül (később gombot tudunk ide tenni)
         - Legyen ugyanaz a színe, mint a fejlécnek
