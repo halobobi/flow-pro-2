@@ -156,11 +156,11 @@
 
 ## Önálló feladatok
 
-### Feladatleírás
+### 1. feladat
 
 1. Hozzunk létre egy új Canvas app-ot
-    - Tetőszőlegesen lehet reszponzív, tablet, vagy telefon méret
-2. A felhasznált adatbázis: ```https://bcecid.sharepoint.com/sites/bit-bce-hq/Lists/Flow%20Pro%202_Kzs%20adatbzis/AllItems.aspx```
+    - Tetszőlegesen lehet reszponzív, tablet vagy telefon méret
+2. A felhasználandó adatbázis: ```https://bcecid.sharepoint.com/sites/bit-bce-hq/Lists/Flow%20Pro%202_Kzs%20adatbzis/AllItems.aspx```
 3. A felhasználónak jelenítsük meg az adatbázis összes rekordját, mindkét oszlop adatait, tetszőleges formában
 4. A sorban megjelenő nyíl megnyomásával törölhessük az adott rekordot
     - Állítsunk az esemény jellegéhez megfelelő ikont a gombnak
@@ -168,3 +168,12 @@
     - TextInput mezőben lehessen az értéket megadni, ami gombnyomás után ellenőrzi és jelzi egy felül megjelenő értesítésben, ha már létezik ilyen tartalmú rekord (segítség: IsEmpty(LookUp()))
 6. Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
 7. Legyen szűrhető és rendezhető galéria: egy tetszőleges oszlop tartalma alapján lehessen szűrni, és sorbarendezni (opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség)
+
+### Szorgalmi feladat
+
+1. Kérjünk be a felhasználótól egy BIT-es e-mail címet, majd kérdezzünk le minél több adatot róla. Tetszőleges, hogy hány darab, milyen jellegű tulajdonságot kérünk le, de legyen 3-5 db, ami érdekes.
+2. Ezen tulajdonságok alapján építsünk egy 1 táblás adatbázist, ahol az ID, e-mail, majd a kiválasztott tulajdonságok jelentik az egyes oszlopokat.
+3. Amikor a felhasználó megad egy e-mail címet, ellenőrizzük, hogy valóban létezik-e ilyen a szervezeten belül, ha nem, küldjünk hibaüzenetet
+4. Ha igen, jelenítsük meg a tulajdonságokat, illetve mentsük az adatokat az adatbázisba
+5. Oldjuk meg, hogy ha valaki következőleg kéri le ugyanezt az e-mail címet, már nem az Office365Users kapcsolat segítségével, hanem a saját adatbázisunkból olvassuk vissza az adatokat. Ekkor jelezzük is a felhasználónak, hogy az adatokat a saját adatbázisunkból olvastuk vissza, így nem feltétlen naprakészek, adjuk meg a rekord készítésének dátumát is emiatt.
+6. Egy másik gombbal legyen lehetőségünk frissíteni az adatbázisban tárolt rekordot, a megvalósítás tetszőleges.
