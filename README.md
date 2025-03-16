@@ -104,9 +104,11 @@
     1. A nyílra nyomva ugorjunk a Screen2-re, ahol a rekord részleteit láthatjuk, törölhetjük azt
         - Adjunk hozzá új képernyőt (el is nevezhetjük)
         - speciális áttűnést használjunk, context-ben adjuk át az adott rekordot
-        - OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
+        - OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{itemID:ThisItem.ID})```
     2. Másoljuk a fejlécet a Screen1-ről, a másik konténtert is lehet, csak töröljük a galériát
-    3. Adjunk hozzá 5 label-t, az ```item``` context tulajdonságból olvassuk ki az összes adatot
+    3. Kérdezzük le az ```itemID```-hoz tartozó rekordot, majd mentsük változóba
+        - Screen2.OnVisible: ```Set(item,LookUp(Device_FactDevice,ID=itemID))```
+    5. Adjunk hozzá 5 label-t, az ```item``` változóból olvassuk ki az összes adatot
         ```
         item.ID
         item.DeviceName
@@ -114,19 +116,21 @@
         item.StorageID.Value
         item.Created
         ```
-    4. Adjunk hozzá törlés gombot
+    6. Adjunk hozzá törlés gombot
          - Text: ```Törlés```
          - Color: valami piros
        
-     5. Adatbázisok módosítása manuálisan
+     7. Adatbázisok módosítása manuálisan
          - Későbbiekben majd egy sokoldalú módszerrel adunk hozzá új, illetve módosítunk rekordokat (Űrlap)
          - De egyszeri, összetett műveleteket nem lehet az űrlapok segítségével végezni, hanem: Collect, Patch, Remove
          - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First) //Az utolsó zászló nem az összes egyező rekordot (filter kimenet megadása esetén) törli, hanem csak az első egyezést```
-     6. Adjunk hozzá egy vissza gombot az oldalhoz
+     8. Jelezzük a felhasználónak, hogy a törlés sikeres volt
+         - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First);Notify("Sikeres törlés!",NotificationType.Success,1000) //Success típusú üzenet, egy másodperc után eltűnik```
+     9. Adjunk hozzá egy vissza gombot az oldalhoz
          - OnSelect: ```Back()```
          - vagy: ```Navigate(Screen1)```
-     7. Törlés után automatikusan térjünk vissza a főoldalra
-         - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First);Back()```
+     10. Törlés után automatikusan térjünk vissza a főoldalra
+         - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First);Notify("Sikeres törlés!",NotificationType.Success,1000);Back()```
 
 #### Szűrési lehetőségek
 
@@ -134,7 +138,7 @@
      1. Adjunk hozzá szűrési lehetőséget a névre
          - TextInput hozzáadása alulra
          - Items: ```Filter(Device_FactDevice, (TextInput1.Text in DeviceName))```
-         - Miért nem jelenik meg semmi?
+         - Miért nem jelenik meg semmi? Mert az alapértelmezett értékre nincs találat az adatbázisban
              - A mező Default értékét állítsuk üresre, ez minden újraindításkor, app futtatáskor (nem a fejlesztői környezetből) töltődik be
      2. Rendezzük név szerint a megjelenő elemeket
          - Items: ```Sort(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),DeviceName,SortOrder.Ascending) //Név szerint, növekvő sorrend```
@@ -152,3 +156,15 @@
 
 ## Önálló feladatok
 
+### Feladatleírás
+
+1. Hozzunk létre egy új Canvas app-ot
+    - Tetőszőlegesen lehet reszponzív, tablet, vagy telefon méret
+2. A felhasznált adatbázis: ```https://bcecid.sharepoint.com/sites/bit-bce-hq/Lists/Flow%20Pro%202_Kzs%20adatbzis/AllItems.aspx```
+3. A felhasználónak jelenítsük meg az adatbázis összes rekordját, mindkét oszlop adatait, tetszőleges formában
+4. A sorban megjelenő nyíl megnyomásával törölhessük az adott rekordot
+    - Állítsunk az esemény jellegéhez megfelelő ikont a gombnak
+6. Egy gomb segítségével egy másik oldalon lehessen új rekordot hozzáadni:
+    - TextInput mezőben lehessen az értéket megadni, ami gombnyomás után ellenőrzi és jelzi egy felül megjelenő értesítésben, ha már létezik ilyen tartalmú rekord (segítség: IsEmpty(LookUp()))
+8. Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
+9. Legyen szűrhető és rendezhető galéria: egy tetszőleges oszlop tartalma alapján lehessen szűrni, és sorbarendezni (opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség)
