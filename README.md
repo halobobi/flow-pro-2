@@ -35,7 +35,9 @@
 9. Adatok hozzáadása Excel-ből
 
 ### Irány a Power Apps
+
 0. Nyelv beállítása angolra a böngészőben
+
 1. Új üres Canvas app létrehozása, telefonra
     - Lehet reszponzív, tablet, telefon mód, lehet létrehozni design-t adatvezérelten, illetve akár Figmából is
 2. Körbetekintés
@@ -56,7 +58,7 @@
     - SharePoint listák hozzáadása a ```https://bcecid-my.sharepoint.com/personal/{saját e-mail cím}/_layouts/15/lists.aspx``` site-ról
     - Office365Users hozzáadása
 5. Üdvözlő felület:
-    0. Adjunk hozzá egy horizontális konténert felülre, majd a label-t és képet ide tegyük
+    1. Adjunk hozzá egy horizontális konténert felülre, majd a label-t és képet ide tegyük
         - Justify: space between
         - Align: center
         - Size: 640 x 140
