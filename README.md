@@ -170,6 +170,8 @@ ThisRecord //ForAll ciklusváltozó
 - Külön hozzáadás szükséges az "Adatok" fülön: "Office365Users" vagy 'Office365-felhasználók'
   ```
   User().Email //A Power Apps alkalmazásba vagy a web-es felületre bejelentkezett e-mail címet adja vissza
+  User().Image //Saját profilképünk
+  User().FullName //Saját nevünk, angol formátumban (Keresztnév Vezetéknév)
 
   Office365Users.UserProfile(User().Email) //Az Office365 connection-ön keresztül a profil kérése
     .displayName //Felhasználó teljes neve
