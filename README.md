@@ -117,4 +117,19 @@
          - vagy: ```Navigate(Screen1)```
      13. Törlés után automatikusan térjünk vissza a főoldalra
          - OnSelect: ```Remove(Device_FactDevice,item,RemoveFlags.First);Back()```
-
+     14. Adjunk hozzá szűrési lehetőséget a névre
+         - TextInput hozzáadása alulra
+         - Items: ```Filter(Device_FactDevice, (TextInput1.Text in DeviceName))```
+         - Miért nem jelenik meg semmi?
+             - A mező Default értékét állítsuk üresre, ez minden újraindításkor, app futtatáskor (nem a fejlesztői környezetből) töltődik be
+     15. Rendezzük név szerint a megjelenő elemeket
+         - Items: ```Sort(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),DeviceName,SortOrder.Ascending) //Név szerint, növekvő sorrend```
+     16. Adjuk meg melyik oszlop alapján rendezzünk sorba legördülő menü segítségével
+         - Dropdown a TextInput mellé
+         - Dropdown1.Items: ```["DeviceName","ID"]```
+         - Gallery1.Items: ```Sort(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value) //így nem működik, mert a dropdown szöveges értéket vissza, a Sort pedig oszlop objektumot vár```
+         - Gallery1.Items: ```SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value) //a SortByColumns már szövegesen vár akár több oszlopnevet```
+     17. Adjunk lehetőséget a rendezési sorrend módosítására
+         - Újabb dropdown hozzáadása
+         - Dropdown2.Items: ```[SortOrder.Ascending,SortOrder.Descending]```
+         - Gallery1.Items: ```SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value,Dropdown2.Selected.Value)```
