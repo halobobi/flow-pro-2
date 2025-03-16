@@ -15,7 +15,7 @@
             2. ```StatusName``` szöveges oszlop hozzáadása
         2. Adatok hozzáadása Excel-ből
             1. Rácsnézet
-            2. Excel-ből csak az adatok másolása
+            2. Excel-ből az adatok másolása fejléc nélkül a megfelelő munkalapról
             3. Kattintás az új elem sorba egyszer
             4. Beillesztés (CTRL+V)
 
