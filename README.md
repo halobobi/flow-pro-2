@@ -6,8 +6,7 @@
 1. Keressük fel a Lists oldalát
 2. Nyissuk meg a mintaadatokat tartalmazó Excel file-t
 - Először a dimenzió táblákat hozzuk létre
-
-    3. Adjunk hozzá új listát Device_DimStatus néven
+3. Adjunk hozzá új listát Device_DimStatus néven
     - A saját listák közzé hozzuk létre
         1. Új oszlop hozzáadása
             1. Oszlopok elrejtése/megjelenítése:
@@ -20,7 +19,7 @@
             3. Kattintás az új elem sorba egyszer
             4. Beillesztés (CTRL+V)
 
-    4. Adjunk hozzá új listát Device_DimStorage néven
+4. Adjunk hozzá új listát Device_DimStorage néven
     - A saját listák közzé hozzuk létre
         1. Új oszlop hozzáadása
             1. Oszlopok elrejtése/megjelenítése:
