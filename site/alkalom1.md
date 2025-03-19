@@ -156,19 +156,6 @@
 
 ## Önálló feladatok
 
-### 1. feladat
-
-1. Hozzunk létre egy új Canvas app-ot
-    - Tetszőlegesen lehet reszponzív, tablet vagy telefon méret
-2. A felhasználandó adatbázis: ```https://bcecid.sharepoint.com/sites/bit-bce-hq/Lists/Flow%20Pro%202_Kzs%20adatbzis/AllItems.aspx```
-3. A felhasználónak jelenítsük meg az adatbázis összes rekordját, mindkét oszlop adatait, tetszőleges formában
-4. A sorban megjelenő nyíl megnyomásával törölhessük az adott rekordot
-    - Állítsunk az esemény jellegéhez megfelelő ikont a gombnak
-5. Egy gomb segítségével nyíljon egy másik oldal, ahol új rekordot tudjunk hozzáadni:
-    - TextInput mezőben lehessen az értéket megadni, ami gombnyomás után ellenőrzi és jelzi egy felül megjelenő értesítésben, ha már létezik ilyen tartalmú rekord (segítség: IsEmpty(LookUp()))
-6. Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
-7. Legyen szűrhető és rendezhető galéria: egy tetszőleges oszlop tartalma alapján lehessen szűrni, és sorbarendezni (opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség)
-
 ### Szorgalmi feladat
 
 1. Kérjünk be a felhasználótól egy BIT-es e-mail címet, majd kérdezzünk le minél több adatot róla. Tetszőleges, hogy hány darab, milyen jellegű tulajdonságot kérünk le, de legyen 3-5 db, ami érdekes.
