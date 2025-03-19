@@ -1,1 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>1. alkalom feladatai | flow-pro-2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="alkalom feladatai" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://halobobi.github.io/flow-pro-2/" />
+<meta property="og:url" content="https://halobobi.github.io/flow-pro-2/" />
+<meta property="og:site_name" content="flow-pro-2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="alkalom feladatai" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"alkalom feladatai","name":"flow-pro-2","url":"https://halobobi.github.io/flow-pro-2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/flow-pro-2/assets/css/style.css?v=78c2a24eb76219c8fe1e577529e6e64bc64eaf05">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/flow-pro-2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://halobobi.github.io/flow-pro-2/">Flow Pro II: Power Apps</a></h1>
+      
+
+      <h1 id="1-alkalom-feladatai">1. alkalom feladatai</h1>
+
+<h2 id="közös-feladatok">Közös feladatok</h2>
+
+<h3 id="adatbázis-létrehozása">Adatbázis létrehozása</h3>
+<ol>
+  <li>Keressük fel a Lists oldalát
+    <ul>
+      <li>A listákat a saját listák közzé hozzuk létre</li>
+    </ul>
+  </li>
+  <li>Nyissuk meg a mintaadatokat tartalmazó Excel file-t
+    <h4 id="dimenziótáblák-létrehozása">Dimenziótáblák létrehozása</h4>
+  </li>
+  <li>Adjunk hozzá új listát <code class="language-plaintext highlighter-rouge">Device_DimStatus</code> néven
+    <ol>
+      <li>Új oszlop hozzáadása
+        <ol>
+          <li>Oszlopok elrejtése/megjelenítése:
+            <ul>
+              <li><code class="language-plaintext highlighter-rouge">ID</code> oszlop megjelenítése</li>
+              <li><code class="language-plaintext highlighter-rouge">Title</code> oszlop elrejtése</li>
+            </ul>
+          </li>
+          <li><code class="language-plaintext highlighter-rouge">StatusName</code> szöveges oszlop hozzáadása</li>
+        </ol>
+      </li>
+      <li>Adatok hozzáadása Excel-ből
+        <ol>
+          <li>Rácsnézet</li>
+          <li>Excel-ből az adatok másolása fejléc nélkül a megfelelő munkalapról</li>
+          <li>Kattintás az új elem sorba egyszer (figyeljünk arra, hogy az oszlopok azonos sorrendben szerepeljenek)</li>
+          <li>Beillesztés (CTRL+V)</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Adjunk hozzá új listát <code class="language-plaintext highlighter-rouge">Device_DimStorage</code> néven
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">ID</code> oszlop megjelenítése, <code class="language-plaintext highlighter-rouge">Title</code> oszlop elrejtése</li>
+      <li><code class="language-plaintext highlighter-rouge">StorageName</code> szöveges oszlop hozzáadása</li>
+      <li><code class="language-plaintext highlighter-rouge">StorageLocation</code> szöveges oszlop hozzáadása</li>
+      <li>Adatok hozzáadása Excel-ből</li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="ténytábla-hozzadása">Ténytábla hozzadása</h4>
+<ol>
+  <li>Adjunk hozzá új listát <code class="language-plaintext highlighter-rouge">Device_FactDevice</code> néven</li>
+  <li><code class="language-plaintext highlighter-rouge">ID</code>, <code class="language-plaintext highlighter-rouge">Title</code> oszlopok kezelése</li>
+  <li><code class="language-plaintext highlighter-rouge">DeviceName</code> szöveges, <code class="language-plaintext highlighter-rouge">AqDate</code> dátum típusú oszlop hozzáadása</li>
+  <li>Foreign key oszlopok hozzáadása
+    <ol>
+      <li>LookUp (Keresés) típusú oszlopok hozzáadása <code class="language-plaintext highlighter-rouge">StatusID</code> és <code class="language-plaintext highlighter-rouge">StorageID</code> néven</li>
+      <li>Megfelelő listák és értékek beállítása (hozzáadás után nem lehet módosítani)</li>
+    </ol>
+  </li>
+  <li>Adatok hozzáadása Excel-ből</li>
+</ol>
+
+<h3 id="irány-a-power-apps">Irány a Power Apps</h3>
+
+<h4 id="ismerkedés">Ismerkedés</h4>
+
+<ol>
+  <li>
+    <p>Nyelv beállítása angolra a böngészőben</p>
+  </li>
+  <li>Új üres Canvas app létrehozása, telefonra
+    <ul>
+      <li>Lehet reszponzív, tablet, telefon mód, lehet létrehozni design-t adatvezérelten, illetve akár Figmából is</li>
+    </ul>
+  </li>
+  <li>Körbetekintés
+    <ul>
+      <li>Baloldali sávon:
+        <ul>
+          <li>Fastruktúra, itt találjuk az app komponenseket, új képernyő hozzáadása</li>
+          <li>Új elem hozzáadása</li>
+          <li>Adatok: új adatkapcsolat létrehozása</li>
+          <li>Környezet, globális változók, saját függvények</li>
+          <li>Egyéb: keresés, média hozzáadása, flow-k és tesztek</li>
+        </ul>
+      </li>
+      <li>Középen: Canvas, behúzhatóak az új elemek, itt kiválasztva azokat szerkeszthetők a tulajdonságaik</li>
+      <li>Jobboldali sáv: részletes tulajdonságok</li>
+      <li>Felül:
+        <ul>
+          <li>baloldalt legördülőben is elérhetőek a tulajdonságok</li>
+          <li>középen lévő sávba írva tudunk a tulajdonságoknak értéket adni (viselkedési (esemény) tulajdonságnak függvényt, nem viselkedésinek csak adatot (kivéve LookUp, If, stb.)</li>
+          <li>feljebb egyéb szöveges formázások</li>
+          <li>jobbra megosztás, futtatás, mentés, publikálás (ez kell ahhoz, hogy nyílvánosan mindenkinek elérhető legyen az app)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Adatkapcsolatok kialakítása
+    <ul>
+      <li>SharePoint listák hozzáadása a <code class="language-plaintext highlighter-rouge">https://bcecid-my.sharepoint.com/personal/{saját e-mail cím}/_layouts/15/lists.aspx</code> site-ról</li>
+      <li>Office365Users hozzáadása</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="fejléc-galéria">Fejléc, galéria</h4>
+
+<ol>
+  <li>Üdvözlő felület:
+    <ol>
+      <li>Adjunk hozzá egy horizontális konténert felülre, majd a label-t és képet ide tegyük
+        <ul>
+          <li>Justify: space between</li>
+          <li>Align: center</li>
+          <li>Size: 640 x 140</li>
+          <li>Padding: <code class="language-plaintext highlighter-rouge">20</code> minden oldalon</li>
+          <li>Shadow: <code class="language-plaintext highlighter-rouge">None</code></li>
+          <li>A szín valamilyen nagyon világos szín legyen: <code class="language-plaintext highlighter-rouge">RGBA(241, 244, 249, 1)</code></li>
+          <li>Border radius: <code class="language-plaintext highlighter-rouge">50</code>, de alulról utólag töröljük a spec. tulajdonságoknál</li>
+          <li>Ha nem szeretnénk a rendezéssel, méretezéssel szenvedni, akkor elég egy sima konténer is, vagy kihagyhatjuk</li>
+        </ul>
+      </li>
+      <li>Adjunk hozzá labelt-t balra
+        <ul>
+          <li>Text: <code class="language-plaintext highlighter-rouge">Concatenate("Üdv ",Office365Users.UserProfile(User().Email).DisplayName,"!")</code></li>
+          <li>Height: <code class="language-plaintext highlighter-rouge">70</code></li>
+          <li>Width: <code class="language-plaintext highlighter-rouge">490</code></li>
+          <li>Font weight: <code class="language-plaintext highlighter-rouge">Bold</code></li>
+          <li>Ha nem zavar a rossz lokalizáció: <code class="language-plaintext highlighter-rouge">User().FullName</code></li>
+        </ul>
+      </li>
+      <li>Adjunk hozzá egy képet jobbra
+        <ul>
+          <li>Image: <code class="language-plaintext highlighter-rouge">If(Office365Users.UserPhotoMetadata(User().Email).HasPhoto,Office365Users.UserPhotoV2(User().Email),SampleImage)</code></li>
+          <li>Ha lusták vagyunk, és nem kezelünk hibát: <code class="language-plaintext highlighter-rouge">User().Image</code></li>
+          <li>Size: 100 x 100</li>
+          <li>Border radius: <code class="language-plaintext highlighter-rouge">90</code>, így kör alakú lesz a kép</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>Galéria kialakítása
+    <ol>
+      <li>Adjunk hozzá újabb konténert
+        <ul>
+          <li>Simát, ami az egész képernyőt lefedi a fejlécen kívül, illetve az alsó vezérlősávon kívül (később gombot tudunk ide tenni)</li>
+          <li>Legyen ugyanaz a színe, mint a fejlécnek</li>
+        </ul>
+      </li>
+      <li>Adjunk hozzá vertikális galériát
+        <ul>
+          <li>Adatforrásnak állítsuk be a <code class="language-plaintext highlighter-rouge">Device_FactDevice</code> listát (ha valakinek nem sikerült saját adatbázist létrehozni, a <code class="language-plaintext highlighter-rouge">https://bcecid.sharepoint.com/sites/bit-bce-hq</code> site-ról hozzáfér egy előre elkészítetthez</li>
+          <li>Méretezzük úgy, hogy a teljes szélességet kitöltse, alul a konténeren belül maradjon egy kevés hely</li>
+          <li>A layout-ot állítsuk Title and subtitle-re</li>
+          <li>Title: DeviceName</li>
+          <li>Subtitle: ID</li>
+          <li>Ikont változtathatunk</li>
+        </ul>
+      </li>
+      <li>Változtassunk a megjelenő szövegen (itt is lehet Concatenate-et használni)
+        <ul>
+          <li>A név előtt jelenjen meg a <code class="language-plaintext highlighter-rouge">Név:</code> felirat: <code class="language-plaintext highlighter-rouge">"Név: " &amp; ThisItem.DeviceName</code></li>
+          <li>Az ID előtt jelenjen meg az <code class="language-plaintext highlighter-rouge">ID:</code> felirat: <code class="language-plaintext highlighter-rouge">"ID: " &amp; ThisItem.ID</code></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="rekord-részletek-megjelenítése">Rekord részletek megjelenítése</h4>
+
+<ol>
+  <li>Részletek oldal kialakítása
+    <ol>
+      <li>A nyílra nyomva ugorjunk a Screen2-re, ahol a rekord részleteit láthatjuk, törölhetjük azt
+        <ul>
+          <li>Adjunk hozzá új képernyőt (el is nevezhetjük)</li>
+          <li>speciális áttűnést használjunk, context-ben adjuk át az adott rekordot</li>
+          <li>OnSelect: <code class="language-plaintext highlighter-rouge">Navigate(Screen2,ScreenTransition.Cover,{itemID:ThisItem.ID})</code></li>
+        </ul>
+      </li>
+      <li>Másoljuk a fejlécet a Screen1-ről, a másik konténtert is lehet, csak töröljük a galériát</li>
+      <li>Kérdezzük le az <code class="language-plaintext highlighter-rouge">itemID</code>-hoz tartozó rekordot, majd mentsük változóba
+        <ul>
+          <li>Screen2.OnVisible: <code class="language-plaintext highlighter-rouge">Set(item,LookUp(Device_FactDevice,ID=itemID))</code></li>
+        </ul>
+      </li>
+      <li>Adjunk hozzá 5 label-t, az <code class="language-plaintext highlighter-rouge">item</code> változóból olvassuk ki az összes adatot
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> item.ID
+ item.DeviceName
+ item.StatusID.Value //Mivel egy rekordot tartalmaz, meg kell adni melyik tulajdonságot szeretnénk
+ item.StorageID.Value
+ item.Created
+</code></pre></div>        </div>
+      </li>
+      <li>Adjunk hozzá törlés gombot
+        <ul>
+          <li>Text: <code class="language-plaintext highlighter-rouge">Törlés</code></li>
+          <li>Color: valami piros</li>
+        </ul>
+      </li>
+      <li>Adatbázisok módosítása manuálisan
+        <ul>
+          <li>Későbbiekben majd egy sokoldalú módszerrel adunk hozzá új, illetve módosítunk rekordokat (Űrlap)</li>
+          <li>De egyszeri, összetett műveleteket nem lehet az űrlapok segítségével végezni, hanem: Collect, Patch, Remove</li>
+          <li>OnSelect: <code class="language-plaintext highlighter-rouge">Remove(Device_FactDevice,item,RemoveFlags.First) //Az utolsó zászló nem az összes egyező rekordot (filter kimenet megadása esetén) törli, hanem csak az első egyezést</code></li>
+        </ul>
+      </li>
+      <li>Jelezzük a felhasználónak, hogy a törlés sikeres volt
+        <ul>
+          <li>OnSelect: <code class="language-plaintext highlighter-rouge">Remove(Device_FactDevice,item,RemoveFlags.First);Notify("Sikeres törlés!",NotificationType.Success,1000) //Success típusú üzenet, egy másodperc után eltűnik</code></li>
+        </ul>
+      </li>
+      <li>Adjunk hozzá egy vissza gombot az oldalhoz
+        <ul>
+          <li>OnSelect: <code class="language-plaintext highlighter-rouge">Back()</code></li>
+          <li>vagy: <code class="language-plaintext highlighter-rouge">Navigate(Screen1)</code></li>
+        </ul>
+      </li>
+      <li>Törlés után automatikusan térjünk vissza a főoldalra
+        <ul>
+          <li>OnSelect: <code class="language-plaintext highlighter-rouge">Remove(Device_FactDevice,item,RemoveFlags.First);Notify("Sikeres törlés!",NotificationType.Success,1000);Back()</code></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="szűrési-lehetőségek">Szűrési lehetőségek</h4>
+
+<ol>
+  <li>Szűrés, rendezés megvalósítása
+    <ol>
+      <li>Adjunk hozzá szűrési lehetőséget a névre
+        <ul>
+          <li>TextInput hozzáadása alulra</li>
+          <li>Items: <code class="language-plaintext highlighter-rouge">Filter(Device_FactDevice, (TextInput1.Text in DeviceName))</code></li>
+          <li>Miért nem jelenik meg semmi? Mert az alapértelmezett értékre nincs találat az adatbázisban
+            <ul>
+              <li>A mező Default értékét állítsuk üresre, ez minden újraindításkor, app futtatáskor (nem a fejlesztői környezetből) töltődik be</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Rendezzük név szerint a megjelenő elemeket
+        <ul>
+          <li>Items: <code class="language-plaintext highlighter-rouge">Sort(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),DeviceName,SortOrder.Ascending) //Név szerint, növekvő sorrend</code></li>
+        </ul>
+      </li>
+      <li>Adjuk meg melyik oszlop alapján rendezzünk sorba legördülő menü segítségével
+        <ul>
+          <li>Dropdown a TextInput mellé</li>
+          <li>Dropdown1.Items: <code class="language-plaintext highlighter-rouge">["DeviceName","ID"]</code></li>
+          <li>Gallery1.Items: <code class="language-plaintext highlighter-rouge">Sort(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value) //így nem működik, mert a dropdown szöveges értéket vissza, a Sort pedig oszlop objektumot vár</code></li>
+          <li>Gallery1.Items: <code class="language-plaintext highlighter-rouge">SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value) //a SortByColumns már szövegesen vár akár több oszlopnevet</code></li>
+        </ul>
+      </li>
+      <li>Adjunk lehetőséget a rendezési sorrend módosítására
+        <ul>
+          <li>Újabb dropdown hozzáadása</li>
+          <li>Dropdown2.Items: <code class="language-plaintext highlighter-rouge">[SortOrder.Ascending,SortOrder.Descending]</code></li>
+          <li>Gallery1.Items: <code class="language-plaintext highlighter-rouge">SortByColumns(Filter(Device_FactDevice, (TextInput2.Text in DeviceName)),Dropdown1.Selected.Value,Dropdown2.Selected.Value)</code></li>
+          <li>Ha a legördülű menü opcióit saját szöveggel szeretnénk kiíratni, Items: <code class="language-plaintext highlighter-rouge">[{action:SortOrder.Ascending,text:"Növekvő"},{action:SortOrder.Descending,text:"Csökkenő"}]</code>
+            <ul>
+              <li>A tulajdonságoknál a Value-t állítsuk text-re (vagy amilyen kulcsot megadtunk), a galériában pedig <code class="language-plaintext highlighter-rouge">Dropdown2.Selected.action</code> legyen</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="önálló-feladatok">Önálló feladatok</h2>
+
+<h3 id="1-feladat">1. feladat</h3>
+
+<ol>
+  <li>Hozzunk létre egy új Canvas app-ot
+    <ul>
+      <li>Tetszőlegesen lehet reszponzív, tablet vagy telefon méret</li>
+    </ul>
+  </li>
+  <li>A felhasználandó adatbázis: <code class="language-plaintext highlighter-rouge">https://bcecid.sharepoint.com/sites/bit-bce-hq/Lists/Flow%20Pro%202_Kzs%20adatbzis/AllItems.aspx</code></li>
+  <li>A felhasználónak jelenítsük meg az adatbázis összes rekordját, mindkét oszlop adatait, tetszőleges formában</li>
+  <li>A sorban megjelenő nyíl megnyomásával törölhessük az adott rekordot
+    <ul>
+      <li>Állítsunk az esemény jellegéhez megfelelő ikont a gombnak</li>
+    </ul>
+  </li>
+  <li>Egy gomb segítségével nyíljon egy másik oldal, ahol új rekordot tudjunk hozzáadni:
+    <ul>
+      <li>TextInput mezőben lehessen az értéket megadni, ami gombnyomás után ellenőrzi és jelzi egy felül megjelenő értesítésben, ha már létezik ilyen tartalmú rekord (segítség: IsEmpty(LookUp()))</li>
+    </ul>
+  </li>
+  <li>Szabadon lehessen navigálni a két oldal között, újraindítás nélkül</li>
+  <li>Legyen szűrhető és rendezhető galéria: egy tetszőleges oszlop tartalma alapján lehessen szűrni, és sorbarendezni (opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség)</li>
+</ol>
+
+<h3 id="szorgalmi-feladat">Szorgalmi feladat</h3>
+
+<ol>
+  <li>Kérjünk be a felhasználótól egy BIT-es e-mail címet, majd kérdezzünk le minél több adatot róla. Tetszőleges, hogy hány darab, milyen jellegű tulajdonságot kérünk le, de legyen 3-5 db, ami érdekes.</li>
+  <li>Ezen tulajdonságok alapján építsünk egy 1 táblás adatbázist, ahol az ID, e-mail, majd a kiválasztott tulajdonságok jelentik az egyes oszlopokat.</li>
+  <li>Amikor a felhasználó megad egy e-mail címet, ellenőrizzük, hogy valóban létezik-e ilyen a szervezeten belül, ha nem, küldjünk hibaüzenetet</li>
+  <li>Ha igen, jelenítsük meg a tulajdonságokat, illetve mentsük az adatokat az adatbázisba</li>
+  <li>Oldjuk meg, hogy ha valaki következőleg kéri le ugyanezt az e-mail címet, már nem az Office365Users kapcsolat segítségével, hanem a saját adatbázisunkból olvassuk vissza az adatokat. Ekkor jelezzük is a felhasználónak, hogy az adatokat a saját adatbázisunkból olvastuk vissza, így nem feltétlen naprakészek, adjuk meg a rekord készítésének dátumát is emiatt.</li>
+  <li>Egy másik gombbal legyen lehetőségünk frissíteni az adatbázisban tárolt rekordot, a megvalósítás tetszőleges.</li>
+</ol>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
