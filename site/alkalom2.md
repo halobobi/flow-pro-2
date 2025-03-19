@@ -2,7 +2,26 @@
 
 ## Közös feladatok
 
+### Adatbázis kapcsolatok kialakítása
+1. Data -> SharePoint connector -> Device_DimStatus, Device_DimStorage, Device_FactDevice
 
+### Kezdőlap
+2. Adjunk hozzá egy galériát
+	- Items: ```Device_FactDevice```
+3. Legyen a galéria sorbarendezhető tetszőleges oszlop alapján, az irányt is lehessen megadni
+	- Legdördülő menüket használjunk
+	- Dropdown1.Items: ```["ID","DeviceName","StatusID","StorageID","Created"]```
+	- Dropdown2.Items: ```[{Value:"Növekvő",Action:SortOrder.Ascending},{Value:"Csökkenő",Action:SortOrder.Descending}]```
+	- Gallery1.Items: ```SortByColumns(Device_FactDevice,Dropdown1.Selected.Value,Dropdown2.Selected.Action)```
+4. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
+	- OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
+5. A Screen2-n adjunk hozzá egy Űrlap elemet
+	- Item: ```item```
+	- DataSource: ```Device_FactDevice```
+	- Az ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
+	- Default layout: ```Edit```
+6. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
+	- OnSelect: ```SubmitForm();ResetForm();Notify("Sikeres mentés!")```
 
 ## Önálló feladatok
 
