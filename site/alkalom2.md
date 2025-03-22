@@ -32,6 +32,7 @@
 	- Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres mentés!",NotificationType.Success);Back(ScreenTransition.UnCoverRight) //reset: ha Edit módban volt Edit-re, stb. new: mindig New módra állítja```
 ### Screen3: Új rekord hozzáadása
+
 9. A kezdőlapon egy gomb nyomás után űrlap segítségével adhassunk új rekordot az adatbázishoz
 	- OnSelect: ```Navigate(Screen3)```
   	- DataSource: ```Device_FactDevice```
