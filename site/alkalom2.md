@@ -37,27 +37,44 @@
   	- DataSource: ```Device_FactDevice```
 	- Az ```Title```, ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
 	- Default layout: ```New```
-10. Az új rekord adatait küldjük el email-ben egy tetszőleges felhasználónak (pl. magunknak)
+10. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
+	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres hozzáadás!",NotificationType.Success);Back(ScreenTransition.UnCoverRight)```
+11. Az új rekord adatait küldjük el Teams-en egy tetszőleges felhasználónak (pl. magunknak)
+	- ... -> Power Automate -> Create new flow
+ 	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
+  	- Advanced módban szerkeszthetjük is a sablont
+12. Adjunk hozzá egy üres flow-t 
+    	- Adjunk hozzá egy ```ItemID``` nevű text és egy ```Email``` nevű email input-ot a trigger-hez
+    	- Adjunk hozzá egy SharepPoint action-t: ```Get item```
+    		- Site Address: a saját Lists oldalunk
+    		- List Name: ```Device_FactDevice```
+    		- Id: ```@{triggerBody()['text']} //Itt nem mindig engedi dynamic context-ként hozzáadni az ItemID bemenetet, ezért szükséges ez a kód```
+    	- Adjunk hozzá új Teams action-t: ```Post message in a chat or channel```
+    		- Post as: ```Flow bot```
+    		- Post in: ```Chat with Flow bot```
+    		- Recipient: ```Email``` bemenet
+    		- Message: ```<p class="editor-paragraph">A létrehozott @{triggerBody()['text']}. számú elem elérhető: <a href="@{outputs('Get_item')?['body/{Link}']}">@{outputs('Get_item')?['body/DeviceName']}</a></p>```
 
 ## Önálló feladatok
 
 ### 1. feladat
 
 1. Hozzunk létre egy új Canvas app-ot
-    - Tetszőlegesen lehet reszponzív, tablet vagy telefon méret
+	- Tetszőlegesen lehet reszponzív, tablet vagy telefon méret
 2. A felhasználandó adatbázis: ```https://bcecid.sharepoint.com/sites/bit-bce-hq/Lists/Flow%20Pro%202_Kzs%20adatbzis/AllItems.aspx```
 3. A felhasználónak jelenítsük meg az adatbázis összes rekordját, mindegyik oszlop adatait, tetszőleges formában
 4. A sorban megjelenő nyíl megnyomásával törölhessük az adott rekordot
-    - Állítsunk az esemény jellegéhez megfelelő ikont a gombnak
+	- Állítsunk az esemény jellegéhez megfelelő ikont a gombnak
 5. A galériából egy másik nyíl segítségével nyíljon új oldal, ahol az adott rekordot tudjuk módosítani
-    - Form segítségével valósítsuk ezt meg
-    - A beviteli mezőknek adjunk saját nevet: StatusID helyett Státusz, stb.
-	- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
-6. Legyen szűrhető és rendezhető galéria: egy tetszőleges (legördülő menüből választható) oszlop tartalma alapján lehessen szűrni, és sorbarendezni
+	- Form segítségével valósítsuk ezt meg
+	- A beviteli mezőknek adjunk saját nevet: StatusID helyett Státusz, stb.
+		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
+6. A szerkesztési oldalon egy gomb segítségével tudjuk Excel-be menteni az adott rekordot
+7. Legyen szűrhető és rendezhető galéria: egy tetszőleges (legördülő menüből választható) oszlop tartalma alapján lehessen szűrni, és sorbarendezni
 	- Ha nincs találat a szűrésre, értesítésben jelezzük a felhasználónak
 	- Opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség
 ### Szorgalmi feladat
-7. A főoldalról (Screen1) egy gomb segítségével nyíljon egy másik oldal, ahol új rekordot tudjunk hozzáadni:
-    - Form segítségével lehessen az új rekord értékeit megadni
-	- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
-	- Opcionális: tetszőleges oszlopérték alapján oldjuk meg, hogy ha már létezik ilyen érték az adatbázisban, ne lehessen a rekordot hozzáadni
+8. A főoldalról (Screen1) egy gomb segítségével nyíljon egy másik oldal, ahol új rekordot tudjunk hozzáadni:
+    	- Form segítségével lehessen az új rekord értékeit megadni
+		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
+		- Opcionális: tetszőleges oszlopérték alapján oldjuk meg, hogy ha már létezik ilyen érték az adatbázisban, ne lehessen a rekordot hozzáadni
