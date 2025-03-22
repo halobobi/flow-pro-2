@@ -64,10 +64,10 @@
   	- OnVisible:
 	```
    	Collect(
-    		pivot,
-    		{Title:"Új",Value:CountIf(Device_FactDevice,StatusID.Value="Új")},
-    		{Title:"Használt",Value:CountIf(Device_FactDevice,StatusID.Value="Használt")},
-    		{Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
+ 	pivot,
+    	{Title:"Új",Value:CountIf(Device_FactDevice,StatusID.Value="Új")},
+    	{Title:"Használt",Value:CountIf(Device_FactDevice,StatusID.Value="Használt")},
+    	{Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
 	)
 	```
 
