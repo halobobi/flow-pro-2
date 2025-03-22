@@ -131,8 +131,15 @@
                 }
             }
         },
-    "required": ["Created","DeviceName","ID","StatusID","StorageID"]
+        "required": \[
+            "Created",
+            "DeviceName",
+            "ID",
+            "StatusID",
+            "StorageID"
+        ]
     }
+}
         ```
  	- Data Operation: ```Create CSV table``` action
   		- From: Parse JSON: ```Body```
