@@ -44,8 +44,8 @@
 	- ... -> Power Automate -> Create new flow
  	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
   	- Advanced módban szerkeszthetjük is a sablont
-12. Adjunk hozzá egy üres flow-t 
-    	- Adjunk hozzá egy ```ItemID``` nevű text és egy ```Email``` nevű email input-ot a trigger-hez
+12. Adjunk hozzá egy üres flow-t
+	- Adjunk hozzá egy ```ItemID``` nevű text és egy ```Email``` nevű email input-ot a trigger-hez
     	- Adjunk hozzá egy SharepPoint action-t: ```Get item```
     		- Site Address: a saját Lists oldalunk
     		- List Name: ```Device_FactDevice```
