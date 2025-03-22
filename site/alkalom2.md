@@ -71,16 +71,39 @@
 	```
  	- Items: ```pivot```
   	- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg
+### Saját függvény
+14. Gombnyomásra tudjuk frissíteni a galériát
+	- Ehhez adjunk hozzá saját függvényt ```Reload``` néven
+ 	- Ez a függvény töltse újra az adatbázis kapcsolatot, illetve a diagram adatforrását is frissítse
+  	- Bal lent beállítások -> Updates -> Experimental -> User-defined functions engedélyezése
+  	- Variables -> New -> Named formula -> Formulas:
+	```
+ 	Reload():Void={Refresh(Device_FactDevice);
+		Collect(
+    		pivot,
+    		{Title:"Új",Value:CountIf(Device_FactDevice,StatusID.Value="Új")},
+    		{Title:"Használt",Value:CountIf(Device_FactDevice,StatusID.Value="Használt")},
+    		{Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
+		)
+	};
+ 	```
 
 ### CSV export flow
 14. Hozzunk létre egy új üres flow-t
 	- Bemeneti paraméterek a trigger-be: ```JSON```, szöveges
- 	- Adjunk hozzá egy OneDrive ```Create file``` action-t
-  		- Folder Path: ```Root/temp //Hozzuk létre a temp mappát előzetesen```
-   		- File Name: ```export_@{utcNow()}.csv```
+ 	- Data Operation: ```Create CSV table``` action
+  		- From: ```JSON //triggerBody()['text']``` bemenet
+ 	- Adjunk hozzá egy SharePoint ```Create file``` action-t
+  		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
+   		- Folder Path: ```/HQ/Szakmai Képzéseink/Project Management Office/2024_2025_2/Flow Pro II_Power Apps/2. alkalom/temp```
+     		- File Name: ```export_@{utcNow()}.csv```
     		- File Content: ```JSON``` bemeneti paraméter
+      	- SharePoint: ```Get file properties``` action
+      		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
+   		- Library Name: ```HQ```
+     		- Id: ```@{outputs('Create_file_1')?['body/ItemId']}```
       	- Adjunk hozzá egy ```Respond to a Power App or flow``` action-t
-      		- Paraméterek: output,
+      		- Paraméterek: output, ```@{outputs('Get_file_properties')?['body/{Link}']}``` 
    
 15. Adjunk hozzá egy Mentés gombot
 	- OnSelect:
