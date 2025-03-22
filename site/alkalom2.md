@@ -101,7 +101,7 @@
   		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
    		- Folder Path: ```/HQ/Szakmai Képzéseink/Project Management Office/2024_2025_2/Flow Pro II_Power Apps/2. alkalom/temp```
      		- File Name: ```export_@{utcNow()}.csv```
-    		- File Content: ```JSON``` bemeneti paraméter
+    		- File Content: ```@{concat(decodeUriComponent('%EF%BB%BF'),body('Create_CSV_table'))} //UTF-8 encoding miatt kell```
       	- SharePoint: ```Get file properties``` action
       		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
    		- Library Name: ```HQ```
