@@ -100,12 +100,12 @@
  	- Adjunk hozzá egy SharePoint ```Create file``` action-t
   		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
    		- Folder Path: ```/HQ/Szakmai Képzéseink/Project Management Office/2024_2025_2/Flow Pro II_Power Apps/2. alkalom/temp```
-     		- File Name: ```export_halobobi_@{utcNow()}.csv```
+     		- File Name: ```export_<saját név>_@{utcNow()}.csv```
     		- File Content: ```@{concat(decodeUriComponent('%EF%BB%BF'),body('Create_CSV_table'))} //UTF-8 encoding miatt kell: "BOM is 3 characters (EF BB BF) to mark the file is encoded as UTF-8."```
       	- SharePoint: ```Get file properties``` action
       		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
    		- Library Name: ```HQ```
-     		- Id: ```@{outputs('Create_file_1')?['body/ItemId']}```
+     		- Id: ```@{outputs('Create_file')?['body/ItemId']}```
       	- Adjunk hozzá egy ```Respond to a Power App or flow``` action-t
       		- Paraméterek: output, ```@{outputs('Get_file_properties')?['body/{Link}']}```
       	- A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük (Power Automate-ben pl. Apply to each ciklus segítségével lehet a Value értéket kiemelni)
@@ -124,7 +124,6 @@
     	)
  	```
     
-
 ## Önálló feladatok
 
 ### 1. feladat
