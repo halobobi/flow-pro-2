@@ -13,7 +13,9 @@
 	- Items: ```Device_FactDevice```
 4. Legyen a galéria sorbarendezhető tetszőleges oszlop alapján, az irányt is lehessen megadni
 	- Legdördülő menüket használjunk
-	- Dropdown1.Items: ```["ID","DeviceName","StatusID","StorageID","Created"]```
+	- Dropdown1.Items: ```["ID","DeviceName","Created"]```
+ 		- A lookup típusú oszlopokra a Sort segítségével szűrhetünk, pl.: ```StatusID.Value```
+   		- Ezt sajnos nem tudjuk legördülő menükkel együtt használni, csak hard code-olni lehet
 	- Dropdown2.Items: ```[{Value:"Növekvő",Action:SortOrder.Ascending},{Value:"Csökkenő",Action:SortOrder.Descending}]```
 	- Gallery1.Items: ```SortByColumns(Device_FactDevice,Dropdown1.Selected.Value,Dropdown2.Selected.Action)```
 5. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
