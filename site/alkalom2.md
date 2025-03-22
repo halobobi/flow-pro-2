@@ -76,6 +76,6 @@
 	- Opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség
 ### Szorgalmi feladat
 8. A főoldalról (Screen1) egy gomb segítségével nyíljon egy másik oldal, ahol új rekordot tudjunk hozzáadni:
-    	- Form segítségével lehessen az új rekord értékeit megadni
+	- Form segítségével lehessen az új rekord értékeit megadni
 		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
 		- Opcionális: tetszőleges oszlopérték alapján oldjuk meg, hogy ha már létezik ilyen érték az adatbázisban, ne lehessen a rekordot hozzáadni
