@@ -15,13 +15,22 @@
 	- Gallery1.Items: ```SortByColumns(Device_FactDevice,Dropdown1.Selected.Value,Dropdown2.Selected.Action)```
 4. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
 	- OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
+### Screen2: Rekord módosítás
 5. A Screen2-n adjunk hozzá egy Űrlap elemet
 	- Item: ```item```
 	- DataSource: ```Device_FactDevice```
 	- Az ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
 	- Default layout: ```Edit```
 6. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
-	- OnSelect: ```SubmitForm();ResetForm();Notify("Sikeres mentés!")```
+	- Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra
+	- OnSelect: ```SubmitForm();ResetForm();Notify("Sikeres mentés!");Back()```
+### Screen3: Új rekord hozzáadása
+7. A kezdőlapon egy gomb segítségével adhassunk új rekordot az adatbázishoz
+	- A gomb navigáljon a Screen3-ra
+ 	- Űrlapot használjunk
+  	- DataSource: ```Device_FactDevice```
+	- Az ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
+	- Default layout: ```New```
 
 ## Önálló feladatok
 
