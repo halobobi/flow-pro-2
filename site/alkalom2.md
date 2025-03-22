@@ -40,7 +40,8 @@
 	- Default layout: ```New```
 10. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres hozzáadás!",NotificationType.Success);Back(ScreenTransition.UnCoverRight)```
-11. Az új rekord adatait küldjük el Teams-en egy tetszőleges felhasználónak (pl. magunknak)
+### Teams flow
+11. Az új rekordról küldjünk üzenetet Teams-en egy tetszőleges felhasználónak (pl. magunknak)
 	- ... -> Power Automate -> Create new flow
  	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
   	- Advanced módban szerkeszthetjük is a sablont
@@ -56,6 +57,24 @@
     		- Recipient: ```Email``` bemenet
     		- Message: ```<p class="editor-paragraph">A létrehozott @{triggerBody()['text']}. számú elem elérhető: <a href="@{outputs('Get_item')?['body/{Link}']}">@{outputs('Get_item')?['body/DeviceName']}</a></p>```
 
+### Diagram
+13. Készítsünk egy kördiagramot, ami a StatusID-k megoszlását mutatja
+	- Items: ```Device_FactDevice //Nem működik, az ID-k értékét számolja```
+ 	- Készítenünk kell egy segédkimutatást
+  	- OnVisible:
+	```
+   	Collect(
+    		pivot,
+    		{Title:"Új",Value:CountIf(Device_FactDevice,StatusID.Value="Új")},
+    		{Title:"Használt",Value:CountIf(Device_FactDevice,StatusID.Value="Használt")},
+    		{Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
+	)
+	```
+
+### CSV export flow
+
+
+
 ## Önálló feladatok
 
 ### 1. feladat
@@ -70,7 +89,7 @@
 	- Form segítségével valósítsuk ezt meg
 	- A beviteli mezőknek adjunk saját nevet: StatusID helyett Státusz, stb.
 		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
-6. A szerkesztési oldalon egy gomb segítségével tudjuk Excel-be menteni az adott rekordot
+6. Értesítsünk egy tetszőleges felhasználót Teams-en a változásról, adjuk meg az üzenetben az elem elérési útját
 7. Legyen szűrhető és rendezhető galéria: egy tetszőleges (legördülő menüből választható) oszlop tartalma alapján lehessen szűrni, és sorbarendezni
 	- Ha nincs találat a szűrésre, értesítésben jelezzük a felhasználónak
 	- Opcionális: csökkenő, növekvő sorrend választására is legyen lehetőség
@@ -79,3 +98,5 @@
 	- Form segítségével lehessen az új rekord értékeit megadni
 		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
 		- Opcionális: tetszőleges oszlopérték alapján oldjuk meg, hogy ha már létezik ilyen érték az adatbázisban, ne lehessen a rekordot hozzáadni
+9. A szerkesztési oldalon egy gomb segítségével tudjuk CSV-be menteni az adott rekordot
+	- Opcionális: Excel-be mentsük a rekordot (Segítség: https://www.matthewdevaney.com/create-an-excel-file-and-add-rows-using-power-automate/)
