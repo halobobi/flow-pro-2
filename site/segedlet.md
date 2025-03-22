@@ -208,7 +208,7 @@ ThisRecord //ForAll ciklusváltozó
 - Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
 - Hozzáadás esetén: az Alapértelmezett módot állítsuk Új-ra
 - Módosítás és Nézet esetén: állítsuk be a megfelelő értéket az Alapértelmezett módnál, majd az Item tulajdonságnak adjunk egy rekordot, különben nem jelenik meg az űrlap
-- Legördülő menü esetén (tehát amikor több táblával, Foreign key-el dolgozunk):
+- Legördülő menü esetén (tehát amikor több táblával, Foreign key-el dolgozunk, és ha nem lookup típusú az oszlop):
 1. A mezőknél adjuk hozzá a Foreign key-t tartalmazó oszlopot
 2. Ugyanitt gördítsük le a hozzáadott vezérlő kártyáját, majd a Vezérlő típusát állítsuk Megengedett értékek-re
 3. Kapcsoljuk ki a szerkesztési korlátozást az adott vezérlőn (bal oldali sáv, majd jobb gomb Zárolás feloldása)
@@ -231,8 +231,8 @@ ThisRecord //ForAll ciklusváltozó
 - Parancsok:
   ```
   SubmitForm(form) //Űrlap leadása
-  NewForm(form) //üres űrlap betöltése
-  ResetForm(form) //bevitt értékek törlése, visszaállítás alapértelmezettre
+  NewForm(form) //Üres hozzáadós űrlap betöltése
+  ResetForm(form) //Üres űrlap betöltése, az előző módra visszaáll
   ```
 
 ## Speciális technikák
@@ -249,6 +249,16 @@ Notify(szöveg, NotificationType, timeOut)
 // Példák függvény definiálása
 FuggvenyNeve1(valtozo1:Number,valtozo2:Number):Number=valtozo1*valtozo2; //Számok szorzása
 FuggvenyNeve2():Void={Refresh(adatforrás);Notify();Set()}; //Értesítés küldése és változó beállítása
+```
+
+### Saját flow futtatása
+```
+FlowNeve.Run(paraméterek).kimenet; //ha van kimenetünk, annak nevével tudunk hivatkozni
+```
+
+### Letöltés indítása
+```
+Download(link) //új lapon megnyitja az erőforrást, vagy elindítja a letöltést
 ```
 
 ### LoadingSpinner használata
