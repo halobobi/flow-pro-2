@@ -94,54 +94,46 @@
  	- Data Operation: ```Parse JSON```
   		- Content: ```JSON``` bemenet
     		- Schema:
-		```
-	 {
-	    "type": "array",
-	    "items": {
-	        "type": "object",
-	        "properties": {
-	            "Created": {
-	                "type": "string"
-	            },
-	            "DeviceName": {
-	                "type": "string"
-	            },
-	            "ID": {
-	                "type": "integer"
-	            },
-	            "StatusID": {
-	                "type": "object",
-	                "properties": {
-	                    "Id": {
-	                        "type": "integer"
-	                    },
-	                    "Value": {
-	                        "type": "string"
-	                    }
-	                }
-	            },
-	            "StorageID": {
-	                "type": "object",
-	                "properties": {
-	                    "Id": {
-	                        "type": "integer"
-	                    },
-	                    "Value": {
-	                        "type": "string"
-	                    }
-	                }
-	            }
-	        },
-	        "required": [
-	            "Created",
-	            "DeviceName",
-	            "ID",
-	            "StatusID",
-	            "StorageID"
-	        ]
-	    }
-	}
-  		```
+		```{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "Created": {
+                "type": "string"
+            },
+            "DeviceName": {
+                "type": "string"
+            },
+            "ID": {
+                "type": "integer"
+            },
+            "StatusID": {
+                "type": "object",
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "Value": {
+                        "type": "string"
+                    }
+                }
+            },
+            "StorageID": {
+                "type": "object",
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "Value": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+    "required": ["Created","DeviceName","ID","StatusID","StorageID"]
+    }
+        ```
  	- Data Operation: ```Create CSV table``` action
   		- From: Parse JSON: ```Body```
  	- Adjunk hozzá egy SharePoint ```Create file``` action-t
@@ -156,7 +148,7 @@
       	- Adjunk hozzá egy ```Respond to a Power App or flow``` action-t
       		- Paraméterek: output, ```@{outputs('Get_file_properties')?['body/{Link}']}``` 
    
-15. Adjunk hozzá egy Mentés gombot
+16. Adjunk hozzá egy Mentés gombot
 	- OnSelect:
 	```
  	Download(
