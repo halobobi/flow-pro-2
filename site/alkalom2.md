@@ -87,7 +87,7 @@
 	- OnSelect:
 	```
  	Download(
-    		ExportData.Run(
+		ExportData.Run(
         		JSON(
             			ShowColumns(Gallery1.AllItems,
                 			ID,DeviceName,StatusID,StorageID,Created
