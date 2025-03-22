@@ -79,7 +79,7 @@
   	- Variables -> New -> Named formula -> Formulas:
 	```
  	Reload():Void={Refresh(Device_FactDevice);
-		Collect(
+		ClearCollect( //Ha nem Clear lenne, a 3 új rekord mindig hozzáadódna
     		pivot,
     		{Title:"Új",Value:CountIf(Device_FactDevice,StatusID.Value="Új")},
     		{Title:"Használt",Value:CountIf(Device_FactDevice,StatusID.Value="Használt")},
@@ -91,8 +91,59 @@
 ### CSV export flow
 14. Hozzunk létre egy új üres flow-t
 	- Bemeneti paraméterek a trigger-be: ```JSON```, szöveges
+ 	- Data Operation: ```Parse JSON```
+  		- Content: ```JSON``` bemenet
+    		- Schema:
+		```
+	 {
+	    "type": "array",
+	    "items": {
+	        "type": "object",
+	        "properties": {
+	            "Created": {
+	                "type": "string"
+	            },
+	            "DeviceName": {
+	                "type": "string"
+	            },
+	            "ID": {
+	                "type": "integer"
+	            },
+	            "StatusID": {
+	                "type": "object",
+	                "properties": {
+	                    "Id": {
+	                        "type": "integer"
+	                    },
+	                    "Value": {
+	                        "type": "string"
+	                    }
+	                }
+	            },
+	            "StorageID": {
+	                "type": "object",
+	                "properties": {
+	                    "Id": {
+	                        "type": "integer"
+	                    },
+	                    "Value": {
+	                        "type": "string"
+	                    }
+	                }
+	            }
+	        },
+	        "required": [
+	            "Created",
+	            "DeviceName",
+	            "ID",
+	            "StatusID",
+	            "StorageID"
+	        ]
+	    }
+	}
+  		```
  	- Data Operation: ```Create CSV table``` action
-  		- From: ```JSON //triggerBody()['text']``` bemenet
+  		- From: Parse JSON: ```Body```
  	- Adjunk hozzá egy SharePoint ```Create file``` action-t
   		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
    		- Folder Path: ```/HQ/Szakmai Képzéseink/Project Management Office/2024_2025_2/Flow Pro II_Power Apps/2. alkalom/temp```
