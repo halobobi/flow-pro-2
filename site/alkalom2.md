@@ -26,17 +26,20 @@
 	- DataSource: ```Device_FactDevice```
 	- Az ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
 	- Default layout: ```Edit```
-7. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
+7. Adjunk hozzá egy Vissza gombot, ikonnal valósítsuk ezt meg
+	- OnSelect: ```Back(ScreenTransition.UnCoverRight)```
+9. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra
 	- OnSelect: ```SubmitForm();ResetForm();Notify("Sikeres mentés!");Back()```
+ 	- Űrlap továbbiak: [<ins>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-form</ins>](https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-form)
 ### Screen3: Új rekord hozzáadása
-8. A kezdőlapon egy gomb segítségével adhassunk új rekordot az adatbázishoz
+9. A kezdőlapon egy gomb segítségével adhassunk új rekordot az adatbázishoz
 	- A gomb navigáljon a Screen3-ra
  	- Űrlapot használjunk
   	- DataSource: ```Device_FactDevice```
 	- Az ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
 	- Default layout: ```New```
-9. Az új rekord adatait küldjük el email-ben egy tetszőleges felhasználónak (pl. magunknak)
+10. Az új rekord adatait küldjük el email-ben egy tetszőleges felhasználónak (pl. magunknak)
 
 ## Önálló feladatok
 
