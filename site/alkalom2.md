@@ -2,35 +2,39 @@
 
 ## Közös feladatok
 
+### Projekt létrehozása
+1. Hozzunk létre egy üres app-ot, tablet méretben
+
 ### Adatbázis kapcsolatok kialakítása
-1. Data -> SharePoint connector -> Device_DimStatus, Device_DimStorage, Device_FactDevice
+2. Data -> SharePoint connector -> Device_DimStatus, Device_DimStorage, Device_FactDevice
 
 ### Kezdőlap
-2. Adjunk hozzá egy galériát
+3. Adjunk hozzá egy galériát
 	- Items: ```Device_FactDevice```
-3. Legyen a galéria sorbarendezhető tetszőleges oszlop alapján, az irányt is lehessen megadni
+4. Legyen a galéria sorbarendezhető tetszőleges oszlop alapján, az irányt is lehessen megadni
 	- Legdördülő menüket használjunk
 	- Dropdown1.Items: ```["ID","DeviceName","StatusID","StorageID","Created"]```
 	- Dropdown2.Items: ```[{Value:"Növekvő",Action:SortOrder.Ascending},{Value:"Csökkenő",Action:SortOrder.Descending}]```
 	- Gallery1.Items: ```SortByColumns(Device_FactDevice,Dropdown1.Selected.Value,Dropdown2.Selected.Action)```
-4. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
+5. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
 	- OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
 ### Screen2: Rekord módosítás
-5. A Screen2-n adjunk hozzá egy Űrlap elemet
+6. A Screen2-n adjunk hozzá egy Űrlap elemet
 	- Item: ```item```
 	- DataSource: ```Device_FactDevice```
 	- Az ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
 	- Default layout: ```Edit```
-6. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
+7. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra
 	- OnSelect: ```SubmitForm();ResetForm();Notify("Sikeres mentés!");Back()```
 ### Screen3: Új rekord hozzáadása
-7. A kezdőlapon egy gomb segítségével adhassunk új rekordot az adatbázishoz
+8. A kezdőlapon egy gomb segítségével adhassunk új rekordot az adatbázishoz
 	- A gomb navigáljon a Screen3-ra
  	- Űrlapot használjunk
   	- DataSource: ```Device_FactDevice```
 	- Az ```ID``` és ```Created``` mezőket rejtsük el, ezeket nem szerkeszthetjük
 	- Default layout: ```New```
+9. Az új rekord adatait küldjük el email-ben egy tetszőleges felhasználónak (pl. magunknak)
 
 ## Önálló feladatok
 
