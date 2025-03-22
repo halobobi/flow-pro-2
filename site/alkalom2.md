@@ -69,10 +69,34 @@
     	{Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
 	)
 	```
+ 	- Items: ```pivot```
+  	- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg
 
 ### CSV export flow
 
-
+14. Hozzunk létre egy új üres flow-t
+	- Bemeneti paraméterek a trigger-be: ```JSON```, szöveges
+ 	- Adjunk hozzá egy OneDrive ```Create file``` action-t
+  		- Folder Path: ```Root/temp //Hozzuk létre a temp mappát előzetesen```
+   		- File Name: ```export_@{utcNow()}.csv```
+    		- File Content: ```JSON``` bemeneti paraméter
+      	- Adjunk hozzá egy ```Respond to a Power App or flow``` action-t
+      		- Paraméterek: output,
+   
+15. Adjunk hozzá egy Mentés gombot
+	- OnSelect:
+	```
+ 	Download(
+    		ExportData.Run(
+        		JSON(
+            			ShowColumns(Gallery1.AllItems,
+                			ID,DeviceName,StatusID,StorageID,Created
+                		)
+            		)
+ 		).output
+    	)
+ 	```
+    
 
 ## Önálló feladatok
 
@@ -98,4 +122,4 @@
 		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
 		- Opcionális: tetszőleges oszlopérték alapján oldjuk meg, hogy ha már létezik ilyen érték az adatbázisban, ne lehessen a rekordot hozzáadni
 9. A szerkesztési oldalon egy gomb segítségével tudjuk CSV-be menteni az adott rekordot
-	- Opcionális: Excel-be mentsük a rekordot (Segítség: https://www.matthewdevaney.com/create-an-excel-file-and-add-rows-using-power-automate/)
+	- Opcionális: Excel-be mentsük a rekordot (Segítség: OneDrive-ra fájl létrehozása -> Új sor, vagy SharePoint esetén: https://www.matthewdevaney.com/create-an-excel-file-and-add-rows-using-power-automate/)
