@@ -28,7 +28,9 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 2. A Lists felületén váltsunk rácsnézetbe
 3. Új elem hozzáadása, egyszer kattintsunk a sorba, ne kezdjük el szerkeszteni
 4. Majd CTRL+V-vel beillesztés
+
 #### Excel file-ok
+
 - Adatbázisként nem igazán szokták használni (sajnos néha mégis előfordul)
 - De egy Excel táblázat "megszépítésére", bizonyos funkciók korlátozása miatt, vagy felhasználóbaráttá tétel céljával építhető Power Apps alkalmazás
 
