@@ -156,4 +156,4 @@
         - Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
         - Opcionális: tetszőleges oszlopérték alapján oldjuk meg, hogy ha már létezik ilyen érték az adatbázisban, ne lehessen a rekordot hozzáadni
 9. A szerkesztési oldalon egy gomb segítségével tudjuk CSV-be menteni az adott rekordot
-    - Opcionális: Excel-be mentsük a rekordot (Segítség: OneDrive-ra fájl létrehozása -> Új sor, vagy SharePoint esetén: https://www.matthewdevaney.com/create-an-excel-file-and-add-rows-using-power-automate/)
+    - Opcionális: Excel-be mentsük a rekordot (Segítség: OneDrive-ra fájl létrehozása -> Új sor, vagy SharePoint esetén: [https://www.matthewdevaney.com/create-an-excel-file-and-add-rows-using-power-automate/](https://www.matthewdevaney.com/create-an-excel-file-and-add-rows-using-power-automate/))
