@@ -108,7 +108,7 @@
     		- Message: ```<p class="editor-paragraph">A létrehozott CSV file elérhető: <a href="@{outputs('Get_file_properties')?['body/{Link}']}">@{outputs('Get_file_properties')?['body/{Link}']}</a></p>```
       	- Adjunk hozzá egy ```Respond to a Power App or flow``` action-t
       		- Paraméterek: output, ```@{outputs('Get_file_properties')?['body/{Link}']}```
-      	- A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük (Power Automate-ben pl. Apply to each ciklus segítségével lehet a Value értéket kiemelni)
+      	- A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük
    
 15. Adjunk hozzá egy Mentés gombot
 	- OnSelect:
