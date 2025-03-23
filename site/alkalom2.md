@@ -3,12 +3,15 @@
 ## Közös feladatok
 
 ### Projekt létrehozása
+
 1. Hozzunk létre egy üres app-ot, tablet méretben
 
 ### Adatbázis kapcsolatok kialakítása
+
 2. Data -> SharePoint connector -> Device_DimStatus, Device_DimStorage, Device_FactDevice
 
 ### Kezdőlap
+
 3. Adjunk hozzá egy galériát
 	- Items: ```Device_FactDevice```
 4. Legyen a galéria sorbarendezhető tetszőleges oszlop alapján, az irányt is lehessen megadni
@@ -20,6 +23,7 @@
 	- Gallery1.Items: ```SortByColumns(Device_FactDevice,Dropdown1.Selected.Value,Dropdown2.Selected.Action)```
 5. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
 	- OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
+
 ### Screen2: Rekord módosítás
 
 6. A Screen2-n adjunk hozzá egy Űrlap elemet
@@ -32,6 +36,7 @@
 8. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres mentés!",NotificationType.Success);Back(ScreenTransition.UnCoverRight) //reset: ha Edit módban volt Edit-re, stb. new: mindig New módra állítja```
+
 ### Screen3: Új rekord hozzáadása
 
 9. A kezdőlapon egy gomb nyomás után űrlap segítségével adhassunk új rekordot az adatbázishoz
@@ -77,7 +82,8 @@
  	```
  	- Screen1.OnVisible, Icon.OnSelect: ```Reload()```
 
-### CSV export flow
+### CSV export, Teams üzenet flow
+
 13. Adjunk lehetőséget a felhasználónak, hogy CSV-be exportálja a galéria tartalmát, erről Teams-en értesítést is küldjünk
     	- ... -> Power Automate -> Create new flow
  	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
@@ -139,6 +145,7 @@
 	- A beviteli mezőknek adjunk saját nevet: StatusID helyett Státusz, stb.
 		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
 6. Értesítsünk egy tetszőleges felhasználót Teams-en a változásról, adjuk meg az üzenetben az elem elérési útját
+
 ### Szorgalmi feladat
 
 7. Legyen szűrhető és rendezhető galéria: egy tetszőleges (legördülő menüből választható) oszlop tartalma alapján lehessen szűrni, és sorbarendezni
