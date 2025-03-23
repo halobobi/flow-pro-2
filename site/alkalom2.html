@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>2. alkalom feladatai | flow-pro-2</title>
+<title>alkalom feladatai | flow-pro-2</title>
 <meta name="generator" content="Jekyll v3.10.0">
 <meta property="og:title" content="alkalom feladatai">
 <meta property="og:locale" content="en_US">
@@ -19,7 +19,7 @@
 {"@context":"https://schema.org","@type":"WebSite","headline":"alkalom feladatai","name":"flow-pro-2","url":"https://halobobi.github.io/flow-pro-2/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <style class="anchorjs"></style><link rel="stylesheet" href="/flow-pro-2/assets/css/style.css?v=7a0d373ff3654feb729f29621efbd39dadd5b0b8">
+    <style class="anchorjs"></style><link rel="stylesheet" href="/flow-pro-2/assets/css/style.css?v=664bee8a44f064ca28dfe9fc9c3f9d74be01106d">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -35,7 +35,7 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       
-      <h1><a href="https://halobobi.github.io/flow-pro-2/">Flow Pro II: Power Apps</a></h1>
+      <h1><a href="https://halobobi.github.io/flow-pro-2/">flow-pro-2</a></h1>
       
 
       <h1 id="2-alkalom-feladatai">2. alkalom feladatai</h1>
@@ -66,8 +66,14 @@
     <ul>
       <li>Legdördülő menüket használjunk</li>
       <li>Dropdown1.Items: <code class="language-plaintext highlighter-rouge">["ID","DeviceName","Created"]</code>
- 		- A lookup típusú oszlopokra a Sort segítségével szűrhetünk, pl.: <code class="language-plaintext highlighter-rouge">StatusID.Value</code>
-     - Ezt sajnos nem tudjuk legördülő menükkel együtt használni, csak hard code-olni lehet</li>
+        <ul>
+          <li>A lookup típusú oszlopokra a Sort segítségével szűrhetünk, pl.: <code class="language-plaintext highlighter-rouge">StatusID.Value</code>
+            <ul>
+              <li>Ezt sajnos nem tudjuk legördülő menükkel együtt használni, csak hard code-olni lehet</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
       <li>Dropdown2.Items: <code class="language-plaintext highlighter-rouge">[{Value:"Növekvő",Action:SortOrder.Ascending},{Value:"Csökkenő",Action:SortOrder.Descending}]</code></li>
       <li>Gallery1.Items: <code class="language-plaintext highlighter-rouge">SortByColumns(Device_FactDevice,Dropdown1.Selected.Value,Dropdown2.Selected.Action)</code></li>
     </ul>
@@ -108,8 +114,8 @@
 <ol>
   <li>A kezdőlapon egy gomb nyomás után űrlap segítségével adhassunk új rekordot az adatbázishoz
     <ul>
-      <li>OnSelect: <code class="language-plaintext highlighter-rouge">Navigate(Screen3)</code>
-  	- DataSource: <code class="language-plaintext highlighter-rouge">Device_FactDevice</code></li>
+      <li>OnSelect: <code class="language-plaintext highlighter-rouge">Navigate(Screen3)</code></li>
+      <li>DataSource: <code class="language-plaintext highlighter-rouge">Device_FactDevice</code></li>
       <li>Az <code class="language-plaintext highlighter-rouge">Title</code>, <code class="language-plaintext highlighter-rouge">ID</code> és <code class="language-plaintext highlighter-rouge">Created</code> mezőket rejtsük el, ezeket nem szerkeszthetjük</li>
       <li>Default layout: <code class="language-plaintext highlighter-rouge">New</code></li>
     </ul>
@@ -126,19 +132,18 @@
 <ol>
   <li>Készítsünk egy kördiagramot, ami a StatusID-k megoszlását mutatja
     <ul>
-      <li>Items: <code class="language-plaintext highlighter-rouge">Device_FactDevice //Nem működik, az ID-k értékét számolja</code>
- 	- Készítenünk kell egy segédkimutatást
-	- OnVisible:
+      <li>Items: <code class="language-plaintext highlighter-rouge">Device_FactDevice //Nem működik, az ID-k értékét számolja</code></li>
+      <li>Készítenünk kell egy segédkimutatást</li>
+      <li>OnVisible:
         <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	Collect(pivot,
   {Title:"Új",Value:CountIf(Device_FactDevice,StatusID.Value="Új")},
   {Title:"Használt",Value:CountIf(Device_FactDevice,StatusID.Value="Használt")},
   {Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
 )
 </code></pre></div>        </div>
- 	- Items: <code class="language-plaintext highlighter-rouge">pivot</code>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg
-</code></pre></div>        </div>
       </li>
+      <li>Items: <code class="language-plaintext highlighter-rouge">pivot</code></li>
+      <li>Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg</li>
     </ul>
   </li>
 </ol>
@@ -148,10 +153,10 @@
 <ol>
   <li>Gombnyomásra tudjuk frissíteni a galériát
     <ul>
-      <li>Ehhez adjunk hozzá saját függvényt <code class="language-plaintext highlighter-rouge">Reload</code> néven
- 	- Ez a függvény töltse újra az adatbázis kapcsolatot, illetve a diagram adatforrását is frissítse
-	- Bal lent beállítások -&gt; Updates -&gt; Experimental -&gt; User-defined functions engedélyezése
-	- Variables -&gt; New -&gt; Named formula -&gt; Formulas:
+      <li>Ehhez adjunk hozzá saját függvényt <code class="language-plaintext highlighter-rouge">Reload</code> néven</li>
+      <li>Ez a függvény töltse újra az adatbázis kapcsolatot, illetve a diagram adatforrását is frissítse</li>
+      <li>Bal lent beállítások -&gt; Updates -&gt; Experimental -&gt; User-defined functions engedélyezése</li>
+      <li>Variables -&gt; New -&gt; Named formula -&gt; Formulas:
 <code class="language-plaintext highlighter-rouge">
  	Reload():Void={Refresh(Device_FactDevice);
   ClearCollect( //Ha nem Clear lenne, a 3 új rekord mindig hozzáadódna
@@ -161,8 +166,8 @@
       {Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
   )
 };
- 	</code>
- 	- Screen1.OnVisible, Icon.OnSelect: <code class="language-plaintext highlighter-rouge">Reload()</code></li>
+ 	</code></li>
+      <li>Screen1.OnVisible, Icon.OnSelect: <code class="language-plaintext highlighter-rouge">Reload()</code></li>
     </ul>
   </li>
 </ol>
@@ -171,46 +176,58 @@
 
 <ol>
   <li>Adjunk lehetőséget a felhasználónak, hogy CSV-be exportálja a galéria tartalmát, erről Teams-en értesítést is küldjünk
-	- … -&gt; Power Automate -&gt; Create new flow
- 	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
-  	- Advanced módban szerkeszthetjük is a sablont</li>
+    <ul>
+      <li>… -&gt; Power Automate -&gt; Create new flow</li>
+      <li>Választhatunk a template-ek közül, vagy készíthetünk manuálisan</li>
+      <li>Advanced módban szerkeszthetjük is a sablont</li>
+    </ul>
+  </li>
   <li>Hozzunk létre egy új üres flow-t
     <ul>
       <li>Bemeneti paraméterek a trigger-be:
- 		- <code class="language-plaintext highlighter-rouge">JSON</code>, szöveges és
- 		- <code class="language-plaintext highlighter-rouge">Email</code> nevű email típusú input
- 	- Data Operation: <code class="language-plaintext highlighter-rouge">Parse JSON</code>
-		- Content: <code class="language-plaintext highlighter-rouge">JSON</code> bemenet
-      - Schema:
-  <code class="language-plaintext highlighter-rouge">{ "type": "array", "items": { "type": "object", "properties": { "Created": { "type": "string" }, "DeviceName": { "type": "string" }, "ID": { "type": "integer" }, "StatusID": { "type": "object", "properties": { "Id": { "type": "integer" }, "Value": { "type": "string" } } }, "StorageID": { "type": "object", "properties": { "Id": { "type": "integer" }, "Value": { "type": "string" } } } }, "required": [ "Created", "DeviceName", "ID", "StatusID", "StorageID" ] } }</code>
- 	- Data Operation: <code class="language-plaintext highlighter-rouge">Create CSV table</code> action
-		- From: Parse JSON: <code class="language-plaintext highlighter-rouge">Body</code>
- 	- Adjunk hozzá egy SharePoint <code class="language-plaintext highlighter-rouge">Create file</code> action-t
-		- Site Address: <code class="language-plaintext highlighter-rouge">https://bcecid.sharepoint.com/sites/bit-bce-hq</code>
- 		- Folder Path: <code class="language-plaintext highlighter-rouge">/HQ/Szakmai Képzéseink/Project Management Office/2024_2025_2/Flow Pro II_Power Apps/2. alkalom/temp</code>
- 		- File Name: <code class="language-plaintext highlighter-rouge">export_&lt;saját név&gt;_@{utcNow()}.csv</code>
-      - File Content: <code class="language-plaintext highlighter-rouge">@{concat(decodeUriComponent('%EF%BB%BF'),body('Create_CSV_table'))} //UTF-8 encoding miatt kell: "BOM is 3 characters (EF BB BF) to mark the file is encoded as UTF-8."</code>
-	- SharePoint: <code class="language-plaintext highlighter-rouge">Get file properties</code> action
-		- Site Address: <code class="language-plaintext highlighter-rouge">https://bcecid.sharepoint.com/sites/bit-bce-hq</code>
- 		- Library Name: <code class="language-plaintext highlighter-rouge">HQ</code>
- 		- Id: <code class="language-plaintext highlighter-rouge">@{outputs('Create_file')?['body/ItemId']}</code>
         <ul>
-          <li>Teams action: <code class="language-plaintext highlighter-rouge">Post message in a chat or channel</code>
-            <ul>
-              <li>Post as: <code class="language-plaintext highlighter-rouge">Flow bot</code></li>
-              <li>Post in: <code class="language-plaintext highlighter-rouge">Chat with Flow bot</code></li>
-              <li>Recipient: <code class="language-plaintext highlighter-rouge">Email</code> bemenet</li>
-              <li>Message: <code class="language-plaintext highlighter-rouge">&lt;p class="editor-paragraph"&gt;A létrehozott CSV file elérhető: &lt;a href="@{outputs('Get_file_properties')?['body/{Link}']}"&gt;@{outputs('Get_file_properties')?['body/{Link}']}&lt;/a&gt;&lt;/p&gt;</code></li>
-              <li>Adjunk hozzá egy <code class="language-plaintext highlighter-rouge">Respond to a Power App or flow</code> action-t
-                <ul>
-                  <li>Paraméterek: output, <code class="language-plaintext highlighter-rouge">@{outputs('Get_file_properties')?['body/{Link}']}</code></li>
-                </ul>
-              </li>
-              <li>A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük</li>
-            </ul>
-          </li>
+          <li><code class="language-plaintext highlighter-rouge">JSON</code>, szöveges és</li>
+          <li><code class="language-plaintext highlighter-rouge">Email</code> nevű email típusú input</li>
         </ul>
       </li>
+      <li>Data Operation: <code class="language-plaintext highlighter-rouge">Parse JSON</code>
+        <ul>
+          <li>Content: <code class="language-plaintext highlighter-rouge">JSON</code> bemenet</li>
+          <li>Schema:
+  <code class="language-plaintext highlighter-rouge">{ "type": "array", "items": { "type": "object", "properties": { "Created": { "type": "string" }, "DeviceName": { "type": "string" }, "ID": { "type": "integer" }, "StatusID": { "type": "object", "properties": { "Id": { "type": "integer" }, "Value": { "type": "string" } } }, "StorageID": { "type": "object", "properties": { "Id": { "type": "integer" }, "Value": { "type": "string" } } } }, "required": [ "Created", "DeviceName", "ID", "StatusID", "StorageID" ] } }</code></li>
+        </ul>
+      </li>
+      <li>Data Operation: <code class="language-plaintext highlighter-rouge">Create CSV table</code> action
+		- From: Parse JSON: <code class="language-plaintext highlighter-rouge">Body</code></li>
+      <li>Adjunk hozzá egy SharePoint <code class="language-plaintext highlighter-rouge">Create file</code> action-t
+        <ul>
+          <li>Site Address: <code class="language-plaintext highlighter-rouge">https://bcecid.sharepoint.com/sites/bit-bce-hq</code></li>
+          <li>Folder Path: <code class="language-plaintext highlighter-rouge">/HQ/Szakmai Képzéseink/Project Management Office/2024_2025_2/Flow Pro II_Power Apps/2. alkalom/temp</code></li>
+          <li>File Name: <code class="language-plaintext highlighter-rouge">export_&lt;saját név&gt;_@{utcNow()}.csv</code></li>
+          <li>File Content: <code class="language-plaintext highlighter-rouge">@{concat(decodeUriComponent('%EF%BB%BF'),body('Create_CSV_table'))} //UTF-8 encoding miatt kell: "BOM is 3 characters (EF BB BF) to mark the file is encoded as UTF-8."</code></li>
+        </ul>
+      </li>
+      <li>SharePoint: <code class="language-plaintext highlighter-rouge">Get file properties</code> action
+        <ul>
+          <li>Site Address: <code class="language-plaintext highlighter-rouge">https://bcecid.sharepoint.com/sites/bit-bce-hq</code></li>
+          <li>Library Name: <code class="language-plaintext highlighter-rouge">HQ</code></li>
+          <li>Id: <code class="language-plaintext highlighter-rouge">@{outputs('Create_file')?['body/ItemId']}</code></li>
+        </ul>
+      </li>
+      <li>Teams action: <code class="language-plaintext highlighter-rouge">Post message in a chat or channel</code>
+        <ul>
+          <li>Post as: <code class="language-plaintext highlighter-rouge">Flow bot</code></li>
+          <li>Post in: <code class="language-plaintext highlighter-rouge">Chat with Flow bot</code></li>
+          <li>Recipient: <code class="language-plaintext highlighter-rouge">Email</code> bemenet</li>
+          <li>Message: <code class="language-plaintext highlighter-rouge">&lt;p class="editor-paragraph"&gt;A létrehozott CSV file elérhető: &lt;a href="@{outputs('Get_file_properties')?['body/{Link}']}"&gt;@{outputs('Get_file_properties')?['body/{Link}']}&lt;/a&gt;&lt;/p&gt;</code></li>
+        </ul>
+      </li>
+      <li>Adjunk hozzá egy <code class="language-plaintext highlighter-rouge">Respond to a Power App or flow</code> action-t
+        <ul>
+          <li>Paraméterek: output, <code class="language-plaintext highlighter-rouge">@{outputs('Get_file_properties')?['body/{Link}']}</code></li>
+        </ul>
+      </li>
+      <li>A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük</li>
     </ul>
   </li>
   <li>Adjunk hozzá egy Mentés gombot
