@@ -1,15 +1,19 @@
 # Power Apps segédlet
 
 ## Bevezetés
+
 A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely lehetővé teszi egyedi üzleti alkalmazások gyors és hatékony fejlesztését. Az alábbiakban részletes útmutatót találsz a platform használatához.
 
 ### Adatbázis
+
 #### Microsoft Dataverse adatbázis: [<ins>https://dataverse.microsoft.com</ins>](https://dataverse.microsoft.com)
+
 - Alapvetően fizetős
 - Saját solution-ben, és saját könyezetben (environment) használható az appok mellé ingyenesen is
   - Mivel csak lokálisan hozzáférhető a solution-ön belül, nem lehet közös adatbázisként használni
 
 #### Microsoft Lists adatbázis: [<ins>https://m365.cloud.microsoft</ins>](https://m365.cloud.microsoft) -> Bento menü -> Lists
+
 - Ingyenes, SharePoint alapú megoldás
 - Bármely SharePoint site csoporton belül használhatjuk közös adatbázisnak
 - Adatbázis működés eléréséhez:
@@ -28,19 +32,23 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 2. A Lists felületén váltsunk rácsnézetbe
 3. Új elem hozzáadása, egyszer kattintsunk a sorba, ne kezdjük el szerkeszteni
 4. Majd CTRL+V-vel beillesztés
+
 #### Excel file-ok
+
 - Adatbázisként nem igazán szokták használni (sajnos néha mégis előfordul)
 - De egy Excel táblázat "megszépítésére", bizonyos funkciók korlátozása miatt, vagy felhasználóbaráttá tétel céljával építhető Power Apps alkalmazás
 
 ## Kezdeti lépések
 
 ### Hozzáférés és környezet
+
 - **Elérés**: [<ins>https://make.powerapps.com</ins>](https://make.powerapps.com)
 - **Környezet típusok**:
   - **Solution (Megoldás)**: Komplex alkalmazásokhoz, Dataverse táblákkal
   - **Standalone App**: Egyszerűbb alkalmazásokhoz, külső adatforrásokkal
 
 ### Alkalmazás létrehozása
+
 - **Új app létrehozási lehetőségek**:
   - Üres alkalmazás (Blank)
   - Adatforrás alapú
@@ -49,11 +57,13 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 ## Fejlesztői felület
 
 ### Nyelvi beállítások
+
 - Alapértelmezetten a böngésző vagy a számítógép nyelvi beállításait követi
 - Felül lehet írni a jobb fenti beállításokban
   - Ha ez nem elégséges, szükséges a böngésző nyelvét is átállítani
 
 ### Felület áttekintés
+
 - **Bal oldali panel**: 
   - Fastruktúra
   - Új elemek hozzáadása
@@ -78,6 +88,7 @@ A Power Apps egy Microsoft által fejlesztett low-code/no-code platform, amely l
 ## Függvények és képletek
 
 ### Változók kezelése
+
 ```
 Set(változónév, érték) //Változó értékének beállítása
 UpdateContext({változó: érték}) //Környezeti változó értékének frissítése
@@ -87,6 +98,7 @@ Reset(TextInput) //visszaállítja alapértelmezettre a bevitelő mezőt
 ```
 
 ### Navigáció
+
 ```
 Navigate(képernyő, ScreenTransition, {context}) //Képernyők közötti navigáció
 Back(ScreenTransition) //Visszalépés az előző oldalra
@@ -98,12 +110,14 @@ Back(ScreenTransition) //Visszalépés az előző oldalra
 - Részletek: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-navigate</int>](https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-navigate) 
 
 ### Feltételes műveletek
+
 ```
 If(feltétel, igen_ág, nem_ág) //Egyszerű feltételes elágazás
 Switch(kifejezés, eset1, eredmény1, alapértelmezett1, eset2, eredmény2, alapértelmezett2) //Többágú feltételes elágazás
 ```
 
 ### Adatszűrés és kezelés
+
 ```
 Filter(tábla, feltétel1[, feltétel2]) //Rekordok szűrése feltételek alapján
 Sort(tábla, oszlop[, növekvő]) //Rekordok rendezése
@@ -114,6 +128,7 @@ If(minta in szöveg,true,false) //Tartalmazza-e szöveg minta változó érték�
 ```
 
 ### Collection és rekord műveletek
+
 ```
 Collect(collection_neve, rekord) //Új rekord hozzáadása a collection-hez
 Clear(collection_neve) //Collection törlése
@@ -135,6 +150,7 @@ Collect('test',
 ```
 
 ### Validációs függvények
+
 ```
 IsBlank(érték) //Vezérlő üres-e
 IsEmpty(collection) //Collection üres-e
@@ -144,6 +160,7 @@ CountIf(tábla, feltétel) //Feltételes számlálás
 ```
 
 ### Dátum és idő függvények
+
 ```
 Now()  //Aktuális dátum és idő lekérése
 Today()  //Mai dátum lekérése
@@ -152,6 +169,7 @@ DateDiff(dátum1, dátum2, egység) //Két dátum közötti különbség számí
 ```
 
 ### Vezérlési struktúrák
+
 ```
 // Számok generálása 00-59 között ForAll segítségével
 ForAll(Sequence(60,0),Text(Value,"00")) //00-tól 59-ig számok generálása két számjeggyel
@@ -160,10 +178,12 @@ ThisRecord //ForAll ciklusváltozó
 ## Adatkezelés és kapcsolat
 
 ### SharePoint integráció
+
 - Külön hozzáadás szükséges az "Adatok" fülön: "SharePoint"
 - Power Automate-hez hasonlóan az oszlopokra hivatkozás az oszlopnév helyett esetenként 'field_1' formátumban (SortByColumns esetén)
 
 ### Office 365 integráció
+
 - Felhasználói adatok lekérése
 - Email és szervezeti információk elérése
 - Profilképek kezelése
@@ -188,10 +208,12 @@ ThisRecord //ForAll ciklusváltozó
 ## Fontos komponensek és tulajdonságaik
 
 ### Gomb
+
 - ```OnSelect```: kattintás után végrehajtandó utasítások
 - ```Text```: felirat
 
 ### Beviteli mezők
+
 - ```Items```: Adatforrás megadása
 - ```Default```: alapértelmezett érték, űrlap esetében fontos, hogy egyből megjelenjen egy rekord adott értéke
 - ```DisplayMode```: szerkeszthető vagy nem
@@ -199,10 +221,12 @@ ThisRecord //ForAll ciklusváltozó
 - ComboBox esetén ```SelectedItems```: kiválasztott sor(ok)
 
 ### Gallery (Katalógus)
+
 - ```Items```: Adatforrás megadása
 - ```ThisItem```: Az aktuális rekordra hivatkozás
 
 ### Form (Űrlap)
+
 - Felhasználás: új rekord hozzáadása adatbázishoz, rekord módosítása
 - ```DataSource```: Adatforrás megadása
 - Tulajdonságokban a Mezők résznél adhatunk hozzá vagy törölhetünk mezőket
@@ -238,6 +262,7 @@ ThisRecord //ForAll ciklusváltozó
 ## Speciális technikák
 
 ### Értesítés
+
 - A felhasználó tájékoztatása a felső sávban
 - Részletek: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror</int>](https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-showerror)
 ```
@@ -245,6 +270,7 @@ Notify(szöveg, NotificationType, timeOut)
 ```
 
 ### Felhasználó által definiált függvények
+
 ```
 // Példák függvény definiálása
 FuggvenyNeve1(valtozo1:Number,valtozo2:Number):Number=valtozo1*valtozo2; //Számok szorzása
@@ -252,6 +278,7 @@ FuggvenyNeve2():Void={Refresh(adatforrás);Notify();Set()}; //Értesítés küld
 ```
 
 ### Saját flow futtatása
+
 ```
 FlowNeve.Run(paraméterek).kimenet; //ha van kimenetünk, annak nevével tudunk hivatkozni
 ```
@@ -263,11 +290,13 @@ FlowNeve.Run(paraméterek).kimenet; //ha van kimenetünk, annak nevével tudunk 
     - Power Automate: Trigger (email és message bemenet) -> Post message in a chat or channel
 
 ### Letöltés indítása
+
 ```
 Download(link) //új lapon megnyitja az erőforrást, vagy elindítja a letöltést
 ```
 
 ### LoadingSpinner használata
+
 ```
 // LoadingSpinner alapvető implementáció
 Set(isLoading, true)  //Loading indítása
@@ -282,7 +311,9 @@ Set(isLoading, false)
 ```
 
 ### Teljesítmény optimalizálás
+
 - Delegálás: a Power Apps külső Microsoft / Azure API-kkal futtatja az utasítást, külső kiszolgálóra helyezi a munka nehéz részét
 
 ### Dokumentáció
+
 - A teljes dokumentáció, példákkal itt érhető el: [<int>https://learn.microsoft.com/en-us/power-platform/power-fx/overview</int>](https://learn.microsoft.com/en-us/power-platform/power-fx/overview)
