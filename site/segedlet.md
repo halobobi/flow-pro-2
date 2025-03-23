@@ -255,6 +255,12 @@ FuggvenyNeve2():Void={Refresh(adatforrás);Notify();Set()}; //Értesítés küld
 ```
 FlowNeve.Run(paraméterek).kimenet; //ha van kimenetünk, annak nevével tudunk hivatkozni
 ```
+  - CSV export:
+    - Power Apps: ```JSON(ShowColumns(adatforrás, oszlopok))```
+    - Power Automate: Trigger (JSON bemenet) -> Parse JSON -> Create CSV table -> SharePoint action: Create file -> Get file properties (Az elérési út lekéréséhez) -> Respond to a Power App or flow (output, CSV elérés)
+  - Teams üzenet:
+    - Power Apps: email és üzenet átadása paraméterként
+    - Power Automate: Trigger (email és message bemenet) -> Post message in a chat or channel
 
 ### Letöltés indítása
 ```
