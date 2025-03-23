@@ -388,7 +388,11 @@ FuggvenyNeve2():Void={Refresh(adatforrás);Notify();Set()}; //Értesítés küld
   <li>CSV export:
     <ul>
       <li>Power Apps: <code class="language-plaintext highlighter-rouge">JSON(ShowColumns(adatforrás, oszlopok))</code></li>
-      <li>Power Automate: Trigger (JSON bemenet) -&gt; Parse JSON -&gt; Create CSV table -&gt; SharePoint action: Create file -&gt; Get file properties (Az elérési út lekéréséhez) -&gt; Respond to a Power App or flow (output, CSV elérés)</li>
+      <li>Power Automate: Trigger (JSON bemenet) -&gt; Parse JSON -&gt; Create CSV table -&gt; SharePoint action: Create file -&gt; Get file properties (Az elérési út lekéréséhez) -&gt; Respond to a Power App or flow (output, CSV elérés)
+          <ul dir="auto">
+            <li>Ha Lookup típusú oszlopunk van, a CSV-ben objektumként jelennek meg az értékek, Data operation: Select (vagy Apply for all, Foreach, stb.) segítségével kiemelhető csak a Value érték (<a href="https://learn.microsoft.com/en-us/power-automate/data-operations#use-the-select-action" rel="nofollow">https://learn.microsoft.com/en-us/power-automate/data-operations#use-the-select-action</a>)</li>
+            </ul>
+      </li>
     </ul>
   </li>
   <li>Teams üzenet:
