@@ -285,6 +285,7 @@ FlowNeve.Run(paraméterek).kimenet; //ha van kimenetünk, annak nevével tudunk 
   - CSV export:
     - Power Apps: ```JSON(ShowColumns(adatforrás, oszlopok))```
     - Power Automate: Trigger (JSON bemenet) -> Parse JSON -> Create CSV table -> SharePoint action: Create file -> Get file properties (Az elérési út lekéréséhez) -> Respond to a Power App or flow (output, CSV elérés)
+      - Ha Lookup típusú oszlopunk van, a CSV-ben objektumként jelennek meg az értékek, Data operation: Select (vagy Apply for all, Foreach, stb.) segítségével kiemelhető csak a Value érték (https://learn.microsoft.com/en-us/power-automate/data-operations#use-the-select-action)
   - Teams üzenet:
     - Power Apps: email és üzenet átadása paraméterként
     - Power Automate: Trigger (email és message bemenet) -> Post message in a chat or channel
