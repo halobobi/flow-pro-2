@@ -20,6 +20,7 @@
 	- Gallery1.Items: ```SortByColumns(Device_FactDevice,Dropdown1.Selected.Value,Dropdown2.Selected.Action)```
 5. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
 	- OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
+
 ### Screen2: Rekord módosítás
 
 6. A Screen2-n adjunk hozzá egy Űrlap elemet
@@ -32,6 +33,7 @@
 9. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres mentés!",NotificationType.Success);Back(ScreenTransition.UnCoverRight) //reset: ha Edit módban volt Edit-re, stb. new: mindig New módra állítja```
+
 ### Screen3: Új rekord hozzáadása
 
 9. A kezdőlapon egy gomb nyomás után űrlap segítségével adhassunk új rekordot az adatbázishoz
@@ -41,6 +43,7 @@
 	- Default layout: ```New```
 10. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres hozzáadás!",NotificationType.Success);Back(ScreenTransition.UnCoverRight)```
+
 ### Teams flow
 
 11. Az új rekordról küldjünk üzenetet Teams-en egy tetszőleges felhasználónak (pl. magunknak)
@@ -74,6 +77,7 @@
 	```
  	- Items: ```pivot```
   	- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg
+
 ### Saját függvény
 
 14. Gombnyomásra tudjuk frissíteni a galériát
@@ -144,6 +148,7 @@
 	- A beviteli mezőknek adjunk saját nevet: StatusID helyett Státusz, stb.
 		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
 6. Értesítsünk egy tetszőleges felhasználót Teams-en a változásról, adjuk meg az üzenetben az elem elérési útját
+
 ### Szorgalmi feladat
 
 7. Legyen szűrhető és rendezhető galéria: egy tetszőleges (legördülő menüből választható) oszlop tartalma alapján lehessen szűrni, és sorbarendezni
