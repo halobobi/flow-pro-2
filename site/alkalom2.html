@@ -19,7 +19,7 @@
 {"@context":"https://schema.org","@type":"WebSite","headline":"alkalom feladatai","name":"flow-pro-2","url":"https://halobobi.github.io/flow-pro-2/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <style class="anchorjs"></style><link rel="stylesheet" href="/flow-pro-2/assets/css/style.css?v=a15e49266e98d689a52b31bfb2bda1f3335240c7">
+    <style class="anchorjs"></style><link rel="stylesheet" href="/flow-pro-2/assets/css/style.css?v=14667eb756305673aa1b001495e63153827093cb">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -71,11 +71,14 @@
   </li>
   <li>A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
     <ul>
-      <li>OnSelect: <code class="language-plaintext highlighter-rouge">Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})</code>
-        <h3 id="screen2-rekord-módosítás">Screen2: Rekord módosítás<a class="anchorjs-link " href="#screen2-rekord-módosítás" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
-      </li>
+      <li>OnSelect: <code class="language-plaintext highlighter-rouge">Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})</code></li>
     </ul>
   </li>
+</ol>
+
+<h3 id="screen2-rekord-módosítás">Screen2: Rekord módosítás<a class="anchorjs-link " href="#screen2-rekord-módosítás" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<ol>
   <li>A Screen2-n adjunk hozzá egy Űrlap elemet
     <ul>
       <li>Item: <code class="language-plaintext highlighter-rouge">item</code></li>
@@ -92,11 +95,14 @@
   <li>Adjunk hozzá egy gombot, amivel elküldhető az űrlap
     <ul>
       <li>Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra</li>
-      <li>OnSelect: <code class="language-plaintext highlighter-rouge">SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres mentés!",NotificationType.Success);Back(ScreenTransition.UnCoverRight) //reset: ha Edit módban volt Edit-re, stb. new: mindig New módra állítja</code>
-        <h3 id="screen3-új-rekord-hozzáadása">Screen3: Új rekord hozzáadása<a class="anchorjs-link " href="#screen3-új-rekord-hozzáadása" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
-      </li>
+      <li>OnSelect: <code class="language-plaintext highlighter-rouge">SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres mentés!",NotificationType.Success);Back(ScreenTransition.UnCoverRight) //reset: ha Edit módban volt Edit-re, stb. new: mindig New módra állítja</code></li>
     </ul>
   </li>
+</ol>
+
+<h3 id="screen3-új-rekord-hozzáadása">Screen3: Új rekord hozzáadása<a class="anchorjs-link " href="#screen3-új-rekord-hozzáadása" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<ol>
   <li>A kezdőlapon egy gomb nyomás után űrlap segítségével adhassunk új rekordot az adatbázishoz
     <ul>
       <li>OnSelect: <code class="language-plaintext highlighter-rouge">Navigate(Screen3)</code>
@@ -107,11 +113,14 @@
   </li>
   <li>Adjunk hozzá egy gombot, amivel elküldhető az űrlap
     <ul>
-      <li>OnSelect: <code class="language-plaintext highlighter-rouge">SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres hozzáadás!",NotificationType.Success);Back(ScreenTransition.UnCoverRight)</code>
-        <h3 id="teams-flow">Teams flow<a class="anchorjs-link " href="#teams-flow" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
-      </li>
+      <li>OnSelect: <code class="language-plaintext highlighter-rouge">SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres hozzáadás!",NotificationType.Success);Back(ScreenTransition.UnCoverRight)</code></li>
     </ul>
   </li>
+</ol>
+
+<h3 id="teams-flow">Teams flow<a class="anchorjs-link " href="#teams-flow" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<ol>
   <li>Az új rekordról küldjünk üzenetet Teams-en egy tetszőleges felhasználónak (pl. magunknak)
     <ul>
       <li>… -&gt; Power Automate -&gt; Create new flow
@@ -145,6 +154,7 @@
 </ol>
 
 <h3 id="diagram">Diagram<a class="anchorjs-link " href="#diagram" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
 <ol>
   <li>Készítsünk egy kördiagramot, ami a StatusID-k megoszlását mutatja
     <ul>
@@ -158,11 +168,16 @@
 )
 </code></pre></div>        </div>
  	- Items: <code class="language-plaintext highlighter-rouge">pivot</code>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg ### Saját függvény
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg
 </code></pre></div>        </div>
       </li>
     </ul>
   </li>
+</ol>
+
+<h3 id="saját-függvény">Saját függvény<a class="anchorjs-link " href="#saját-függvény" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<ol>
   <li>Gombnyomásra tudjuk frissíteni a galériát
     <ul>
       <li>Ehhez adjunk hozzá saját függvényt <code class="language-plaintext highlighter-rouge">Reload</code> néven
@@ -184,6 +199,7 @@
 </ol>
 
 <h3 id="csv-export-flow">CSV export flow<a class="anchorjs-link " href="#csv-export-flow" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
 <ol>
   <li>Hozzunk létre egy új üres flow-t
     <ul>
@@ -253,9 +269,12 @@
       </li>
     </ul>
   </li>
-  <li>Értesítsünk egy tetszőleges felhasználót Teams-en a változásról, adjuk meg az üzenetben az elem elérési útját
-    <h3 id="szorgalmi-feladat">Szorgalmi feladat<a class="anchorjs-link " href="#szorgalmi-feladat" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
-  </li>
+  <li>Értesítsünk egy tetszőleges felhasználót Teams-en a változásról, adjuk meg az üzenetben az elem elérési útját</li>
+</ol>
+
+<h3 id="szorgalmi-feladat">Szorgalmi feladat<a class="anchorjs-link " href="#szorgalmi-feladat" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<ol>
   <li>Legyen szűrhető és rendezhető galéria: egy tetszőleges (legördülő menüből választható) oszlop tartalma alapján lehessen szűrni, és sorbarendezni
     <ul>
       <li>Ha nincs találat a szűrésre, értesítésben jelezzük a felhasználónak</li>
