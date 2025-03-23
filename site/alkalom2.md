@@ -75,6 +75,7 @@
 		)
 	};
  	```
+ 	- Screen1.OnVisible, Icon.OnSelect: ```Reload()```
 
 ### CSV export flow
 13. Adjunk lehetőséget a felhasználónak, hogy CSV-be exportálja a galéria tartalmát, erről Teams-en értesítést is küldjünk
