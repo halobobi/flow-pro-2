@@ -21,6 +21,7 @@
 5. A galéria soraiban a nyílra kattintva szerkeszthessük az adott rekordot
 	- OnSelect: ```Navigate(Screen2,ScreenTransition.Cover,{item:ThisItem})```
 ### Screen2: Rekord módosítás
+
 6. A Screen2-n adjunk hozzá egy Űrlap elemet
 	- Item: ```item```
 	- DataSource: ```Device_FactDevice```
@@ -41,6 +42,7 @@
 10. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres hozzáadás!",NotificationType.Success);Back(ScreenTransition.UnCoverRight)```
 ### Teams flow
+
 11. Az új rekordról küldjünk üzenetet Teams-en egy tetszőleges felhasználónak (pl. magunknak)
 	- ... -> Power Automate -> Create new flow
  	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
@@ -58,6 +60,7 @@
     		- Message: ```<p class="editor-paragraph">A létrehozott @{triggerBody()['text']}. számú elem elérhető: <a href="@{outputs('Get_item')?['body/{Link}']}">@{outputs('Get_item')?['body/DeviceName']}</a></p>```
 
 ### Diagram
+
 13. Készítsünk egy kördiagramot, ami a StatusID-k megoszlását mutatja
 	- Items: ```Device_FactDevice //Nem működik, az ID-k értékét számolja```
  	- Készítenünk kell egy segédkimutatást
@@ -72,6 +75,7 @@
  	- Items: ```pivot```
   	- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg
 ### Saját függvény
+
 14. Gombnyomásra tudjuk frissíteni a galériát
 	- Ehhez adjunk hozzá saját függvényt ```Reload``` néven
  	- Ez a függvény töltse újra az adatbázis kapcsolatot, illetve a diagram adatforrását is frissítse
@@ -89,6 +93,7 @@
  	```
 
 ### CSV export flow
+
 14. Hozzunk létre egy új üres flow-t
 	- Bemeneti paraméterek a trigger-be: ```JSON```, szöveges
  	- Data Operation: ```Parse JSON```
@@ -140,6 +145,7 @@
 		- Szabadon lehessen navigálni a két oldal között, újraindítás nélkül
 6. Értesítsünk egy tetszőleges felhasználót Teams-en a változásról, adjuk meg az üzenetben az elem elérési útját
 ### Szorgalmi feladat
+
 7. Legyen szűrhető és rendezhető galéria: egy tetszőleges (legördülő menüből választható) oszlop tartalma alapján lehessen szűrni, és sorbarendezni
 	- Ha nincs találat a szűrésre, értesítésben jelezzük a felhasználónak
 	- Csökkenő, növekvő sorrend választására is legyen lehetőség
