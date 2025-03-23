@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>2. alkalom feladatai | flow-pro-2</title>
+<title>alkalom feladatai | flow-pro-2</title>
 <meta name="generator" content="Jekyll v3.10.0">
 <meta property="og:title" content="alkalom feladatai">
 <meta property="og:locale" content="en_US">
@@ -19,7 +19,7 @@
 {"@context":"https://schema.org","@type":"WebSite","headline":"alkalom feladatai","name":"flow-pro-2","url":"https://halobobi.github.io/flow-pro-2/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <style class="anchorjs"></style><link rel="stylesheet" href="/flow-pro-2/assets/css/style.css?v=14667eb756305673aa1b001495e63153827093cb">
+    <style class="anchorjs"></style><link rel="stylesheet" href="/flow-pro-2/assets/css/style.css?v=7a0d373ff3654feb729f29621efbd39dadd5b0b8">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -35,7 +35,7 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       
-      <h1><a href="https://halobobi.github.io/flow-pro-2/">Flow Pro II: Power Apps</a></h1>
+      <h1><a href="https://halobobi.github.io/flow-pro-2/">flow-pro-2</a></h1>
       
 
       <h1 id="2-alkalom-feladatai">2. alkalom feladatai</h1>
@@ -43,16 +43,19 @@
 <h2 id="közös-feladatok">Közös feladatok<a class="anchorjs-link " href="#közös-feladatok" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
 
 <h3 id="projekt-létrehozása">Projekt létrehozása<a class="anchorjs-link " href="#projekt-létrehozása" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
 <ol>
   <li>Hozzunk létre egy üres app-ot, tablet méretben</li>
 </ol>
 
 <h3 id="adatbázis-kapcsolatok-kialakítása">Adatbázis kapcsolatok kialakítása<a class="anchorjs-link " href="#adatbázis-kapcsolatok-kialakítása" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
 <ol>
   <li>Data -&gt; SharePoint connector -&gt; Device_DimStatus, Device_DimStorage, Device_FactDevice</li>
 </ol>
 
 <h3 id="kezdőlap">Kezdőlap<a class="anchorjs-link " href="#kezdőlap" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
 <ol>
   <li>Adjunk hozzá egy galériát
     <ul>
@@ -118,41 +121,6 @@
   </li>
 </ol>
 
-<h3 id="teams-flow">Teams flow<a class="anchorjs-link " href="#teams-flow" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
-
-<ol>
-  <li>Az új rekordról küldjünk üzenetet Teams-en egy tetszőleges felhasználónak (pl. magunknak)
-    <ul>
-      <li>… -&gt; Power Automate -&gt; Create new flow
- 	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
-	- Advanced módban szerkeszthetjük is a sablont</li>
-    </ul>
-  </li>
-  <li>Adjunk hozzá egy üres flow-t
-    <ul>
-      <li>Adjunk hozzá egy <code class="language-plaintext highlighter-rouge">ItemID</code> nevű text és egy <code class="language-plaintext highlighter-rouge">Email</code> nevű email input-ot a trigger-hez
-        <ul>
-          <li>Adjunk hozzá egy SharepPoint action-t: <code class="language-plaintext highlighter-rouge">Get item</code>
-            <ul>
-              <li>Site Address: a saját Lists oldalunk</li>
-              <li>List Name: <code class="language-plaintext highlighter-rouge">Device_FactDevice</code></li>
-              <li>Id: <code class="language-plaintext highlighter-rouge">@{triggerBody()['text']} //Itt nem mindig engedi dynamic context-ként hozzáadni az ItemID bemenetet, ezért szükséges ez a kód</code></li>
-            </ul>
-          </li>
-          <li>Adjunk hozzá új Teams action-t: <code class="language-plaintext highlighter-rouge">Post message in a chat or channel</code>
-            <ul>
-              <li>Post as: <code class="language-plaintext highlighter-rouge">Flow bot</code></li>
-              <li>Post in: <code class="language-plaintext highlighter-rouge">Chat with Flow bot</code></li>
-              <li>Recipient: <code class="language-plaintext highlighter-rouge">Email</code> bemenet</li>
-              <li>Message: <code class="language-plaintext highlighter-rouge">&lt;p class="editor-paragraph"&gt;A létrehozott @{triggerBody()['text']}. számú elem elérhető: &lt;a href="@{outputs('Get_item')?['body/{Link}']}"&gt;@{outputs('Get_item')?['body/DeviceName']}&lt;/a&gt;&lt;/p&gt;</code></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
-
 <h3 id="diagram">Diagram<a class="anchorjs-link " href="#diagram" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
 
 <ol>
@@ -193,17 +161,24 @@
       {Title:"Selejt",Value:CountIf(Device_FactDevice,StatusID.Value="Selejt")}
   )
 };
- 	</code></li>
+ 	</code>
+ 	- Screen1.OnVisible, Icon.OnSelect: <code class="language-plaintext highlighter-rouge">Reload()</code></li>
     </ul>
   </li>
 </ol>
 
-<h3 id="csv-export-flow">CSV export flow<a class="anchorjs-link " href="#csv-export-flow" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<h3 id="csv-export-teams-üzenet-flow">CSV export, Teams üzenet flow<a class="anchorjs-link " href="#csv-export-teams-üzenet-flow" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
 
 <ol>
+  <li>Adjunk lehetőséget a felhasználónak, hogy CSV-be exportálja a galéria tartalmát, erről Teams-en értesítést is küldjünk
+	- … -&gt; Power Automate -&gt; Create new flow
+ 	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
+  	- Advanced módban szerkeszthetjük is a sablont</li>
   <li>Hozzunk létre egy új üres flow-t
     <ul>
-      <li>Bemeneti paraméterek a trigger-be: <code class="language-plaintext highlighter-rouge">JSON</code>, szöveges
+      <li>Bemeneti paraméterek a trigger-be:
+ 		- <code class="language-plaintext highlighter-rouge">JSON</code>, szöveges és
+ 		- <code class="language-plaintext highlighter-rouge">Email</code> nevű email típusú input
  	- Data Operation: <code class="language-plaintext highlighter-rouge">Parse JSON</code>
 		- Content: <code class="language-plaintext highlighter-rouge">JSON</code> bemenet
       - Schema:
@@ -219,9 +194,23 @@
 		- Site Address: <code class="language-plaintext highlighter-rouge">https://bcecid.sharepoint.com/sites/bit-bce-hq</code>
  		- Library Name: <code class="language-plaintext highlighter-rouge">HQ</code>
  		- Id: <code class="language-plaintext highlighter-rouge">@{outputs('Create_file')?['body/ItemId']}</code>
-	- Adjunk hozzá egy <code class="language-plaintext highlighter-rouge">Respond to a Power App or flow</code> action-t
-		- Paraméterek: output, <code class="language-plaintext highlighter-rouge">@{outputs('Get_file_properties')?['body/{Link}']}</code>
-	- A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük (Power Automate-ben pl. Apply to each ciklus segítségével lehet a Value értéket kiemelni)</li>
+        <ul>
+          <li>Teams action: <code class="language-plaintext highlighter-rouge">Post message in a chat or channel</code>
+            <ul>
+              <li>Post as: <code class="language-plaintext highlighter-rouge">Flow bot</code></li>
+              <li>Post in: <code class="language-plaintext highlighter-rouge">Chat with Flow bot</code></li>
+              <li>Recipient: <code class="language-plaintext highlighter-rouge">Email</code> bemenet</li>
+              <li>Message: <code class="language-plaintext highlighter-rouge">&lt;p class="editor-paragraph"&gt;A létrehozott CSV file elérhető: &lt;a href="@{outputs('Get_file_properties')?['body/{Link}']}"&gt;@{outputs('Get_file_properties')?['body/{Link}']}&lt;/a&gt;&lt;/p&gt;</code></li>
+              <li>Adjunk hozzá egy <code class="language-plaintext highlighter-rouge">Respond to a Power App or flow</code> action-t
+                <ul>
+                  <li>Paraméterek: output, <code class="language-plaintext highlighter-rouge">@{outputs('Get_file_properties')?['body/{Link}']}</code></li>
+                </ul>
+              </li>
+              <li>A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>Adjunk hozzá egy Mentés gombot
