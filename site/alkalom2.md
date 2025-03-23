@@ -29,7 +29,7 @@
 	- Default layout: ```Edit```
 7. Adjunk hozzá egy Vissza gombot, ikonnal valósítsuk ezt meg
 	- OnSelect: ```Back(ScreenTransition.UnCoverRight)```
-9. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
+8. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- Sikeres küldéskor értesítsük a felhasználót, majd lépjünk vissza a főoldalra
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres mentés!",NotificationType.Success);Back(ScreenTransition.UnCoverRight) //reset: ha Edit módban volt Edit-re, stb. new: mindig New módra állítja```
 ### Screen3: Új rekord hozzáadása
@@ -41,27 +41,10 @@
 	- Default layout: ```New```
 10. Adjunk hozzá egy gombot, amivel elküldhető az űrlap
 	- OnSelect: ```SubmitForm(Form1);ResetForm(Form1);Notify("Sikeres hozzáadás!",NotificationType.Success);Back(ScreenTransition.UnCoverRight)```
-### Teams flow
-
-11. Az új rekordról küldjünk üzenetet Teams-en egy tetszőleges felhasználónak (pl. magunknak)
-	- ... -> Power Automate -> Create new flow
- 	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
-  	- Advanced módban szerkeszthetjük is a sablont
-12. Adjunk hozzá egy üres flow-t
-	- Adjunk hozzá egy ```ItemID``` nevű text és egy ```Email``` nevű email input-ot a trigger-hez
-    	- Adjunk hozzá egy SharepPoint action-t: ```Get item```
-    		- Site Address: a saját Lists oldalunk
-    		- List Name: ```Device_FactDevice```
-    		- Id: ```@{triggerBody()['text']} //Itt nem mindig engedi dynamic context-ként hozzáadni az ItemID bemenetet, ezért szükséges ez a kód```
-    	- Adjunk hozzá új Teams action-t: ```Post message in a chat or channel```
-    		- Post as: ```Flow bot```
-    		- Post in: ```Chat with Flow bot```
-    		- Recipient: ```Email``` bemenet
-    		- Message: ```<p class="editor-paragraph">A létrehozott @{triggerBody()['text']}. számú elem elérhető: <a href="@{outputs('Get_item')?['body/{Link}']}">@{outputs('Get_item')?['body/DeviceName']}</a></p>```
 
 ### Diagram
 
-13. Készítsünk egy kördiagramot, ami a StatusID-k megoszlását mutatja
+11. Készítsünk egy kördiagramot, ami a StatusID-k megoszlását mutatja
 	- Items: ```Device_FactDevice //Nem működik, az ID-k értékét számolja```
  	- Készítenünk kell egy segédkimutatást
   	- OnVisible:
@@ -74,9 +57,10 @@
 	```
  	- Items: ```pivot```
   	- Az ItemColorSet paramétert érdemes üresre állítani, hogy elkülönülő színek jelenjenek meg
+
 ### Saját függvény
 
-14. Gombnyomásra tudjuk frissíteni a galériát
+12. Gombnyomásra tudjuk frissíteni a galériát
 	- Ehhez adjunk hozzá saját függvényt ```Reload``` néven
  	- Ez a függvény töltse újra az adatbázis kapcsolatot, illetve a diagram adatforrását is frissítse
   	- Bal lent beállítások -> Updates -> Experimental -> User-defined functions engedélyezése
@@ -93,9 +77,14 @@
  	```
 
 ### CSV export flow
-
+13. Adjunk lehetőséget a felhasználónak, hogy CSV-be exportálja a galéria tartalmát, erről Teams-en értesítést is küldjünk
+    	- ... -> Power Automate -> Create new flow
+ 	- Választhatunk a template-ek közül, vagy készíthetünk manuálisan
+  	- Advanced módban szerkeszthetjük is a sablont
 14. Hozzunk létre egy új üres flow-t
-	- Bemeneti paraméterek a trigger-be: ```JSON```, szöveges
+	- Bemeneti paraméterek a trigger-be:
+ 		- ```JSON```, szöveges és
+   		- ```Email``` nevű email típusú input
  	- Data Operation: ```Parse JSON```
   		- Content: ```JSON``` bemenet
     		- Schema:
@@ -111,11 +100,16 @@
       		- Site Address: ```https://bcecid.sharepoint.com/sites/bit-bce-hq```
    		- Library Name: ```HQ```
      		- Id: ```@{outputs('Create_file')?['body/ItemId']}```
+    	- Teams action: ```Post message in a chat or channel```
+    		- Post as: ```Flow bot```
+    		- Post in: ```Chat with Flow bot```
+    		- Recipient: ```Email``` bemenet
+    		- Message: ```<p class="editor-paragraph">A létrehozott CSV file elérhető: <a href="@{outputs('Get_file_properties')?['body/{Link}']}">@{outputs('Get_file_properties')?['body/{Link}']}</a></p>```
       	- Adjunk hozzá egy ```Respond to a Power App or flow``` action-t
       		- Paraméterek: output, ```@{outputs('Get_file_properties')?['body/{Link}']}```
       	- A Lookup típusú oszlopok objektumként jelennek meg, a kurzusban ezt nem kezeljük (Power Automate-ben pl. Apply to each ciklus segítségével lehet a Value értéket kiemelni)
    
-16. Adjunk hozzá egy Mentés gombot
+15. Adjunk hozzá egy Mentés gombot
 	- OnSelect:
 	```
  	Download(
